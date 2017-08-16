@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="example" displayName="example" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="perm_group"
+                   displayName="perm_group"
+                   projectFiles="true"
+                   root="../include/perm_group">
+      <logicalFolder name="allocator" displayName="allocator" projectFiles="true">
+        <itemPath>../include/perm_group/allocator/allocator.hpp</itemPath>
+        <itemPath>../include/perm_group/allocator/default.hpp</itemPath>
+        <itemPath>../include/perm_group/allocator/raw_ptr.hpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="group" displayName="group" projectFiles="true">
+        <itemPath>../include/perm_group/group/basic_stabilizer.hpp</itemPath>
+        <itemPath>../include/perm_group/group/generated.hpp</itemPath>
+        <itemPath>../include/perm_group/group/group.hpp</itemPath>
+        <itemPath>../include/perm_group/group/io.hpp</itemPath>
+        <itemPath>../include/perm_group/group/schreier_stabilizer.hpp</itemPath>
+        <itemPath>../include/perm_group/group/stabilizer_chain.hpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="permutation" displayName="permutation" projectFiles="true">
+        <itemPath>../include/perm_group/permutation/array.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/built_in.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/io.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/mult.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/permutation.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/traits.hpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="transversal" projectFiles="true">
+        <itemPath>../include/perm_group/transversal/explicit.hpp</itemPath>
+        <itemPath>../include/perm_group/transversal/transversal.hpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="util" displayName="util" projectFiles="true">
+        <itemPath>../include/perm_group/util/iterators.hpp</itemPath>
+      </logicalFolder>
+      <itemPath>../include/perm_group/io.hpp</itemPath>
+      <itemPath>../include/perm_group/orbit.hpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="permutation"
+                   displayName="permutation"
+                   projectFiles="true"
+                   root="../src/permutation">
+      <itemPath>../src/permutation/io.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="test"
+                   displayName="test"
+                   projectFiles="true"
+                   root="../test">
+      <itemPath>../test/group_basic_stabilizer.cpp</itemPath>
+      <itemPath>../test/group_basic_updatable_stabilizer.cpp</itemPath>
+      <itemPath>../test/group_generated.cpp</itemPath>
+      <itemPath>../test/group_schreier_stabilizer.cpp</itemPath>
+      <itemPath>../test/group_schreier_updatable_stabilizer.cpp</itemPath>
+      <itemPath>../test/mult.cpp</itemPath>
+      <itemPath>../test/orbit.cpp</itemPath>
+      <itemPath>../test/permutations.cpp</itemPath>
+      <itemPath>../test/sage.hpp</itemPath>
+      <itemPath>../test/stabilizer_util.hpp</itemPath>
+      <itemPath>../test/transversal_explicit.cpp</itemPath>
+      <itemPath>../test/util.hpp</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>../include/perm_group</Elem>
+    <Elem>../src</Elem>
+    <Elem>../test</Elem>
+    <Elem>../example</Elem>
+  </sourceRootList>
+  <projectmakefile></projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-std=c++11"/>
+        <element flagsID="1" commonFlags="-std=c++14 -O2 -fPIC"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>./build.sh</buildCommand>
+          <cleanCommand>./clean.sh</cleanCommand>
+          <executablePath></executablePath>
+          <ccTool>
+            <standard>8</standard>
+            <incDir>
+              <pElem>../include</pElem>
+              <pElem>../../../../programs/include</pElem>
+              <pElem>../../../../software/boost-process/include</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>PIC</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand>./preBuild.sh</preBuildCommand>
+          <preBuildFirst>true</preBuildFirst>
+        </preBuild>
+      </makefileType>
+      <item path="../src/permutation/io.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="../test/group_basic_stabilizer.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/group_basic_updatable_stabilizer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/group_generated.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/group_schreier_stabilizer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/group_schreier_updatable_stabilizer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/mult.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="../test/orbit.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="../test/permutations.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="../test/transversal_explicit.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <folder path="permutation">
+        <ccTool>
+          <incDir>
+            <pElem>../build/src</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>HAVE_CONFIG_H</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="test">
+        <ccTool>
+          <incDir>
+            <pElem>../../../programs/include</pElem>
+            <pElem>../build/src</pElem>
+            <pElem>..</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>HAVE_DLFCN_H=1</Elem>
+            <Elem>HAVE_INTTYPES_H=1</Elem>
+            <Elem>HAVE_MEMORY_H=1</Elem>
+            <Elem>HAVE_STDINT_H=1</Elem>
+            <Elem>HAVE_STDLIB_H=1</Elem>
+            <Elem>HAVE_STRINGS_H=1</Elem>
+            <Elem>HAVE_STRING_H=1</Elem>
+            <Elem>HAVE_SYS_STAT_H=1</Elem>
+            <Elem>HAVE_SYS_TYPES_H=1</Elem>
+            <Elem>HAVE_UNISTD_H=1</Elem>
+            <Elem>LT_OBJDIR=".libs/"</Elem>
+            <Elem>PACKAGE="perm_group"</Elem>
+            <Elem>PACKAGE_BUGREPORT="jakob@caput.dk"</Elem>
+            <Elem>PACKAGE_NAME="perm_group"</Elem>
+            <Elem>PACKAGE_STRING="perm_group repo_33fd16d"</Elem>
+            <Elem>PACKAGE_TARNAME="perm_group"</Elem>
+            <Elem>PACKAGE_URL=""</Elem>
+            <Elem>PACKAGE_VERSION="repo_33fd16d"</Elem>
+            <Elem>STDC_HEADERS=1</Elem>
+            <Elem>VERSION="repo_33fd16d"</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+    </conf>
+  </confs>
+</configurationDescriptor>
