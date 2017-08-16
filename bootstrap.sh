@@ -1,4 +1,4 @@
-subdirs="doc include src test"
+subdirs="include src test"
 
 function indentAndSlash {
 	cat | sort | \
@@ -16,15 +16,6 @@ function gen_root {
 		find src -type f
 		find test -type f
 	) | indentAndSlash
-}
-
-function gen_doc {
-    echo "EXTRA_DIST = \\"
-    function extraDist {
-        echo "./makeDocs.sh"
-        find "./source/" -type f
-    }   
-    extraDist | indentAndSlash
 }
 
 function gen_include {

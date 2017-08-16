@@ -188,7 +188,6 @@ AC_SUBST([AM_LDLIBS])
 
 AC_CONFIG_FILES([
 	Makefile
-    doc/Makefile
 	include/Makefile
 	src/Makefile
 	test/Makefile
