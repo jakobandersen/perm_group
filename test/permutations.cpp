@@ -10,8 +10,8 @@ using value_type = std::size_t;
 
 template<typename Perm, typename ConstPerm, bool SizeAware>
 struct Test {
-	BOOST_CONCEPT_ASSERT((pg::PermutationConcept<ConstPerm>));
-	BOOST_CONCEPT_ASSERT((pg::MutablePermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((pg::Permutation<ConstPerm>));
+	BOOST_CONCEPT_ASSERT((pg::MutablePermutation<Perm>));
 
 	Test() {
 		std::size_t n = 42;
@@ -22,7 +22,7 @@ struct Test {
 private:
 
 	void test(Perm &p, std::true_type) {
-		BOOST_CONCEPT_ASSERT((pg::SizeAwarePermutationConcept<Perm>));
+		BOOST_CONCEPT_ASSERT((pg::SizeAwarePermutation<Perm>));
 		pg::read_permutation_cycles("(0)", p);
 		pg::write_permutation_cycles(std::cout << "Id: ", p) << std::endl;
 		pg::read_permutation_cycles("(1 3)", p);

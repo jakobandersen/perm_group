@@ -8,18 +8,44 @@
 
 namespace perm_group {
 
-template<typename Group>
-struct GroupConcept {
-	using perm_type = typename Group::perm_type;
-	using allocator = typename Group::allocator;
+// rst: .. concept:: template<typename GroupT> \
+// rst:              Group
+// rst:
+// rst:		.. assoc_types::
+// rst:
+// rst:		.. type:: perm_type = typename GroupT::perm_type
+// rst:		.. type:: allocator = typename GroupT::allocator
+// rst:		.. type:: pointer = typename allocator::pointer
+// rst:		.. type:: const_pointer = typename allocator::const_pointer
+// rst:
+// rst:		Requires `Permutation<perm_type>` and `Allocator<allocator>`.
+// rst:
+
+template<typename GroupT>
+struct Group {
+	using perm_type = typename GroupT::perm_type;
+	using allocator = typename GroupT::allocator;
 	using pointer = typename allocator::pointer;
 	using const_pointer = typename allocator::const_pointer;
 
-	BOOST_CONCEPT_ASSERT((PermutationConcept<perm_type>));
+	BOOST_CONCEPT_ASSERT((Permutation<perm_type>));
 	BOOST_CONCEPT_ASSERT((AllocatorConcept<allocator>));
 
-	BOOST_CONCEPT_USAGE(GroupConcept) {
-		const Group &cGroup = group;
+	// rst:		.. notation::
+	// rst:
+	// rst:		.. var:: GroupT g
+	// rst:		.. var:: const GroupT cg
+	// rst:		.. var:: std::size_t n
+	// rst:
+	// rst:		.. valid_expr::
+	// rst:
+	// rst:		- `n = degree(cg)`, returns the number of elements the group is defined on.
+	// rst:		- `generators(cg)`, returns a non-empty random-access range of `perm_type`.
+	// rst:		- `generator_ptrs(cg)`, returns a random-access range of pointer-like values to `perm_type`.
+	// rst:		  The range and order of the dereferenced pointers must be eaxtly the range returned by `generators(cg)`.
+	// rst:		- `get_allocator(cg)`, returns the allocator used by the group.
+	BOOST_CONCEPT_USAGE(Group) {
+		const GroupT &cGroup = group;
 		using std::begin;
 		using std::end;
 		std::size_t n = degree(cGroup);
@@ -40,7 +66,7 @@ struct GroupConcept {
 		allocator &alloc = get_allocator(cGroup);
 	}
 private:
-	Group group;
+	GroupT group;
 };
 
 } // namespace perm_group

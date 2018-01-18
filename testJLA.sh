@@ -33,7 +33,7 @@ while true; do
 done
 
 args=""
-args="$args	--with-boost=$HOME/programs --with-process=$HOME/software/boost-process"
+args="$args	--with-boost=$HOME/programs"
 args="$args	$prefix $@"
 ./bootstrap.sh										\
 	&& rm -rf preBuild && mkdir preBuild				\
@@ -42,7 +42,7 @@ args="$args	$prefix $@"
 	&& cd .. && rm -rf realBuild && mkdir realBuild		\
 	&& cd realBuild										\
 	&& cp ../preBuild/perm_group-*.tar.gz ./			\
-	&& tar xzf perm_group-*.tar.gz	&& cd perm_group-*	\
+	&& tar xzf perm_group-*.tar.gz	&& cd perm_group-*/	\
 	&& mkdir realBuild && cd realBuild					\
 	&& ../configure $args
 res=$?
@@ -54,8 +54,9 @@ if [ "$doBuild" = "no" ]; then
 	echo "Not building due to user request"
 else
 	time make -j $numThreads						\
+		&& make doc                                 \
 		&& rm -rf $HOME/test/permGroupTestInstall	\
-		&& make install && make check
+		&& make install install-doc && make check
 	res=$?
 	if [ $res -ne 0 ]; then
 		echo "Error during installation"

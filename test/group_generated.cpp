@@ -12,7 +12,7 @@ int test_main(int argc, char **argv) {
 	using size_type = std::size_t;
 	using perm_type = std::vector<size_type>;
 	using group_type = pg::generated_group<perm_type>;
-	BOOST_CONCEPT_ASSERT((pg::GroupConcept<group_type>));
+	BOOST_CONCEPT_ASSERT((pg::Group<group_type>));
 	std::size_t n = 5;
 	std::vector<std::string> permStrings = {
 		"(0 1)",

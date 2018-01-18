@@ -12,7 +12,7 @@ struct AllocatorConcept {
 	// An allocator is responsible for deallocating all permutations it has made,
 	// when it is destructed.
 	using perm_type = typename Alloc::perm_type;
-	BOOST_CONCEPT_ASSERT((PermutationConcept<perm_type>));
+	BOOST_CONCEPT_ASSERT((Permutation<perm_type>));
 	using pointer = typename Alloc::pointer;
 	using const_pointer = typename Alloc::const_pointer;
 	BOOST_CONCEPT_ASSERT((boost::DefaultConstructible<pointer>));

@@ -37,6 +37,11 @@ protected:
 	PermR right;
 };
 
+// rst: .. function:: template<typename PermL, typename PermR> \
+// rst:               mult_expr<PermL, PermR> mult(PermL &&left, PermR &&right)
+// rst:
+// rst:		:returns: an expression template that acts as `Permutation`.
+
 template<typename PermL, typename PermR>
 mult_expr<PermL, PermR> mult(PermL &&left, PermR &&right) {
 	return mult_expr<PermL, PermR>(std::forward<PermL>(left), std::forward<PermR>(right));

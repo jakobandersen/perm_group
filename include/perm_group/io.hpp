@@ -6,6 +6,10 @@
 
 namespace perm_group {
 
+// rst: .. class:: io_error : std::exception
+// rst:
+// rst:		Exception class thrown from IO functions.
+
 struct io_error : std::exception {
 
 	io_error(std::string s) : s(s) { }

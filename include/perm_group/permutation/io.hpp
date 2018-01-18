@@ -10,18 +10,44 @@
 #include <vector>
 
 namespace perm_group {
+namespace detail {
 void check_element(std::size_t i, std::size_t n);
 void check_set_hit(std::size_t i, std::vector<bool> &hit);
+} // namespace detail
 
 //------------------------------------------------------------------------------
 // Read
 //------------------------------------------------------------------------------
 
+// rst: .. function:: std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s)
+// rst:
+// rst:		:returns: a list of cycles of non-negative numbers parsed from the given stream. It does not necessarily represent a permutation (see the other overload).
+// rst:		:throws: `io_error` on parsing errors.
+
 std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s);
+
+// rst: .. function:: template<typename Perm> \
+// rst:               void read_permutation_cycles(std::istream &s, Perm &p, std::size_t n)
+// rst:               template<typename Perm> \
+// rst:               void read_permutation_cycles(std::istream &s, Perm &p)
+// rst:               template<typename Perm> \
+// rst:               void read_permutation_cycles(const std::string &s, Perm &p, std::size_t n)
+// rst:               template<typename Perm> \
+// rst:               void read_permutation_cycles(const std::string &s, Perm &p)
+// rst:
+// rst:		Parse a permutation in cycle notation from a stream or a string (`s`) and store it in `p`.
+// rst:		Permutations are zero-indexed.
+// rst:
+// rst:		The overloads without `n` requires `SizeAwarePermutation<Perm>`,
+// rst:		and sets `n = perm_group::size(p)`.
+// rst:
+// rst:		:throws: `io_error` if parsing fails.
+// rst:		:throws: `io_error` if a number is `n` or higher.
+// rst:		:throws: `io_error` if the data does not represent a permutation.
 
 template<typename Perm>
 void read_permutation_cycles(std::istream &s, Perm &p, std::size_t n) {
-	BOOST_CONCEPT_ASSERT((MutablePermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((MutablePermutation<Perm>));
 	// reset to id, such that 'missing' cycles are correct
 	for(std::size_t i = 0; i < n; ++i)
 		put(p, i, i);
@@ -32,23 +58,23 @@ void read_permutation_cycles(std::istream &s, Perm &p, std::size_t n) {
 		for(std::size_t i = 0; i + 1 < c.size(); ++i) {
 			std::size_t dom = c[i];
 			std::size_t img = c[i + 1];
-			check_element(dom, n);
-			check_element(img, n);
-			check_set_hit(dom, hit);
+			detail::check_element(dom, n);
+			detail::check_element(img, n);
+			detail::check_set_hit(dom, hit);
 			perm_group::put(p, dom, img);
 		}
 		// and the wrap-around
 		std::size_t dom = c.back();
 		std::size_t img = c.front();
-		check_element(dom, n);
-		check_set_hit(dom, hit);
+		detail::check_element(dom, n);
+		detail::check_set_hit(dom, hit);
 		perm_group::put(p, dom, img);
 	}
 }
 
 template<typename Perm>
 void read_permutation_cycles(std::istream &s, Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
 	read_permutation_cycles(s, p, perm_group::size(p));
 }
 
@@ -60,7 +86,7 @@ void read_permutation_cycles(const std::string &s, Perm &p, std::size_t n) {
 
 template<typename Perm>
 void read_permutation_cycles(const std::string &s, Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
 	read_permutation_cycles(s, p, perm_group::size(p));
 }
 
@@ -68,9 +94,14 @@ void read_permutation_cycles(const std::string &s, Perm &p) {
 // Write
 //------------------------------------------------------------------------------
 
+// rst: .. function:: template<typename Perm> \
+// rst:	              std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p, std::size_t n)
+// rst:
+// rst:		Write a permutation in cycle notation.
+
 template<typename Perm>
 std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p, std::size_t n) {
-	BOOST_CONCEPT_ASSERT((PermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((Permutation<Perm>));
 	std::vector<bool> printed(n, false);
 	bool anyPrinted = false;
 	for(std::size_t i = 0; i < n; ++i) {
@@ -91,9 +122,16 @@ std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p, std::size
 	return s;
 }
 
+// rst: .. function:: template<typename Perm> \
+// rst:	              std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p)
+// rst:
+// rst:		Requires `SizeAwarePermutation<Perm>`.
+// rst:		
+// rst:		Write a permutation in cycle notation.
+
 template<typename Perm>
 std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutationConcept<Perm>));
+	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
 	return write_permutation_cycles(s, p, perm_group::size(p));
 }
 

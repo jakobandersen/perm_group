@@ -1,4 +1,4 @@
-subdirs="include src test"
+subdirs="include doc src test"
 
 function indentAndSlash {
 	cat | sort | \
@@ -8,9 +8,21 @@ function indentAndSlash {
 }
 
 function gen_root {
-	echo "SUBDIRS = $subdirs"
-	echo ""
-	echo "EXTRA_DIST = \\"
+	echo -n "SUBDIRS = $subdirs"
+cat << "EOF"
+
+dist_pkgdata_DATA = \
+	VERSION
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = lib/pkgconfig/perm-group.pc
+
+.PHONY: install-doc
+install-doc:
+	cd doc && $(MAKE) install-doc
+
+EXTRA_DIST = \
+EOF
 	(
 		find example -type f
 		find src -type f
@@ -21,6 +33,17 @@ function gen_root {
 function gen_include {
 	echo "nobase_include_HEADERS = \\"
 	find perm_group -type f | indentAndSlash
+}
+
+function gen_doc {
+	echo "EXTRA_DIST = \\"
+	function extraDist {
+		echo "./makeDocs.sh"
+		find "./source/" -type f | grep -v -e "source/reference" -e "__pycache__"
+	}
+	extraDist | indentAndSlash
+	echo ""
+	cat Makefile.am_suffix
 }
 
 function gen_src {
@@ -35,6 +58,11 @@ function gen_src {
 	find . -iname "*.cpp" | indentAndSlash
 }
 
+function gen_lib {
+	cat <<-EOF
+	EOF
+}
+
 function gen_test {
 	echo "@VALGRIND_CHECK_RULES@"
 	echo "check_PROGRAMS = \\"
@@ -46,7 +74,7 @@ function gen_test {
 		echo "${e}_CPPFLAGS = \$(AM_CPPFLAGS) -fsanitize=undefined -fsanitize=address"
 		echo "${e}_LDADD = ../src/libperm_group.la"
 		echo "${e}_LDADD += -lboost_program_options -lboost_system" # -lboost_random -lboost_chrono"
-		echo "${e}_LDFLAGS = -fsanitize=undefined -fsanitize=address"
+		echo "${e}_LDFLAGS = -fsanitize=undefined -fsanitize=address -pthread"
 	done
 }
 

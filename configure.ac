@@ -42,9 +42,26 @@ orig_LIBS=$LIBS
 
 # Individual checks
 ##########################################################################
-# C++11 ------------------------------------------------------------------
 # Boost ------------------------------------------------------------------
-boostReqVersion="1.62.0"
+boostReqVersion="1.64.0"
+# Sphinx -----------------------------------------------------------------
+default_enable_sphinx="yes"
+
+
+##########################################################################
+# Top level options 
+##########################################################################
+
+# Check documentation requirements --------------------------------------
+AC_ARG_ENABLE([doc_checks],
+    [AS_HELP_STRING([--enable-doc-checks=yes|no],
+        [Enable/disable configure checks for building the documentation.])],
+    [
+if test "$enable_doc_checks" != "yes" -a "$enable_doc_checks" != "no"; then
+    AC_MSG_ERROR(["Invalid value '$enable_doc_checks' for --enable-doc-checks."])
+fi
+], [enable_doc_checks=$default_enable_doc_checks])
+
 
 ##########################################################################
 # Options for individual dependencies
@@ -104,15 +121,6 @@ AC_ARG_WITH([boost],
 if test "$with_boost" != "yes" -a "$with_boost" != "no"; then
 	addIPath "$with_boost/include"
 	addLPath "$with_boost/lib"
-fi
-
-# Process ----------------------------------------------------------------
-AC_ARG_WITH([process],
-	[AS_HELP_STRING([--with-process=arg],
-		[yes: enable Process, <path>: add specified location for dependency searching, no: not an option, you need Process.])],
-	[], [with_process=yes])
-if test "$with_process" != "yes" -a "$with_process" != "no"; then
-	addIPath "$with_process/include"
 fi
 
 ##########################################################################
@@ -177,6 +185,34 @@ AC_LINK_IFELSE([
 	AC_MSG_ERROR([Could not link test program using Boost libraries.])
 	])
 
+# Sphinx -----------------------------------------------------------------
+restoreFlags
+AC_CHECK_PROGS([SPHINXBUILD], [sphinx-build sphinx-build3 sphinx-build-3 sphinx-build2], [no])
+if test "$SPHINXBUILD" = "no"; then
+    if test "$enable_doc_checks" = "yes"; then
+        AC_MSG_ERROR([sphinx-build is required for building the documentation.
+This error can be suppressed with '--disable-doc-checks'])
+    else
+        AC_MSG_WARN([sphinx-build is required for building the documentation.
+This warning will be an error without '--disable-doc-checks'])
+    fi
+fi
+AM_CONDITIONAL([ENABLE_SPHINX], [test "$SPHINXBUILD" != "no"])
+
+
+##########################################################################
+# pkg-config file
+##########################################################################
+restoreFlags
+PKG_INCLUDES=""
+for p in ${Ipaths[[@]]}; do
+	PKG_INCLUDES+=" -I$p"
+done
+PKG_LIBS=""
+
+AC_SUBST([PKG_INCLUDES])
+AC_SUBST([PKG_LIBS])
+
 ##########################################################################
 # Finalize
 ##########################################################################
@@ -189,7 +225,9 @@ AC_SUBST([AM_LDLIBS])
 AC_CONFIG_FILES([
 	Makefile
 	include/Makefile
+	doc/Makefile
 	src/Makefile
 	test/Makefile
+	lib/pkgconfig/perm-group.pc
 ])
 AC_OUTPUT

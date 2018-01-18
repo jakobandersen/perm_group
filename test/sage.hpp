@@ -33,7 +33,7 @@ public:
 		stdin << "from sage.all import *\n";
 	}
 
-	~Sage() {
+	~Sage() noexcept(false) {
 		stdin.flush();
 		stdin.pipe().close();
 		child.wait();

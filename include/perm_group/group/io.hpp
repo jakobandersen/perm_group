@@ -22,9 +22,9 @@ std::ostream &write_generating_set(std::ostream &s, Iter first, const Iter &last
 	return s << ">";
 }
 
-template<typename Group>
-std::ostream &write_group(std::ostream &s, const Group &g) {
-	BOOST_CONCEPT_ASSERT((GroupConcept<Group>));
+template<typename GroupT>
+std::ostream &write_group(std::ostream &s, const GroupT &g) {
+	BOOST_CONCEPT_ASSERT((Group<GroupT>));
 	using std::begin;
 	using std::end;
 	auto gens = generators(g);

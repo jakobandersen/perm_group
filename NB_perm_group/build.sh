@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ../build
-make -j 3
+make -j 7
 make install

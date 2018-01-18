@@ -1,4 +1,6 @@
 *.swp
+*~
+__pycache__
 
 Makefile.am
 Makefile.in
@@ -30,7 +32,8 @@ Makefile.in
 
 /doc/build
 /doc/doctrees
-/doc/source/api/gen_*
+/doc/source/reference
+/doc/source/index.rst
 
 /include/perm_group/Config.h_.in
 /include/perm_group/Config.h_.in~

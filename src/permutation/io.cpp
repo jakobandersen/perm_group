@@ -52,6 +52,7 @@ bool parse(std::istream &s, const Expr &expr, const Skipper &skipper, Attr &attr
 }
 
 } // namespace
+namespace detail {
 
 void check_element(std::size_t i, std::size_t n) {
 	if(i < n) return;
@@ -71,6 +72,8 @@ void check_set_hit(std::size_t i, std::vector<bool> &hit) {
 	}
 	hit[i] = true;
 }
+
+} // namespace detail
 
 std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s) {
 	std::vector<std::vector<std::size_t> > cycles;

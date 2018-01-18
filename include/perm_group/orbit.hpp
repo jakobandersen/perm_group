@@ -10,6 +10,51 @@
 
 namespace perm_group {
 
+// rst: .. concept:: template<template<typename> class T> \
+// rst:	             InOrbitHandler
+// rst:
+// rst:		.. notation::
+// rst: 
+// rst:		.. type:: value_type
+// rst:
+// rst:			An integer type that `T` can be instantiated with.
+// rst:
+// rst:		.. var:: value_type n
+// rst:		         value_type i
+// rst:		         value_type j
+// rst:
+// rst:		.. var:: T<value_type> handler
+// rst:
+// rst:		.. var:: Orbit orbit
+// rst:
+// rst:			A range of `value_types`.
+// rst:
+// rst:		.. valid_expr::
+// rst:
+// rst:		- `T<value_type>(i)`, constructible from a maximum element size `n`. 
+// rst:		- `handler.clear(i, orbit)`, reset the orbit to just `i`.
+// rst:		- `handler(i)`, check if `i` is in the orbit. Must return a boolean.
+// rst:		- `handler.add(i, j)`, add `i` as the `j` th orbit element starting from 1. `i` is the 0th element.
+
+template<template<typename> class T>
+struct InOrbitHandler {
+
+	BOOST_CONCEPT_USAGE(InOrbitHandler) {
+		T<int> handler(42);
+		const std::vector<int> orbit;
+		handler.clear(42, orbit);
+		res = handler(42);
+		handler.add(42, 42);
+	}
+private:
+	bool res;
+};
+
+// rst: .. class:: template<typename ValueType> \
+// rst:            InOrbitHandlerBitset
+// rst:
+// rst:		Models `InOrbitHandler`.
+
 template<typename ValueType>
 struct InOrbitHandlerBitset {
 
@@ -27,7 +72,7 @@ struct InOrbitHandlerBitset {
 		return in_orbit[u];
 	}
 
-	void add(ValueType img, std::size_t positio) {
+	void add(ValueType img, std::size_t position) {
 		assert(!in_orbit[img]);
 		in_orbit.set(img);
 	}
@@ -37,6 +82,12 @@ struct InOrbitHandlerBitset {
 private:
 	boost::dynamic_bitset<> in_orbit;
 };
+
+
+// rst: .. class:: template<typename ValueType> \
+// rst:            InOrbitHandlerVector
+// rst:
+// rst:		Models `InOrbitHandler`.
 
 template<typename ValueType>
 struct InOrbitHandlerVector {
@@ -60,6 +111,13 @@ struct InOrbitHandlerVector {
 		orbit_position[img] = position;
 	}
 
+	// rst:		.. function:: std::size_t position(ValueType u) const
+	// rst:
+	// rst:			Requires the clear method to have been called.
+	// rst:			Requires either `u` has been added or was the element given to the latest clear.
+	// rst:
+	// rst:			:returns: the position of `u` in the orbit. The initial orbit element is at position 0.
+
 	std::size_t position(ValueType u) const {
 		assert(orbit_position[u] != 0);
 		return orbit_position[u] - 1;
@@ -69,12 +127,29 @@ private:
 	std::vector<ValueType> orbit_position;
 };
 
-template<typename ValueType, template<typename /*ValueType*/> class InOrbitHandler = InOrbitHandlerBitset>
+// rst: .. class:: template<typename ValueType, template<typename> class InOrbitHandlerT = InOrbitHandlerBitset> \
+// rst:            Orbit
+// rst:
+// rst:		Requires `InOrbitHandler<InOrbitHandlerT>`.
+// rst:
+// rst:		An orbit calculator, which also acts as a range of the calculated orbit elements.
+// rst:
+
+template<typename ValueType, template<typename /*ValueType*/> class InOrbitHandlerT = InOrbitHandlerBitset>
 struct Orbit {
+	BOOST_CONCEPT_ASSERT((InOrbitHandler<InOrbitHandlerT>));
+
+	// rst:		.. function:: Orbit(ValueType n, ValueType w)
+	// rst:
+	// rst:			Construct with a maximum element size `n` and an initial orbit element `w`.
 
 	Orbit(ValueType n, ValueType w) : inOrbit(n) {
 		clear(w);
 	}
+
+	// rst:		.. function:: void clear(ValueType w)
+	// rst:
+	// rst:			Reset the object to an orbit with just `w`.
 
 	void clear(ValueType w) {
 		inOrbit.clear(w, *this);
@@ -82,8 +157,18 @@ struct Orbit {
 		orbit[0] = w;
 	}
 
-	// Given a partitioned ranged of generators with the old being from iter to iterEndOld,
-	// and the new ones being from iterEndOld to iterEndNew.
+	// rst:		.. function:: template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+	// rst:		              bool update(const GenPtrIter &first, const GenPtrIter &lastOld, const GenPtrIter &lastNew, OnNewElement onNewElement, OnDupElement onDupElement)
+	// rst:
+	// rst:			Requires the iterators to iterator over pointer-like values to permutations (`Permutation`).
+	// rst:			That is, `Permutation<typename std::pointer_traits<typename std::iterator_traits<GenPtrIter>::value_type>::element_type>`.
+	// rst:
+	// rst:			Given two ranges of generators, `first` to `lastOld` and `lastOld` to `lastNew`,
+	// rst:			extend the current orbit using first the new generators, `lastOld` to `lastNew`, and then with all generators.
+	// rst:
+	// rst:			When a new orbit element `o` is found, by mapping a known orbit element `w` through a permutation pointed to by an iterator `it`,
+	// rst:			then `onNewElement(w, o, it)` is called.
+	// rst:			Similarly, when `o` is already in the orbit then `onDupElement(w, o, it)` is called.
 
 	template<typename GenPtrIter, typename OnNewElement, typename OnDupElement>
 	bool update(const GenPtrIter &first, const GenPtrIter &lastOld, const GenPtrIter &lastNew, OnNewElement onNewElement, OnDupElement onDupElement) {
@@ -123,23 +208,49 @@ struct Orbit {
 		return prevEnd == orbit.size();
 	}
 
+	// rst:		.. function:: auto begin() const
+	// rst:
+	// rst:			:returns: an iterator to the first orbit element.
+
 	auto begin() const {
 		return orbit.begin();
 	}
+
+	// rst:		.. function:: auto end() const
+	// rst:
+	// rst:			:returns: an iterator to past-the-end of the orbit.
 
 	auto end() const {
 		return orbit.end();
 	}
 
+	// rst:		.. function:: std::size_t position(ValueType u) const
+	// rst:
+	// rst:			Requires `InOrbitHandlerT` to have a position method.
+	// rst:
+	// rst:			Returns the position of `u` in the orbit (starting from 0).
+	// rst:			See also `InOrbitHandlerVector::position`.
+	
 	std::size_t position(ValueType u) const {
 		assert(inOrbit(u));
 		return inOrbit.position(u);
 	}
 private:
 	std::vector<ValueType> orbit;
-	InOrbitHandler<ValueType> inOrbit;
+	InOrbitHandlerT<ValueType> inOrbit;
 };
 
+// rst: .. function:: template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+// rst:               void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, std::size_t n, OnNewElement onNewElement, OnDupElement onDupElement)
+// rst:               template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+// rst:               void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement, OnDupElement onDupElement)
+// rst:               template<typename GenPtrIter, typename OnNewElement> \
+// rst:               void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement)
+// rst:
+// rst:		Calculate the orbit of `w` under the non-empty range of generators `first` to `last`.
+// rst:		See `Orbit::update` for the details of `first`, `last`, `onNewElement`, and `onDupElement`.
+// rst:		Note though that `onNewElement(w, w, last)` is called in the beginning in addition.
+// rst:		The overload without `n` requires `SizeAwarePermutation<decltype(**first)>` and sets `n = perm_group::size(**first)`.
 template<typename GenPtrIter, typename OnNewElement, typename OnDupElement>
 void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, std::size_t n, OnNewElement onNewElement, OnDupElement onDupElement) {
 	using PermPtr = typename std::iterator_traits<GenPtrIter>::value_type;
@@ -152,14 +263,19 @@ void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, std::
 
 template<typename GenPtrIter, typename OnNewElement, typename OnDupElement>
 void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement, OnDupElement onDupElement) {
-	orbit(w, first, last, size(**first), onNewElement, onDupElement);
+	orbit(w, first, last, perm_group::size(**first), onNewElement, onDupElement);
 }
 
 template<typename GenPtrIter, typename OnNewElement>
 void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement) {
-	orbit(w, first, last, size(**first), onNewElement, [](auto&&...) {
+	orbit(w, first, last, perm_group::size(**first), onNewElement, [](auto&&...) {
 	});
 }
+
+// rst: .. function:: template<typename Group, typename Callback> \
+// rst:               void orbit(std::size_t w, const Group &g, Callback callback)
+// rst:
+// rst:		Calculate the orbit of `w` in the group `g`. See `Orbit::update::onNewElement` for the meaning of `callback`.
 
 template<typename Group, typename Callback>
 void orbit(std::size_t w, const Group &g, Callback callback) {
@@ -172,7 +288,7 @@ void orbit(std::size_t w, const Group &g, Callback callback) {
 template<typename OutIter>
 struct orbit_callback_output_iterator {
 
-	orbit_callback_output_iterator(const OutIter &iter) : iter(iter) { }
+	orbit_callback_output_iterator(OutIter iter) : iter(iter) { }
 
 	template<typename ValueType, typename PermPtrIter>
 	void operator()(ValueType u, ValueType u_img, const PermPtrIter&) {
@@ -183,8 +299,12 @@ public:
 	OutIter iter;
 };
 
+// rst: .. function:: template<typename OutIter> \
+// rst:               orbit_callback_output_iterator<OutIter> make_orbit_callback_output_iterator(OutIter iter)
+// rst:
+// rst:		:returns: a callback usable in the `Orbit::update` or `orbit` functions that outputs the elements to the given output iterator `iter`.
 template<typename OutIter>
-orbit_callback_output_iterator<OutIter> make_orbit_callback_output_iterator(const OutIter &iter) {
+orbit_callback_output_iterator<OutIter> make_orbit_callback_output_iterator(OutIter iter) {
 	return orbit_callback_output_iterator<OutIter>(iter);
 }
 

@@ -11,7 +11,11 @@
 namespace perm_group {
 
 // std::vector<T>
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// rst: .. class:: template<typename T, typename Allocator> \
+// rst:            permutation_traits<std::vector<T, Allocator> >
+// rst:
+// rst:		Specialization to make `std::vector` behave like a permutation.
 
 template<typename T, typename Allocator>
 struct permutation_traits<std::vector<T, Allocator> > {
@@ -71,7 +75,11 @@ public: // Other
 };
 
 // std::array<T, N>
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// rst: .. class:: template<typename T, std::size_t N> \
+// rst:            permutation_traits<std::array<T, N> >
+// rst:
+// rst:		Specialization to make `std::array` behave like a permutation.
 
 template<typename T, std::size_t N>
 struct permutation_traits<std::array<T, N> > {

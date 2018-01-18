@@ -90,11 +90,10 @@
           <cleanCommand>./clean.sh</cleanCommand>
           <executablePath></executablePath>
           <ccTool>
-            <standard>8</standard>
+            <standard>11</standard>
             <incDir>
               <pElem>../include</pElem>
               <pElem>../../../../programs/include</pElem>
-              <pElem>../../../../software/boost-process/include</pElem>
             </incDir>
             <preprocessorList>
               <Elem>PIC</Elem>
@@ -159,37 +158,6 @@
           </incDir>
           <preprocessorList>
             <Elem>HAVE_CONFIG_H</Elem>
-          </preprocessorList>
-        </ccTool>
-      </folder>
-      <folder path="test">
-        <ccTool>
-          <incDir>
-            <pElem>../../../programs/include</pElem>
-            <pElem>../build/src</pElem>
-            <pElem>..</pElem>
-          </incDir>
-          <preprocessorList>
-            <Elem>HAVE_DLFCN_H=1</Elem>
-            <Elem>HAVE_INTTYPES_H=1</Elem>
-            <Elem>HAVE_MEMORY_H=1</Elem>
-            <Elem>HAVE_STDINT_H=1</Elem>
-            <Elem>HAVE_STDLIB_H=1</Elem>
-            <Elem>HAVE_STRINGS_H=1</Elem>
-            <Elem>HAVE_STRING_H=1</Elem>
-            <Elem>HAVE_SYS_STAT_H=1</Elem>
-            <Elem>HAVE_SYS_TYPES_H=1</Elem>
-            <Elem>HAVE_UNISTD_H=1</Elem>
-            <Elem>LT_OBJDIR=".libs/"</Elem>
-            <Elem>PACKAGE="perm_group"</Elem>
-            <Elem>PACKAGE_BUGREPORT="jakob@caput.dk"</Elem>
-            <Elem>PACKAGE_NAME="perm_group"</Elem>
-            <Elem>PACKAGE_STRING="perm_group repo_33fd16d"</Elem>
-            <Elem>PACKAGE_TARNAME="perm_group"</Elem>
-            <Elem>PACKAGE_URL=""</Elem>
-            <Elem>PACKAGE_VERSION="repo_33fd16d"</Elem>
-            <Elem>STDC_HEADERS=1</Elem>
-            <Elem>VERSION="repo_33fd16d"</Elem>
           </preprocessorList>
         </ccTool>
       </folder>
