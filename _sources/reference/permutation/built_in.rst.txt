@@ -1,0 +1,21 @@
+.. _cpp-permutation/built_in:
+
+**********************************************************
+built_in.hpp
+**********************************************************
+
+Full path: permutation/built_in.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename T, typename Allocator> \
+           permutation_traits<std::vector<T, Allocator> >
+
+    Specialization to make `std::vector` behave like a permutation.
+.. class:: template<typename T, std::size_t N> \
+           permutation_traits<std::array<T, N> >
+
+    Specialization to make `std::array` behave like a permutation.

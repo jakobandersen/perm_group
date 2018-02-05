@@ -1,0 +1,23 @@
+.. _cpp-permutation/array:
+
+**********************************************************
+array.hpp
+**********************************************************
+
+Full path: permutation/array.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename ValueType> \
+           array_permutation
+
+    Models `MutablePermutation` (but not `SizeAwarePermutation`).
+
+    A minimum overhead permutation implemented as a raw pointer to array.
+
+    .. function:: array_permutation(std::size_t n)
+
+        Construct a non-initialized permutation of size `n`.

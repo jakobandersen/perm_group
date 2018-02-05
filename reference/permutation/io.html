@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2.5.3. io.hpp &#8212; PermGroup v0.2 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.5.4. mult.hpp" href="mult.html" />
+    <link rel="prev" title="2.5.2. built_in.hpp" href="built_in.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mult.html" title="2.5.4. mult.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="built_in.html" title="2.5.2. built_in.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">2.5. permutation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="io-hpp">
+<span id="cpp-permutation-io"></span><h1>2.5.3. io.hpp<a class="headerlink" href="#io-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: permutation/io.hpp</p>
+<dl class="function">
+<dt id="_CPPv3N10perm_group23read_permutation_cyclesERNSt7istreamE">
+<span id="_CPPv2N10perm_group23read_permutation_cyclesERNSt7istreamE"></span><span id="perm_group::read_permutation_cycles__isR"></span>std::vector&lt;std::vector&lt;std::size_t&gt;&gt; <code class="descname">read_permutation_cycles</code><span class="sig-paren">(</span>std::istream &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group23read_permutation_cyclesERNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of cycles of non-negative numbers parsed from the given stream. It does not necessarily represent a permutation (see the other overload).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><code class="docutils literal notranslate"><a class="reference internal" href="../io.html#_CPPv3N10perm_group8io_errorE" title="perm_group::io_error"><span class="pre">io_error</span></a></code> on parsing errors.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE">
+<span id="_CPPv2I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />void <code class="descname">read_permutation_cycles</code><span class="sig-paren">(</span>std::istream &amp;<em>s</em>, <a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::Perm">Perm</a> &amp;<em>p</em>, std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4Perm">
+<span id="_CPPv2I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4Perm"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />void <code class="descname">read_permutation_cycles</code><span class="sig-paren">(</span>std::istream &amp;<em>s</em>, <a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::Perm">Perm</a> &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4Perm" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4PermNSt6size_tE">
+<span id="_CPPv2I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4PermNSt6size_tE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />void <code class="descname">read_permutation_cycles</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>s</em>, <a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::Perm">Perm</a> &amp;<em>p</em>, std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4PermNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4Perm">
+<span id="_CPPv2I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4Perm"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />void <code class="descname">read_permutation_cycles</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>s</em>, <a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::Perm">Perm</a> &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERKNSt6stringER4Perm" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse a permutation in cycle notation from a stream or a string (<code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::s"><span class="pre">s</span></a></code>) and store it in <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::p"><span class="pre">p</span></a></code>.
+Permutations are zero-indexed.</p>
+<p>The overloads without <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::n"><span class="pre">n</span></a></code> requires <code class="docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="perm_group::SizeAwarePermutation"><span class="pre">SizeAwarePermutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>,
+and sets <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::n"><span class="pre">n</span></a> <span class="pre">=</span> <span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group4sizeERK4Perm" title="perm_group::size"><span class="pre">size</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::p"><span class="pre">p</span></a><span class="pre">)</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><code class="docutils literal notranslate"><a class="reference internal" href="../io.html#_CPPv3N10perm_group8io_errorE" title="perm_group::io_error"><span class="pre">io_error</span></a></code> if parsing fails.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><code class="docutils literal notranslate"><a class="reference internal" href="../io.html#_CPPv3N10perm_group8io_errorE" title="perm_group::io_error"><span class="pre">io_error</span></a></code> if a number is <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group23read_permutation_cyclesERNSt7istreamER4PermNSt6size_tE" title="perm_group::read_permutation_cycles::n"><span class="pre">n</span></a></code> or higher.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><code class="docutils literal notranslate"><a class="reference internal" href="../io.html#_CPPv3N10perm_group8io_errorE" title="perm_group::io_error"><span class="pre">io_error</span></a></code> if the data does not represent a permutation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE">
+<span id="_CPPv2I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />std::ostream &amp;<code class="descname">write_permutation_cycles</code><span class="sig-paren">(</span>std::ostream &amp;<em>s</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE" title="perm_group::write_permutation_cycles::Perm">Perm</a> &amp;<em>p</em>, std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a permutation in cycle notation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4Perm">
+<span id="_CPPv2I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4Perm"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br />std::ostream &amp;<code class="descname">write_permutation_cycles</code><span class="sig-paren">(</span>std::ostream &amp;<em>s</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE" title="perm_group::write_permutation_cycles::Perm">Perm</a> &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4Perm" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires <code class="docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="perm_group::SizeAwarePermutation"><span class="pre">SizeAwarePermutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group24write_permutation_cyclesERNSt7ostreamERK4PermNSt6size_tE" title="perm_group::write_permutation_cycles::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
+<p>Write a permutation in cycle notation.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="built_in.html"
+                        title="previous chapter">2.5.2. built_in.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mult.html"
+                        title="next chapter">2.5.4. mult.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/permutation/io.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mult.html" title="2.5.4. mult.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="built_in.html" title="2.5.2. built_in.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >2.5. permutation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0+.
+    </div>
+  </body>
+</html>

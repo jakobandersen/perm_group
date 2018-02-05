@@ -1,0 +1,13 @@
+.. _cpp-group/schreier_stabilizer:
+
+**********************************************************
+schreier_stabilizer.hpp
+**********************************************************
+
+Full path: group/schreier_stabilizer.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+

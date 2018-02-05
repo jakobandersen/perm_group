@@ -1,0 +1,108 @@
+.. _cpp-orbit:
+
+**********************************************************
+orbit.hpp
+**********************************************************
+
+Full path: orbit.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. concept:: template<template<typename> class T> \
+             InOrbitHandler
+
+    .. notation::
+
+    .. type:: value_type
+
+        An integer type that `T` can be instantiated with.
+
+    .. var:: value_type n
+             value_type i
+             value_type j
+
+    .. var:: T<value_type> handler
+
+    .. var:: Orbit orbit
+
+        A range of `value_types`.
+
+    .. valid_expr::
+
+    - `T<value_type>(i)`, constructible from a maximum element size `n`. 
+    - `handler.clear(i, orbit)`, reset the orbit to just `i`.
+    - `handler(i)`, check if `i` is in the orbit. Must return a boolean.
+    - `handler.add(i, j)`, add `i` as the `j` th orbit element starting from 1. `i` is the 0th element.
+.. class:: template<typename ValueType> \
+           InOrbitHandlerBitset
+
+    Models `InOrbitHandler`.
+.. class:: template<typename ValueType> \
+           InOrbitHandlerVector
+
+    Models `InOrbitHandler`.
+    .. function:: std::size_t position(ValueType u) const
+
+        Requires the clear method to have been called.
+        Requires either `u` has been added or was the element given to the latest clear.
+
+        :returns: the position of `u` in the orbit. The initial orbit element is at position 0.
+.. class:: template<typename ValueType, template<typename> class InOrbitHandlerT = InOrbitHandlerBitset> \
+           Orbit
+
+    Requires `InOrbitHandler<InOrbitHandlerT>`.
+
+    An orbit calculator, which also acts as a range of the calculated orbit elements.
+
+    .. function:: Orbit(ValueType n, ValueType w)
+
+        Construct with a maximum element size `n` and an initial orbit element `w`.
+    .. function:: void clear(ValueType w)
+
+        Reset the object to an orbit with just `w`.
+    .. function:: template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+                  bool update(const GenPtrIter &first, const GenPtrIter &lastOld, const GenPtrIter &lastNew, OnNewElement onNewElement, OnDupElement onDupElement)
+
+        Requires the iterators to iterator over pointer-like values to permutations (`Permutation`).
+        That is, `Permutation<typename std::pointer_traits<typename std::iterator_traits<GenPtrIter>::value_type>::element_type>`.
+
+        Given two ranges of generators, `first` to `lastOld` and `lastOld` to `lastNew`,
+        extend the current orbit using first the new generators, `lastOld` to `lastNew`, and then with all generators.
+
+        When a new orbit element `o` is found, by mapping a known orbit element `w` through a permutation pointed to by an iterator `it`,
+        then `onNewElement(w, o, it)` is called.
+        Similarly, when `o` is already in the orbit then `onDupElement(w, o, it)` is called.
+    .. function:: auto begin() const
+
+        :returns: an iterator to the first orbit element.
+    .. function:: auto end() const
+
+        :returns: an iterator to past-the-end of the orbit.
+    .. function:: std::size_t position(ValueType u) const
+
+        Requires `InOrbitHandlerT` to have a position method.
+
+        Returns the position of `u` in the orbit (starting from 0).
+        See also `InOrbitHandlerVector::position`.
+.. function:: template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+              void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, std::size_t n, OnNewElement onNewElement, OnDupElement onDupElement)
+              template<typename GenPtrIter, typename OnNewElement, typename OnDupElement> \
+              void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement, OnDupElement onDupElement)
+              template<typename GenPtrIter, typename OnNewElement> \
+              void orbit(std::size_t w, const GenPtrIter &first, const GenPtrIter &last, OnNewElement onNewElement)
+
+    Calculate the orbit of `w` under the non-empty range of generators `first` to `last`.
+    See `Orbit::update` for the details of `first`, `last`, `onNewElement`, and `onDupElement`.
+    Note though that `onNewElement(w, w, last)` is called in the beginning in addition.
+    The overload without `n` requires `SizeAwarePermutation<decltype(**first)>` and sets `n = perm_group::size(**first)`.
+.. function:: template<typename Group, typename Callback> \
+              void orbit(std::size_t w, const Group &g, Callback callback)
+
+    Calculate the orbit of `w` in the group `g`. See `Orbit::update::onNewElement` for the meaning of `callback`.
+.. function:: template<typename OutIter> \
+              orbit_callback_output_iterator<OutIter> make_orbit_callback_output_iterator(OutIter iter)
+
+    :returns: a callback usable in the `Orbit::update` or `orbit` functions that outputs the elements to the given output iterator `iter`.

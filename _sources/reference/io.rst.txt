@@ -1,0 +1,16 @@
+.. _cpp-io:
+
+**********************************************************
+io.hpp
+**********************************************************
+
+Full path: io.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: io_error : std::exception
+
+    Exception class thrown from IO functions.

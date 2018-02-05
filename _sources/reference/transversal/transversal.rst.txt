@@ -1,0 +1,13 @@
+.. _cpp-transversal/transversal:
+
+**********************************************************
+transversal.hpp
+**********************************************************
+
+Full path: transversal/transversal.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+

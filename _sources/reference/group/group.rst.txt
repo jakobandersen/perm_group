@@ -1,0 +1,38 @@
+.. _cpp-group/group:
+
+**********************************************************
+group.hpp
+**********************************************************
+
+Full path: group/group.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. concept:: template<typename GroupT> \
+             Group
+
+    .. assoc_types::
+
+    .. type:: perm_type = typename GroupT::perm_type
+    .. type:: allocator = typename GroupT::allocator
+    .. type:: pointer = typename allocator::pointer
+    .. type:: const_pointer = typename allocator::const_pointer
+
+    Requires `Permutation<perm_type>` and `Allocator<allocator>`.
+
+    .. notation::
+
+    .. var:: GroupT g
+    .. var:: const GroupT cg
+    .. var:: std::size_t n
+
+    .. valid_expr::
+
+    - `n = degree(cg)`, returns the number of elements the group is defined on.
+    - `generators(cg)`, returns a non-empty random-access range of `perm_type`.
+    - `generator_ptrs(cg)`, returns a random-access range of pointer-like values to `perm_type`.
+      The range and order of the dereferenced pointers must be eaxtly the range returned by `generators(cg)`.
+    - `get_allocator(cg)`, returns the allocator used by the group.

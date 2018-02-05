@@ -1,0 +1,66 @@
+.. _cpp-permutation/permutation:
+
+**********************************************************
+permutation.hpp
+**********************************************************
+
+Full path: permutation/permutation.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. concept:: template<typename Perm> \
+             Permutation
+
+    Requires `MoveConstructible<Perm>` and `MoveAssignable<Perm>`.
+
+    .. assoc_types::
+
+    .. type:: value_type = typename permutation_traits<Perm>::value_type
+
+        The type of objects the permutation maps.
+
+    .. notation::
+
+    .. var:: Perm p
+    .. var:: value_type i
+
+    .. valid_expr::
+
+    - `perm_group::get(p, i)`: returns the image of `i` under `p`.
+      The return type must be convertible to `value_type`.
+.. concept:: template<typename Perm> \
+             MutablePermutation
+
+    Requires `Permutation<Perm>`.
+
+    .. assoc_types::
+
+    .. type:: value_type = typename permutation_traits<Perm>::value_type
+
+        The type of objects the permutation maps.
+
+    .. notation::
+
+    .. var:: Perm p
+             value_type i
+             value_type j
+
+    .. valid_expr::
+
+    - `perm_group::put(p, i, j)`: sets the image of `i` under `p` to `j`.
+.. concept:: template<typename Perm> \
+             SizeAwarePermutation
+
+    Requires `Permutation<Perm>`.
+
+    .. notation::
+
+    .. var:: Perm p
+
+    .. valid_expr::
+
+    - `perm_group::size(p)`: returns the size of the permutation.
+      The return type must be convertible to `std::size_t`.

@@ -1,0 +1,13 @@
+.. _cpp-group/basic_stabilizer:
+
+**********************************************************
+basic_stabilizer.hpp
+**********************************************************
+
+Full path: group/basic_stabilizer.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+

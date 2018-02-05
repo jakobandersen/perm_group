@@ -1,0 +1,29 @@
+.. _cpp-group/generated:
+
+**********************************************************
+generated.hpp
+**********************************************************
+
+Full path: group/generated.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Perm, typename Alloc = default_allocator<Perm> > \
+           generated_group
+
+    Models `Group`.
+
+    Requires `Permutation<Perm>` and `Allocator<Alloc>`.
+
+    A basic group implementation representing it by a generating set of permutations.
+
+    .. function:: generated_group(std::size_t n, Alloc alloc = Alloc())
+
+        Construct the trivial group on `n` elements.
+    .. function:: template<typename UPerm> \
+                  void add_generator(UPerm &&perm)
+
+        Add a copy of `perm` as a new generator to the group.
