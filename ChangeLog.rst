@@ -1,5 +1,5 @@
-develop
-=======
+Release 0.1 (2018-02-05)
+========================
 
 - Now with some documentation.
 - Requires Boost 1.64 (instead of 1.62).
