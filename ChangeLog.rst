@@ -4,6 +4,9 @@ Changes
 Develop
 ========================
 
+Release 0.3 (2018-09-04)
+========================
+
 - More interface changes and documentation improvements
 - Experimental support for accurate stabilizer computation
   using Schreier-Sims-based methods.
