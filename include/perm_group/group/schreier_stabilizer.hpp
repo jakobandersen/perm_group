@@ -3,6 +3,7 @@
 
 #include <perm_group/group/group.hpp>
 #include <perm_group/permutation/mult.hpp>
+#include <perm_group/transversal/transversal.hpp>
 #include <perm_group/util/iterators.hpp>
 
 #include <cassert>
@@ -10,150 +11,179 @@
 
 namespace perm_group {
 
+// rst: .. todo:: Actually write the documentation for this file.
+
 //------------------------------------------------------------------------------
 // Schreier Stabilizer
 //------------------------------------------------------------------------------
 
-template<typename BaseGroup, typename Transversal>
+template<typename Transversal, typename DupChecker = DupCheckerNop>
 struct schreier_stabilizer {
+	BOOST_CONCEPT_ASSERT((TransversalConcept<Transversal>));
 public: // Group
-	using perm_type = typename BaseGroup::perm_type;
-	using allocator = typename BaseGroup::allocator;
+	using allocator = typename Transversal::allocator;
+	using perm = typename allocator::perm;
+	BOOST_CONCEPT_ASSERT((boost::EqualityComparable<perm>));
 	using pointer = typename allocator::pointer;
 	using const_pointer = typename allocator::const_pointer;
 public: // Stabilizer
 	using is_accurate = std::true_type;
 public:
 	using Store = std::vector<const_pointer>;
-protected:
-
-	template<typename GenPtrIter>
-	void update(std::size_t fixed, Transversal &trans, GenPtrIter first, GenPtrIter lastOld, GenPtrIter last) {
-		const auto onNewElement = [&](const auto &u, const auto &u_img, const auto &gen_iter, const_pointer trans_u_img) {
-			const_pointer trans_u_img_inv = get_allocator(g).copy(degree(g), make_inverse(*trans_u_img));
-			inverse_trans.push_back(trans_u_img_inv);
-		};
-		const auto onDupElement = [&](const auto &u, const auto &u_img, const auto &gen_iter, const_pointer trans_u_img) {
-			const_pointer trans_u = trans.from_element_as_ptr(u);
-			const_pointer trans_u_img_inv = inverse_trans[orbit(trans).position(u_img)];
-			// Add T[u] * g * T[g(u)]^- as a generator.
-			auto gen_expr = perm_group::mult(perm_group::mult(*trans_u, **gen_iter), *trans_u_img_inv);
-			// check if we already have it
-			const bool isDup = [&]() {
-				for(const_pointer gen : gen_set) {
-					bool equal = true;
-					for(std::size_t i = 0; i < degree(g); ++i) {
-						if(get(*gen, i) != get(gen_expr, i)) {
-							equal = false;
-							break;
-						}
-					}
-					if(equal) return true;
-				}
-				return false;
-			}();
-			if(!isDup) {
-				const_pointer gen = get_allocator(g).copy(degree(g), gen_expr);
-				gen_set.push_back(gen);
-			}
-		};
-		trans.update(first, lastOld, last, onNewElement, onDupElement);
-	}
-private:
-
-	template<typename Group>
-	void commonInit(std::size_t fixed, const Group &g) {
-		Transversal trans(degree(g), fixed, get_allocator(g));
-		const auto gs = generator_ptrs(g);
-		update(fixed, trans, gs.begin(), gs.begin(), gs.end());
-	}
-protected:
-
-	schreier_stabilizer(const BaseGroup &g) : g(g) {
-		inverse_trans.push_back(get_allocator(*this).make_identity(degree(*this)));
-	}
 public:
 
-	schreier_stabilizer(std::size_t fixed, const BaseGroup &g) : schreier_stabilizer(g) {
-		commonInit(fixed, g);
+	schreier_stabilizer(std::size_t fixed, const allocator &alloc, DupChecker dupChecker = DupChecker())
+	: trans(fixed, alloc), dupChecker(dupChecker) {
+		const_pointer p = get_allocator().make_identity();
+		gen_set.push_back(p);
+		inverse_trans.push_back(p);
 	}
 
-	schreier_stabilizer(std::size_t fixed, const schreier_stabilizer &g) : schreier_stabilizer(g.g) {
-		commonInit(fixed, g);
+	schreier_stabilizer(schreier_stabilizer &&other)
+	: schreier_stabilizer(other.fixed_element(), other.get_allocator(), other.dupChecker) {
+		// steal everything they got, but give them our newly created stuff
+		using std::swap;
+		swap(trans, other.trans);
+		swap(inverse_trans, other.inverse_trans);
+		swap(gen_set, other.gen_set);
+	};
+
+	schreier_stabilizer &operator=(schreier_stabilizer &&other) {
+		using std::swap;
+		swap(trans, other.trans);
+		swap(inverse_trans, other.inverse_trans);
+		swap(gen_set, other.gen_set);
+		swap(dupChecker, other.dupChecker);
+		return *this;
 	}
+
+	schreier_stabilizer(const schreier_stabilizer&) = delete;
+	schreier_stabilizer &operator=(const schreier_stabilizer&) = delete;
 
 	~schreier_stabilizer() {
-		for(std::size_t i = 0; i < gen_set.size(); ++i)
-			get_allocator(*this).release(degree(*this), std::move(gen_set[i]));
-		for(std::size_t i = 0; i < inverse_trans.size(); ++i)
-			get_allocator(*this).release(degree(*this), std::move(inverse_trans[i]));
+		// note: the id permutation is shared among the two
+		for(std::size_t i = 0; i != gen_set.size(); ++i)
+			get_allocator().release(gen_set[i]);
+		for(std::size_t i = 1; i != inverse_trans.size(); ++i)
+			get_allocator().release(inverse_trans[i]);
 	}
 public: // GroupConcept
 
-	friend std::size_t degree(const schreier_stabilizer &g) {
-		return degree(g.g);
+	std::size_t degree() const {
+		return get_allocator().degree();
 	}
 
-	friend PtrContainerToPermProxy<Store, perm_type> generators(const schreier_stabilizer &g) {
-		return PtrContainerToPermProxy<Store, perm_type>(&g.gen_set);
+	PtrContainerToPermProxy<Store, perm> generators() const {
+		return PtrContainerToPermProxy<Store, perm>(&gen_set);
 	}
 
-	friend PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs(const schreier_stabilizer &g) {
-		return PtrContainerToPtrProxy<Store, const_pointer>(&g.gen_set);
+	PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const {
+		return PtrContainerToPtrProxy<Store, const_pointer>(&gen_set);
 	}
 
-	friend allocator &get_allocator(const schreier_stabilizer &g) {
-		return get_allocator(g.g);
+	decltype(auto) get_allocator() const {
+		return trans.get_allocator();
 	}
-protected:
-	const BaseGroup &g;
-	Store inverse_trans;
-	Store gen_set;
-};
+public: // StabilizerConcept
 
+	std::size_t fixed_element() const {
+		return trans.get_root();
+	}
 
-//------------------------------------------------------------------------------
-// Schreier Updatable Stabilizer
-//------------------------------------------------------------------------------
+	template<typename Iter>
+	void add_generators(Iter first, Iter lastOld, Iter lastNew) {
+		add_generators(first, lastOld, lastNew, [](auto&&... args) {
+		});
+	}
 
-template<typename BaseGroup, typename Transversal>
-struct schreier_updatable_stabilizer : schreier_stabilizer<BaseGroup, Transversal> {
-	using Base = schreier_stabilizer<BaseGroup, Transversal>;
-	using perm_type = typename Base::perm_type;
-private:
-
-	schreier_updatable_stabilizer(std::size_t fixed, const BaseGroup &g, schreier_updatable_stabilizer *parent)
-	: Base(g), fixed(fixed), parent(parent), parent_count(0)
-	, trans(degree(g), fixed, get_allocator(g)) {
-		update();
+	template<typename Iter, typename Next>
+	void add_generators(Iter first, Iter lastOld, Iter lastNew, Next next) {
+		// The 'this->' part is needed due to bugs in GCC 6:
+		// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=67274
+		const auto onNewElement = [&](const auto &u, const auto &u_img, const auto &gen_iter, const_pointer trans_u_img) {
+			const_pointer trans_u_img_inv = this->get_allocator().copy(perm_group::make_inverse(*trans_u_img));
+			assert(perm_group::get(*trans_u_img_inv, u_img) == trans.get_root());
+			inverse_trans.push_back(trans_u_img_inv);
+		};
+		const auto onDupElement = [&, root = trans.get_root()](const auto &u, const auto &u_img, const auto &gen_iter, const_pointer trans_u_img){
+			// root ~~~~~~~~> u ---> g[u]
+			//  ^     T[u]       g    |
+			//  |                     |
+			//  \---------------------/
+			//        T[g[u]]^-
+			//
+			// Add T[u] * g * T[g(u)]^- as a generator.
+			const_pointer cand;
+			const bool nonOwning = u == root && u_img == root;
+			if(nonOwning) {
+				cand = *gen_iter;
+			} else if(u == root) { // then T[u] == id
+				const_pointer trans_u_img_inv = inverse_trans[trans.orbit().position(u_img)];
+				auto gen_expr = perm_group::mult(**gen_iter, *trans_u_img_inv);
+				cand = this->get_allocator().copy(gen_expr);
+			} else if(u_img == root) { // then T[g(u)]^- == id
+				const_pointer trans_u = trans.from_element_as_ptr(u);
+				auto gen_expr = perm_group::mult(*trans_u, **gen_iter);
+				cand = this->get_allocator().copy(gen_expr);
+			} else {
+				const_pointer trans_u = trans.from_element_as_ptr(u);
+				const_pointer trans_u_img_inv = inverse_trans[trans.orbit().position(u_img)];
+				auto gen_expr = perm_group::mult(perm_group::mult(*trans_u, **gen_iter), *trans_u_img_inv);
+				cand = this->get_allocator().copy(gen_expr);
+			}
+			// check if we already have it
+			const auto gens = this->generators();
+			const bool isDup = dupChecker(gens.begin(), gens.end(), *cand);
+			if(isDup) {
+				if(!nonOwning)
+					this->get_allocator().release(cand);
+			} else {
+				if(nonOwning)
+					cand = this->get_allocator().copy(**gen_iter);
+				gen_set.push_back(cand);
+				next(gen_set.begin(), gen_set.end() - 1, gen_set.end());
+			}
+		};
+		trans.update(first, lastOld, lastNew, onNewElement, onDupElement);
 	}
 public:
 
-	schreier_updatable_stabilizer(std::size_t fixed, const BaseGroup &g)
-	: schreier_updatable_stabilizer(fixed, g, nullptr) { }
-
-	schreier_updatable_stabilizer(std::size_t fixed, schreier_updatable_stabilizer &g)
-	: schreier_updatable_stabilizer(fixed, g.g, &g) { }
-
-	void update() {
-		const auto f = [this](auto &&gs) {
-			const auto first = gs.begin();
-			const auto lastOld = first + parent_count;
-			Base::update(fixed, trans, first, lastOld, gs.end());
-			parent_count = gs.size();
-		};
-		if(parent) {
-			parent->update();
-			return f(generator_ptrs(*parent));
-		} else {
-			return f(generator_ptrs(this->g));
-		}
+	template<typename Perm>
+	const_pointer sift_factor(const Perm &p) const {
+		const auto root = trans.get_root();
+		const auto img = perm_group::get(p, root);
+		const auto &o = trans.orbit();
+		if(!o.isInOrbit(img)) return nullptr;
+		// p sends root -> img
+		// find the inverse of the representatives, i.e., a perm with img -> root
+		// compose to fix root
+		const auto pos = o.position(img);
+		auto t_img_inv = inverse_trans[pos];
+		return t_img_inv;
 	}
-protected:
-	std::size_t fixed;
-	schreier_updatable_stabilizer *parent;
-	std::size_t parent_count;
+
+	template<typename Perm>
+	pointer sift(const Perm &p) const {
+		const_pointer factor = sift_factor(p);
+		if(!factor) return nullptr;
+		auto comp = perm_group::mult(p, *factor);
+		return get_allocator().copy(comp);
+	}
+public:
+
+	const Transversal &transversal() const {
+		return trans;
+	}
+
+	const_pointer inverse_transversal(typename perm::value_type pos) const {
+		return inverse_trans[pos];
+	}
+private:
 	Transversal trans;
+	Store inverse_trans;
+	Store gen_set;
+public: // TODO: stop the haxing
+	DupChecker dupChecker;
 };
 
 } // namespace perm_group

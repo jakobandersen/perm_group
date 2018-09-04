@@ -9,12 +9,14 @@
                    root="../include/perm_group">
       <logicalFolder name="allocator" displayName="allocator" projectFiles="true">
         <itemPath>../include/perm_group/allocator/allocator.hpp</itemPath>
-        <itemPath>../include/perm_group/allocator/default.hpp</itemPath>
+        <itemPath>../include/perm_group/allocator/pooled.hpp</itemPath>
         <itemPath>../include/perm_group/allocator/raw_ptr.hpp</itemPath>
+        <itemPath>../include/perm_group/allocator/shared_ptr.hpp</itemPath>
       </logicalFolder>
       <logicalFolder name="group" displayName="group" projectFiles="true">
         <itemPath>../include/perm_group/group/basic_stabilizer.hpp</itemPath>
         <itemPath>../include/perm_group/group/generated.hpp</itemPath>
+        <itemPath>../include/perm_group/group/generating_system.hpp</itemPath>
         <itemPath>../include/perm_group/group/group.hpp</itemPath>
         <itemPath>../include/perm_group/group/io.hpp</itemPath>
         <itemPath>../include/perm_group/group/schreier_stabilizer.hpp</itemPath>
@@ -23,10 +25,12 @@
       <logicalFolder name="permutation" displayName="permutation" projectFiles="true">
         <itemPath>../include/perm_group/permutation/array.hpp</itemPath>
         <itemPath>../include/perm_group/permutation/built_in.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/interface.hpp</itemPath>
         <itemPath>../include/perm_group/permutation/io.hpp</itemPath>
         <itemPath>../include/perm_group/permutation/mult.hpp</itemPath>
         <itemPath>../include/perm_group/permutation/permutation.hpp</itemPath>
         <itemPath>../include/perm_group/permutation/traits.hpp</itemPath>
+        <itemPath>../include/perm_group/permutation/word.hpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="transversal" projectFiles="true">
         <itemPath>../include/perm_group/transversal/explicit.hpp</itemPath>
@@ -49,15 +53,14 @@
                    projectFiles="true"
                    root="../test">
       <itemPath>../test/group_basic_stabilizer.cpp</itemPath>
-      <itemPath>../test/group_basic_updatable_stabilizer.cpp</itemPath>
       <itemPath>../test/group_generated.cpp</itemPath>
       <itemPath>../test/group_schreier_stabilizer.cpp</itemPath>
-      <itemPath>../test/group_schreier_updatable_stabilizer.cpp</itemPath>
+      <itemPath>../test/group_stabilizer_chain.cpp</itemPath>
       <itemPath>../test/mult.cpp</itemPath>
       <itemPath>../test/orbit.cpp</itemPath>
       <itemPath>../test/permutations.cpp</itemPath>
       <itemPath>../test/sage.hpp</itemPath>
-      <itemPath>../test/stabilizer_util.hpp</itemPath>
+      <itemPath>../test/subgroup_util.hpp</itemPath>
       <itemPath>../test/transversal_explicit.cpp</itemPath>
       <itemPath>../test/util.hpp</itemPath>
     </logicalFolder>
@@ -82,6 +85,9 @@
         <element flagsID="1" commonFlags="-std=c++14 -O2 -fPIC"/>
       </flagsDictionary>
       <codeAssistance>
+        <transientMacros>
+          <Elem>PERM_GROUP_SAGE</Elem>
+        </transientMacros>
       </codeAssistance>
       <makefileType>
         <makeTool>
@@ -93,6 +99,7 @@
             <standard>11</standard>
             <incDir>
               <pElem>../include</pElem>
+              <pElem>../build/include</pElem>
               <pElem>../../../../programs/include</pElem>
             </incDir>
             <preprocessorList>
@@ -106,18 +113,31 @@
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
+      <item path="../include/perm_group/allocator/pooled.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../include/perm_group/group/generating_system.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../include/perm_group/permutation/word.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../include/perm_group/permutation/interface.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../src/permutation/io.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="1">
         </ccTool>
       </item>
       <item path="../test/group_basic_stabilizer.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-        </ccTool>
-      </item>
-      <item path="../test/group_basic_updatable_stabilizer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>
@@ -132,12 +152,7 @@
         <ccTool flags="0">
         </ccTool>
       </item>
-      <item path="../test/group_schreier_updatable_stabilizer.cpp"
-            ex="false"
-            tool="1"
-            flavor2="8">
-        <ccTool flags="0">
-        </ccTool>
+      <item path="../test/group_stabilizer_chain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../test/mult.cpp" ex="false" tool="1" flavor2="4">
       </item>

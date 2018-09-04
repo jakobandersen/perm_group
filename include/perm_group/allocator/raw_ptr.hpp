@@ -6,28 +6,67 @@
 
 namespace perm_group {
 
+// rst: .. class:: template<typename Perm> raw_ptr_allocator
+// rst:
+// rst:		An `Allocator` than uses ``new`` and ``delete`` for allocating permutations.
+// rst:
+
 template<typename Perm>
 struct raw_ptr_allocator {
-	using perm_type = Perm;
-	using pointer = Perm*;
-	using const_pointer = const Perm*;
+	// rst:		.. type:: perm = Perm
+	using perm = Perm;
+	// rst:		.. type:: pointer = perm*
+	using pointer = perm*;
+	// rst:		.. type:: const_pointer = const perm*
+	using const_pointer = const perm*;
+public:
 
-	pointer make(std::size_t n) {
-		return new Perm(perm_group::make_perm<Perm>(n));
+	// rst:		.. function:: explicit raw_ptr_allocator(std::size_t n)
+	// rst:
+	// rst:			Construct an allocator that allocates permutations of degree `n`.
+
+	explicit raw_ptr_allocator(std::size_t n) : n(n) { }
+
+	// rst:		.. function:: std::size_t degree() const
+
+	std::size_t degree() const {
+		return n;
 	}
 
-	pointer make_identity(std::size_t n) {
-		return new Perm(perm_group::make_identity_perm<Perm>(n));
+	// rst:		.. function:: pointer make()
+	// rst:
+	// rst:			:returns: `new perm(perm_group::make_perm<perm>(degree()))`
+
+	pointer make() {
+		return new perm(perm_group::make_perm<perm>(degree()));
 	}
+
+	// rst:		.. function:: pointer make_identity()
+	// rst:
+	// rst:			:returns: `new perm(perm_group::make_identity_perm<perm>(degree()))`
+
+	pointer make_identity() {
+		return new perm(perm_group::make_identity_perm<perm>(n));
+	}
+
+	// rst:		.. function:: template<typename UPerm> pointer copy(UPerm &&p)
+	// rst:
+	// rst:			:returns: `new perm(perm_group::copy_perm<perm>(n, std::forward<UPerm>(p)))`
 
 	template<typename UPerm>
-	pointer copy(std::size_t n, UPerm &&p) {
-		return new Perm(perm_group::copy_perm<Perm>(n, std::forward<UPerm>(p)));
+	pointer copy(UPerm &&p) {
+		return new perm(perm_group::copy_perm<perm>(n, std::forward<UPerm>(p)));
 	}
 
-	void release(std::size_t n, const_pointer p) {
+	// rst:		.. function:: void release(const_pointer p)
+	// rst:
+	// rst:			Does `delete p`.
+	
+	void release(const_pointer p) {
 		delete p;
 	}
+private:
+	std::size_t n;
 };
 
 } // namespace perm_group

@@ -25,7 +25,7 @@ AX_PREFIX_CONFIG_H([include/perm_group/Config.h], [PERM_GROUP], [include/perm_gr
 # Constants and Variable Information
 ##########################################################################
 # search build-generated sources, distributed source, and our Boost files
-AM_CPPFLAGS="-I\$(top_srcdir)/include"
+AM_CPPFLAGS="-I\$(top_builddir)/include -I\$(top_srcdir)/include"
 AM_CXXFLAGS="-std=c++14 -Wno-deprecated-declarations -Wno-unused-result -fdiagnostics-color=always"
 # so we can restore before each test
 CPPFLAGS=${CPPFLAGS:-""}
@@ -42,17 +42,20 @@ orig_LIBS=$LIBS
 
 # Individual checks
 ##########################################################################
+default_enable_doc_checks="yes"
+default_enable_test_checks="no"
 # Boost ------------------------------------------------------------------
 boostReqVersion="1.64.0"
 # Sphinx -----------------------------------------------------------------
-default_enable_sphinx="yes"
+# Sage -------------------------------------------------------------------
+# (only for testing)
 
 
 ##########################################################################
 # Top level options 
 ##########################################################################
 
-# Check documentation requirements --------------------------------------
+# Check documentation requirements ---------------------------------------
 AC_ARG_ENABLE([doc_checks],
     [AS_HELP_STRING([--enable-doc-checks=yes|no],
         [Enable/disable configure checks for building the documentation.])],
@@ -61,6 +64,16 @@ if test "$enable_doc_checks" != "yes" -a "$enable_doc_checks" != "no"; then
     AC_MSG_ERROR(["Invalid value '$enable_doc_checks' for --enable-doc-checks."])
 fi
 ], [enable_doc_checks=$default_enable_doc_checks])
+
+# Check testing requirements ---------------------------------------------
+AC_ARG_ENABLE([test_checks],
+    [AS_HELP_STRING([--enable-test-checks=yes|no],
+        [Enable/disable configure checks for running tests.])],
+    [
+if test "$enable_test_checks" != "yes" -a "$enable_test_checks" != "no"; then
+    AC_MSG_ERROR(["Invalid value '$enable_test_checks' for --enable-test-checks."])
+fi
+], [enable_test_checks=$default_enable_test_checks])
 
 
 ##########################################################################
@@ -198,6 +211,21 @@ This warning will be an error without '--disable-doc-checks'])
     fi
 fi
 AM_CONDITIONAL([ENABLE_SPHINX], [test "$SPHINXBUILD" != "no"])
+
+# Sage -------------------------------------------------------------------
+restoreFlags
+AC_PATH_PROG([SAGE], [sage], [no])
+if test "$SAGE" = "no"; then
+    if test "$enable_test_checks" = "yes"; then
+        AC_MSG_ERROR([sage is required for running tests.
+This error can be suppressed with '--disable-test-checks'])
+    else
+        AC_MSG_WARN([sage is required for running tests.
+This warning will be an error without '--disable-test-checks'])
+    fi
+else
+	AC_DEFINE_UNQUOTED([SAGE], ["$SAGE"], ["Path to the sage binary."])
+fi
 
 
 ##########################################################################

@@ -39,7 +39,7 @@ std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s);
 // rst:		Permutations are zero-indexed.
 // rst:
 // rst:		The overloads without `n` requires `SizeAwarePermutation<Perm>`,
-// rst:		and sets `n = perm_group::size(p)`.
+// rst:		and sets `n = perm_group::degree(p)`.
 // rst:
 // rst:		:throws: `io_error` if parsing fails.
 // rst:		:throws: `io_error` if a number is `n` or higher.
@@ -74,8 +74,8 @@ void read_permutation_cycles(std::istream &s, Perm &p, std::size_t n) {
 
 template<typename Perm>
 void read_permutation_cycles(std::istream &s, Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
-	read_permutation_cycles(s, p, perm_group::size(p));
+	BOOST_CONCEPT_ASSERT((DegreeAwarePermutation<Perm>));
+	read_permutation_cycles(s, p, perm_group::degree(p));
 }
 
 template<typename Perm>
@@ -86,8 +86,8 @@ void read_permutation_cycles(const std::string &s, Perm &p, std::size_t n) {
 
 template<typename Perm>
 void read_permutation_cycles(const std::string &s, Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
-	read_permutation_cycles(s, p, perm_group::size(p));
+	BOOST_CONCEPT_ASSERT((DegreeAwarePermutation<Perm>));
+	read_permutation_cycles(s, p, perm_group::degree(p));
 }
 
 //------------------------------------------------------------------------------
@@ -118,21 +118,21 @@ std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p, std::size
 		}
 		s << ')';
 	}
-	if(!anyPrinted) s << "(0)";
+	if(!anyPrinted) s << "()";
 	return s;
 }
 
 // rst: .. function:: template<typename Perm> \
 // rst:	              std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p)
 // rst:
-// rst:		Requires `SizeAwarePermutation<Perm>`.
+// rst:		Requires `DegreeAwarePermutation<Perm>`.
 // rst:		
 // rst:		Write a permutation in cycle notation.
 
 template<typename Perm>
 std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p) {
-	BOOST_CONCEPT_ASSERT((SizeAwarePermutation<Perm>));
-	return write_permutation_cycles(s, p, perm_group::size(p));
+	BOOST_CONCEPT_ASSERT((DegreeAwarePermutation<Perm>));
+	return write_permutation_cycles(s, p, perm_group::degree(p));
 }
 
 } // namespace perm_group
