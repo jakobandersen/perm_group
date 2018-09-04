@@ -1,7 +1,8 @@
 #ifndef PERM_GROUP_UTIL_HPP
 #define PERM_GROUP_UTIL_HPP
 
-#include <perm_group/allocator/default.hpp>
+#include <perm_group/allocator/shared_ptr.hpp>
+#include <perm_group/allocator/pooled.hpp>
 #include <perm_group/allocator/raw_ptr.hpp>
 
 #include <boost/program_options.hpp>
@@ -9,9 +10,38 @@
 #include <iostream>
 #include <random>
 
+namespace pg = perm_group;
 namespace po = boost::program_options;
 
-namespace perm_group {
+template<typename T>
+struct Wrapper {
+	using type = T;
+public:
+
+	Wrapper() {
+		maker = [](std::size_t n) {
+			return type(n);
+		};
+	}
+
+	Wrapper(std::function<type(std::size_t) > maker) : maker(maker) { }
+
+	type operator()(std::size_t n) const {
+		return maker(n);
+	}
+public:
+	std::function<type(std::size_t) > maker;
+};
+
+template<typename perm_type, typename F>
+void runForEachAllocator(F f) {
+	f(Wrapper<pg::shared_ptr_allocator<perm_type> >());
+	f(Wrapper<pg::raw_ptr_allocator<perm_type> >());
+	f(Wrapper<pg::pooled_allocator<pg::raw_ptr_allocator<perm_type> > >{[](auto n) {
+			pg::raw_ptr_allocator<perm_type> inner(n);
+			return pg::pooled_allocator<pg::raw_ptr_allocator<perm_type> >(n, inner);
+		}});
+}
 
 struct TestProgram {
 	using size_type = std::size_t;
@@ -52,7 +82,7 @@ public:
 
 	perm_type makeRandomPermutation() {
 		std::vector<std::size_t> p(degree);
-		for(std::size_t i = 0; i < degree; ++i) p[i] = i;
+		for(std::size_t i = 0; i != degree; ++i) p[i] = i;
 		std::shuffle(p.begin(), p.end(), engine);
 		return p;
 	}
@@ -60,15 +90,14 @@ public:
 	template<typename Tester>
 	void run(Tester &&tester) {
 		tester.noAllocator();
-		tester.template withAllocator<default_allocator>();
-		tester.template withAllocator<raw_ptr_allocator>();
+		runForEachAllocator<perm_type>([&](auto maker) {
+			tester.withAllocator(maker);
+		});
 	}
 public:
 	std::size_t seed, rounds, subRounds, degree, gensize;
 	std::size_t verbose;
 	std::mt19937 engine;
 };
-
-} // namespace perm_group
 
 #endif /* PERM_GROUP_UTIL_HPP */

@@ -8,7 +8,7 @@ namespace perm_group {
 // rst: .. class:: template<typename ValueType> \
 // rst:            array_permutation
 // rst:
-// rst:		Models `MutablePermutation` (but not `SizeAwarePermutation`).
+// rst:		Models `MutablePermutation` (but not `DegreeAwarePermutation`).
 // rst:
 // rst:		A minimum overhead permutation implemented as a raw pointer to array.
 // rst:
@@ -20,6 +20,7 @@ struct array_permutation {
 	// rst:		.. function:: array_permutation(std::size_t n)
 	// rst:
 	// rst:			Construct a non-initialized permutation of size `n`.
+
 	array_permutation(std::size_t n) : p(new value_type[n]) { }
 
 	value_type get_(value_type i) const {

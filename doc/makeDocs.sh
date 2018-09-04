@@ -142,6 +142,7 @@ function makeIndex {
 	function indexFiles {
 		cat << "EOF"
 	installation
+	changes
 	reference/index
 EOF
 	}

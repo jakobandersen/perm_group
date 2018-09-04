@@ -22,7 +22,7 @@ struct Test {
 private:
 
 	void test(Perm &p, std::true_type) {
-		BOOST_CONCEPT_ASSERT((pg::SizeAwarePermutation<Perm>));
+		BOOST_CONCEPT_ASSERT((pg::DegreeAwarePermutation<Perm>));
 		pg::read_permutation_cycles("(0)", p);
 		pg::write_permutation_cycles(std::cout << "Id: ", p) << std::endl;
 		pg::read_permutation_cycles("(1 3)", p);

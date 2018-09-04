@@ -20,15 +20,15 @@ public: // PermutationConcept
 	value_type get_(value_type i) const {
 		return get(right, get(left, i));
 	}
-public: // SizeAwarePermutationConcept
+public: // DegreeAwarePermutationConcept
 
-	std::size_t size_() const {
-		return size(this->left);
+	std::size_t degree_() const {
+		return degree(this->left);
 	}
 public:
 
-	template<typename Perm>
-	// requires SizeAwarePermutationConcept<PermL>
+	template<typename Perm, typename = typename std::enable_if<!std::is_same<Perm, mult_expr>::value>::type>
+	// requires DegreeAwarePermutationConcept<PermL>
 	operator Perm() const {
 		return copy_perm<Perm>(*this);
 	}

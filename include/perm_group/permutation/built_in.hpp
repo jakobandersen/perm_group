@@ -42,26 +42,9 @@ public: // MutablePermutationConcept
 			put(p, i, i);
 		return p;
 	}
+public: // DegreeAwarePermutationConcept
 
-	static Perm copy(std::size_t n, Perm &&p) {
-		return Perm(std::move(p));
-	}
-
-	static Perm copy(std::size_t n, const Perm &p) {
-		return Perm(p);
-	}
-
-	template<typename UPerm>
-	static Perm copy(std::size_t n, UPerm &&p) {
-		Perm copy = make(n);
-		for(std::size_t i = 0; i < n; ++i)
-			put(copy, i, perm_group::get(p, i));
-		return copy;
-	}
-
-public: // SizeAwarePermutationConcept
-
-	static std::size_t size(const Perm &p) {
+	static std::size_t degree(const Perm &p) {
 		return p.size();
 	}
 public: // Other
@@ -106,25 +89,9 @@ public: // MutablePermutationConcept
 			put(p, i, i);
 		return p;
 	}
+public: // DegreeAwarePermutationConcept
 
-	static Perm copy(std::size_t n, Perm &&p) {
-		return Perm(std::move(p));
-	}
-
-	static Perm copy(std::size_t n, const Perm &p) {
-		return Perm(p);
-	}
-
-	template<typename UPerm>
-	static Perm copy(std::size_t n, UPerm &&p) {
-		Perm copy = make(n);
-		for(std::size_t i = 0; i < n; ++i)
-			put(copy, i, get(p, i));
-		return copy;
-	}
-public: // SizeAwarePermutationConcept
-
-	static std::size_t size(const Perm &p) {
+	static std::size_t degree(const Perm &p) {
 		return p.size();
 	}
 public: // Other

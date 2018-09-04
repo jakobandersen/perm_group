@@ -12,22 +12,22 @@
 
 namespace pg = perm_group;
 
-const auto nop = [](auto&&...) {
+const auto nop = [](auto&&... args) {
 };
 
-template<template<typename> class Alloc>
-void otherTests(perm_group::TestProgram &prog) {
+template<typename Alloc>
+void otherTests(TestProgram &prog, Alloc alloc) {
 	std::cout << "Other Tests\n" << std::string(80, '-') << std::endl;
 	using size_type = std::size_t;
-	using perm_type = std::vector<size_type>;
+	using perm = typename Alloc::perm;
 	std::size_t n = 5;
 	std::vector<std::string> permStrings = {
 		"(0 1)",
 		"(4 3 2 1)",
 		"(1 2)"
 	};
-	perm_type p = pg::make_perm<perm_type>(n);
-	pg::generated_group<perm_type, Alloc<perm_type> > g(n);
+	perm p = pg::make_perm<perm>(n);
+	pg::generated_group<Alloc> g(alloc);
 	for(const auto &s : permStrings) {
 		pg::read_permutation_cycles(s, p);
 		g.add_generator(p);
@@ -49,8 +49,8 @@ void otherTests(perm_group::TestProgram &prog) {
 			std::cout << std::endl;
 		};
 		print(0);
-		auto b = begin(generator_ptrs(g));
-		auto e = end(generator_ptrs(g));
+		auto b = begin(g.generator_ptrs());
+		auto e = end(g.generator_ptrs());
 		orbit.update(b, b, b + 1, nop, nop);
 		print(1);
 		orbit.update(b, b + 1, b + 2, nop, nop);
@@ -62,24 +62,24 @@ void otherTests(perm_group::TestProgram &prog) {
 	}
 }
 
-using perm_group::TestProgram;
-
 struct Tester {
 
 	Tester(TestProgram &p) : prog(p), sage(prog.verbose) { }
 
 	void noAllocator() { }
 
-	template<template<typename> class Alloc>
-	void withAllocator() {
-		if(prog.verbose > 0) otherTests<Alloc>(prog);
+	template<typename Maker>
+	void withAllocator(Maker maker) {
+		using Alloc = typename Maker::type;
+		Alloc alloc = maker(prog.degree);
+		if(prog.verbose > 0) otherTests<Alloc>(prog, alloc);
 
 		for(std::size_t round = 1; round <= prog.rounds; ++round) {
 			if(prog.verbose > 0) {
 				std::cout << "Round: " << round << "\n";
 				sage.printRound(round);
 			}
-			pg::generated_group<TestProgram::perm_type, Alloc<TestProgram::perm_type> > g(prog.degree);
+			pg::generated_group<Alloc> g(alloc);
 			for(std::size_t i = 0; i < prog.gensize; ++i) g.add_generator(prog.makeRandomPermutation());
 			if(prog.verbose > 0) pg::write_group(std::cout, g) << std::endl;
 
@@ -97,14 +97,14 @@ struct Tester {
 			}
 
 			sage.printTest("Partial Orbit Calculation");
-			const auto gens = generator_ptrs(g);
+			const auto gens = g.generator_ptrs();
 			const auto first = gens.begin();
 			for(std::size_t step = 1; step < gens.size(); ++step) {
-				for(std::size_t i = 0; i < degree(g); ++i) {
-					pg::Orbit<TestProgram::size_type> orbit(degree(g), i);
+				for(std::size_t i = 0; i < g.degree(); ++i) {
+					pg::Orbit<TestProgram::size_type> orbit(g.degree(), i);
 					for(std::size_t partialEnd = step; partialEnd < gens.size(); partialEnd += step) {
 						orbit.update(first, first + partialEnd - step, first + partialEnd, nop, nop);
-						sage.loadGroup(first, first + partialEnd, degree(g), "g");
+						sage.loadGroup(first, first + partialEnd, g.degree(), "g");
 						sage.checkOrbit("g", i, orbit);
 					}
 				}

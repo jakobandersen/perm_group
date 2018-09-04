@@ -1,10 +1,15 @@
 #ifndef PERM_GROUP_TEST_SAGE_HPP
 #define PERM_GROUP_TEST_SAGE_HPP
 
+#include <perm_group/Config.h>
 #include <perm_group/permutation/permutation.hpp>
 
 #include <boost/process.hpp>
 #include <boost/process/extend.hpp>
+
+#ifndef PERM_GROUP_SAGE
+#error "Can not compile test without a path to sage. Reconfigure with --enable-test-checks."
+#endif
 
 namespace bp = boost::process;
 
@@ -26,7 +31,7 @@ struct Sage {
 public:
 
 	Sage(std::size_t verbose) : verbose(verbose),
-	child("sage", "-python", bp::shell,
+	child(PERM_GROUP_SAGE, "-python",
 	bp::std_in < stdin/*, bp::std_out > stdout*/,
 	ChildOnExecHandler(*this)
 	) {
@@ -170,8 +175,8 @@ public:
 
 	template<typename Group>
 	void loadGroup(const Group &g, const std::string &var) {
-		auto gens = generator_ptrs(g);
-		loadGroup(gens.begin(), gens.end(), degree(g), var);
+		auto gens = g.generator_ptrs();
+		loadGroup(gens.begin(), gens.end(), g.degree(), var);
 	}
 
 	void makeStab(std::size_t c, const std::string &parent, const std::string &var) {

@@ -21,7 +21,8 @@ pkgconfig_DATA = lib/pkgconfig/perm-group.pc
 install-doc:
 	cd doc && $(MAKE) install-doc
 
-EXTRA_DIST = \
+EXTRA_DIST =      \
+	ChangeLog.rst \
 EOF
 	(
 		find example -type f

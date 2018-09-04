@@ -1,7 +1,7 @@
 #ifndef PERM_GROUP_PERMUTATION_PERMUTATION_HPP
 #define PERM_GROUP_PERMUTATION_PERMUTATION_HPP
 
-#include <perm_group/permutation/traits.hpp>
+#include <perm_group/permutation/interface.hpp>
 
 #include <boost/concept_check.hpp>
 
@@ -82,7 +82,7 @@ private:
 };
 
 // rst: .. concept:: template<typename Perm> \
-// rst:              SizeAwarePermutation
+// rst:              DegreeAwarePermutation
 // rst:
 // rst:		Requires `Permutation<Perm>`.
 // rst:
@@ -92,16 +92,16 @@ private:
 // rst:
 // rst:		.. valid_expr::
 // rst:
-// rst:		- `perm_group::size(p)`: returns the size of the permutation.
+// rst:		- `perm_group::degree(p)`: returns the number of elements of the permutation.
 // rst:		  The return type must be convertible to `std::size_t`.
 
 template<typename Perm>
-struct SizeAwarePermutation {
+struct DegreeAwarePermutation {
 	BOOST_CONCEPT_ASSERT((Permutation<Perm>));
 
-	BOOST_CONCEPT_USAGE(SizeAwarePermutation) {
+	BOOST_CONCEPT_USAGE(DegreeAwarePermutation) {
 		const Perm &pConst = p;
-		std::size_t s = perm_group::size(pConst);
+		std::size_t s = perm_group::degree(pConst);
 		(void) s;
 	}
 private:
