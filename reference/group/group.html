@@ -4,20 +4,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.2.3. group.hpp &#8212; PermGroup v0.2 documentation</title>
+    <title>3.2.4. group.hpp &#8212; PermGroup v0.3 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.2.4. io.hpp" href="io.html" />
-    <link rel="prev" title="2.2.2. generated.hpp" href="generated.html" /> 
+    <link rel="next" title="3.2.5. io.hpp" href="io.html" />
+    <link rel="prev" title="3.2.3. generating_system.hpp" href="generating_system.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,14 +28,14 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="io.html" title="2.2.4. io.hpp"
+          <a href="io.html" title="3.2.5. io.hpp"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="generated.html" title="2.2.2. generated.hpp"
+          <a href="generating_system.html" title="3.2.3. generating_system.hpp"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">2.2. group</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3.2. group</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -43,19 +45,19 @@
           <div class="body" role="main">
             
   <div class="section" id="group-hpp">
-<span id="cpp-group-group"></span><h1>2.2.3. group.hpp<a class="headerlink" href="#group-hpp" title="Permalink to this headline">¶</a></h1>
+<span id="cpp-group-group"></span><h1>3.2.4. group.hpp<a class="headerlink" href="#group-hpp" title="Permalink to this headline">¶</a></h1>
 <p>Full path: group/group.hpp</p>
 <dl class="concept">
 <dt id="_CPPv3I0EN10perm_group5GroupE">
 <span id="_CPPv2I0EN10perm_group5GroupE"></span>template&lt;typename <code class="descname">GroupT</code>&gt;<br /><em class="property">concept </em><code class="descname">Group</code><a class="headerlink" href="#_CPPv3I0EN10perm_group5GroupE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><div style="font-weight: bold; font-size: 110%;">Associated Types</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="type">
-<dt id="_CPPv3N10perm_group5Group9perm_typeE">
-<span id="_CPPv2N10perm_group5Group9perm_typeE"></span><em class="property">using </em><code class="descname">perm_type</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a>::perm_type<a class="headerlink" href="#_CPPv3N10perm_group5Group9perm_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3N10perm_group5Group9allocatorE">
+<span id="_CPPv2N10perm_group5Group9allocatorE"></span><em class="property">using </em><code class="descname">allocator</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a>::allocator<a class="headerlink" href="#_CPPv3N10perm_group5Group9allocatorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="type">
-<dt id="_CPPv3N10perm_group5Group9allocatorE">
-<span id="_CPPv2N10perm_group5Group9allocatorE"></span><em class="property">using </em><code class="descname">allocator</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a>::allocator<a class="headerlink" href="#_CPPv3N10perm_group5Group9allocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3N10perm_group5Group4permE">
+<span id="_CPPv2N10perm_group5Group4permE"></span><em class="property">using </em><code class="descname">perm</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a>::perm<a class="headerlink" href="#_CPPv3N10perm_group5Group4permE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="type">
@@ -68,7 +70,7 @@
 <span id="_CPPv2N10perm_group5Group13const_pointerE"></span><em class="property">using </em><code class="descname">const_pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3N10perm_group5Group9allocatorE" title="perm_group::Group::allocator">allocator</a>::const_pointer<a class="headerlink" href="#_CPPv3N10perm_group5Group13const_pointerE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<p>Requires <code class="docutils literal notranslate"><a class="reference internal" href="../permutation/permutation.html#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3N10perm_group5Group9perm_typeE" title="perm_group::Group::perm_type"><span class="pre">perm_type</span></a><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">Allocator</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3N10perm_group5Group9allocatorE" title="perm_group::Group::allocator"><span class="pre">allocator</span></a><span class="pre">&gt;</span></code>.</p>
+<p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../permutation/permutation.html#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3N10perm_group5Group4permE" title="perm_group::Group::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../allocator/allocator.html#_CPPv3I0EN10perm_group9AllocatorE" title="perm_group::Allocator"><span class="pre">Allocator</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3N10perm_group5Group9allocatorE" title="perm_group::Group::allocator"><span class="pre">allocator</span></a><span class="pre">&gt;</span></code>.</p>
 <div style="font-weight: bold; font-size: 110%;">Notation</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="var">
 <dt id="_CPPv3N10perm_group5Group1gE">
 <span id="_CPPv2N10perm_group5Group1gE"></span><span id="perm_group::Group::g__GroupT"></span><a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a> <code class="descname">g</code><a class="headerlink" href="#_CPPv3N10perm_group5Group1gE" title="Permalink to this definition">¶</a><br /></dt>
@@ -79,17 +81,73 @@
 <span id="_CPPv2N10perm_group5Group2cgE"></span><span id="perm_group::Group::cg__GroupTC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group::GroupT">GroupT</a> <code class="descname">cg</code><a class="headerlink" href="#_CPPv3N10perm_group5Group2cgE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<dl class="var">
-<dt id="_CPPv3N10perm_group5Group1nE">
-<span id="_CPPv2N10perm_group5Group1nE"></span><span id="perm_group::Group::n__std::s"></span>std::size_t <code class="descname">n</code><a class="headerlink" href="#_CPPv3N10perm_group5Group1nE" title="Permalink to this definition">¶</a><br /></dt>
+<div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">degree</span><span class="pre">(</span><span class="pre">)</span></code>, returns an integer with the number of elements the group is defined on.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">generators</span><span class="pre">(</span><span class="pre">)</span></code>, returns a non-empty random-access range of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group4permE" title="perm_group::Group::perm"><span class="pre">perm</span></a></code>.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">generator_ptrs</span><span class="pre">(</span><span class="pre">)</span></code>, returns a random-access range of pointer-like values to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group4permE" title="perm_group::Group::perm"><span class="pre">perm</span></a></code>.
+The range and order of the dereferenced pointers must be exactly the range returned by <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">generators</span><span class="pre">(</span><span class="pre">)</span></code>.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">get_allocator</span><span class="pre">(</span><span class="pre">)</span></code>, returns the allocator used by the group.</li>
+</ul>
+</dd></dl>
+
+<dl class="concept">
+<dt id="_CPPv3I0EN10perm_group10StabilizerE">
+<span id="_CPPv2I0EN10perm_group10StabilizerE"></span>template&lt;typename <code class="descname">GroupT</code>&gt;<br /><em class="property">concept </em><code class="descname">Stabilizer</code><a class="headerlink" href="#_CPPv3I0EN10perm_group10StabilizerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A refinement of the <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group5GroupE" title="perm_group::Group"><span class="pre">Group</span></a></code> concept.</p>
+<p>A stabilizer fixes a specific element in some base group.
+The user must keep track of this base group and what information has been given to the stabilizer.</p>
+<p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">Moveable</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer::GroupT"><span class="pre">GroupT</span></a><span class="pre">&gt;</span></code>.</p>
+<div style="font-weight: bold; font-size: 110%;">Associated Types</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="type">
+<dt id="_CPPv3N10perm_group10Stabilizer11is_accurateE">
+<span id="_CPPv2N10perm_group10Stabilizer11is_accurateE"></span><em class="property">using </em><code class="descname">is_accurate</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer::GroupT">GroupT</a>::is_accurate<a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer11is_accurateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A type convertible to <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">true_type</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">false_type</span></code>,
+denoting whether the group will represent the full stabilizer
+or if it potentially only represents a proper subgroup of the full stabilizer.</p>
+</dd></dl>
+
+<div style="font-weight: bold; font-size: 110%;">Notation</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="var">
+<dt id="_CPPv3N10perm_group10Stabilizer1gE">
+<span id="_CPPv2N10perm_group10Stabilizer1gE"></span><span id="perm_group::Stabilizer::g__GroupT"></span><a class="reference internal" href="#_CPPv3I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer::GroupT">GroupT</a> <code class="descname">g</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer1gE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
-<li><code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group1nE" title="perm_group::Group::n"><span class="pre">n</span></a> <span class="pre">=</span> <span class="pre">degree</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">)</span></code>, returns the number of elements the group is defined on.</li>
-<li><code class="docutils literal notranslate"><span class="pre">generators</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">)</span></code>, returns a non-empty random-access range of <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group9perm_typeE" title="perm_group::Group::perm_type"><span class="pre">perm_type</span></a></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">generator_ptrs</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">)</span></code>, returns a random-access range of pointer-like values to <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group5Group9perm_typeE" title="perm_group::Group::perm_type"><span class="pre">perm_type</span></a></code>.
-The range and order of the dereferenced pointers must be eaxtly the range returned by <code class="docutils literal notranslate"><span class="pre">generators</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">)</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">get_allocator</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group5Group2cgE" title="perm_group::Group::cg"><span class="pre">cg</span></a><span class="pre">)</span></code>, returns the allocator used by the group.</li>
+<dl class="var">
+<dt id="_CPPv3N10perm_group10Stabilizer2cgE">
+<span id="_CPPv2N10perm_group10Stabilizer2cgE"></span><span id="perm_group::Stabilizer::cg__GroupTC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer::GroupT">GroupT</a> <code class="descname">cg</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer2cgE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="var">
+<dt id="_CPPv3N10perm_group10Stabilizer5firstE">
+<span id="_CPPv2N10perm_group10Stabilizer5firstE"></span><span id="perm_group::Stabilizer::first__PtrIterator"></span>PtrIterator <code class="descname">first</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3N10perm_group10Stabilizer7lastOldE">
+<span id="_CPPv2N10perm_group10Stabilizer7lastOldE"></span><span id="perm_group::Stabilizer::lastOld__PtrIterator"></span>PtrIterator <code class="descname">lastOld</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3N10perm_group10Stabilizer7lastNewE">
+<span id="_CPPv2N10perm_group10Stabilizer7lastNewE"></span><span id="perm_group::Stabilizer::lastNew__PtrIterator"></span>PtrIterator <code class="descname">lastNew</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Iterators over <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer::GroupT"><span class="pre">GroupT</span></a><span class="pre">::</span><span class="pre">const_pointer</span></code> denoting the consequtive
+ranges <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a></code>.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv3N10perm_group10Stabilizer8callbackE">
+<span id="_CPPv2N10perm_group10Stabilizer8callbackE"></span><span id="perm_group::Stabilizer::callback__Callback"></span>Callback <code class="descname">callback</code><a class="headerlink" href="#_CPPv3N10perm_group10Stabilizer8callbackE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">Callable</span></code> accepting three iterator type of equal type.
+The iterators are the type of pointer iterators given by this group in its <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer2cgE" title="perm_group::Stabilizer::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">generator_ptrs</span><span class="pre">(</span><span class="pre">)</span></code> method.</p>
+</dd></dl>
+
+<div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul>
+<li><p class="first"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer2cgE" title="perm_group::Stabilizer::cg"><span class="pre">cg</span></a><span class="pre">.</span><span class="pre">fixed_element</span><span class="pre">(</span><span class="pre">)</span></code>, returning an element which defines this stablizer.</p>
+</li>
+<li><p class="first"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer1gE" title="perm_group::Stabilizer::g"><span class="pre">g</span></a><span class="pre">.</span><span class="pre">add_generators</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a><span class="pre">)</span></code>: notifies this stabilizer that the base group
+has been extended with the permutations denoted indirectly by <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a></code>.
+The range <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a></code> must be the range previously given to this stabilizer as <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a></code>.
+If not previous <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer1gE" title="perm_group::Stabilizer::g"><span class="pre">g</span></a><span class="pre">.</span><span class="pre">add_generators</span></code> call has been made, then <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a></code>.</p>
+<p>The stabilizer will decide if these new permutations in the base group warrents an extension
+of its generating set. This decision must be in accordance with the <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer11is_accurateE" title="perm_group::Stabilizer::is_accurate"><span class="pre">is_accurate</span></a></code> type.</p>
+</li>
+<li><p class="first"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer1gE" title="perm_group::Stabilizer::g"><span class="pre">g</span></a><span class="pre">.</span><span class="pre">add_generators</span><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer5firstE" title="perm_group::Stabilizer::first"><span class="pre">first</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastOldE" title="perm_group::Stabilizer::lastOld"><span class="pre">lastOld</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer7lastNewE" title="perm_group::Stabilizer::lastNew"><span class="pre">lastNew</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer8callbackE" title="perm_group::Stabilizer::callback"><span class="pre">callback</span></a><span class="pre">)</span></code>: as the other <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group10Stabilizer1gE" title="perm_group::Stabilizer::g"><span class="pre">g</span></a><span class="pre">.</span><span class="pre">add_generators</span></code> function,
+but with a notification callback. If new permutations are added to this stabilizer,
+the callback will be called at least once with three pointer iterators <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">stabFirst</span></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">stabLastOld</span></code>, and <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">stabLastNew</span></code>.
+These iterators have the same semantics as the given iterators, but for the stabilizer it self.</p>
+</li>
 </ul>
 </dd></dl>
 
@@ -102,11 +160,11 @@ The range and order of the dereferenced pointers must be eaxtly the range return
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="generated.html"
-                        title="previous chapter">2.2.2. generated.hpp</a></p>
+  <p class="topless"><a href="generating_system.html"
+                        title="previous chapter">3.2.3. generating_system.hpp</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="io.html"
-                        title="next chapter">2.2.4. io.hpp</a></p>
+                        title="next chapter">3.2.5. io.hpp</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -137,19 +195,19 @@ The range and order of the dereferenced pointers must be eaxtly the range return
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="io.html" title="2.2.4. io.hpp"
+          <a href="io.html" title="3.2.5. io.hpp"
              >next</a> |</li>
         <li class="right" >
-          <a href="generated.html" title="2.2.2. generated.hpp"
+          <a href="generating_system.html" title="3.2.3. generating_system.hpp"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >2.2. group</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3.2. group</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017-2018, Jakob Lykke Andersen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0+.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0+.
     </div>
   </body>
 </html>

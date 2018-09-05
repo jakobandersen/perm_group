@@ -28,7 +28,7 @@ Full path: permutation/io.hpp
     Permutations are zero-indexed.
 
     The overloads without `n` requires `SizeAwarePermutation<Perm>`,
-    and sets `n = perm_group::size(p)`.
+    and sets `n = perm_group::degree(p)`.
 
     :throws: `io_error` if parsing fails.
     :throws: `io_error` if a number is `n` or higher.
@@ -40,6 +40,6 @@ Full path: permutation/io.hpp
 .. function:: template<typename Perm> \
               std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p)
 
-    Requires `SizeAwarePermutation<Perm>`.
+    Requires `DegreeAwarePermutation<Perm>`.
     
     Write a permutation in cycle notation.

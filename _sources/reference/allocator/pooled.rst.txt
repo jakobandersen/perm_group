@@ -1,0 +1,33 @@
+.. _cpp-allocator/pooled:
+
+**********************************************************
+pooled.hpp
+**********************************************************
+
+Full path: allocator/pooled.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Alloc> pooled_allocator
+
+    An `Allocator` adaptor that retains a pool of unused permutations
+    that has previously been released. Excess permutations are released.
+    A copy of this allocator still refers to the same pool as the original.
+
+    .. type:: perm = typename Alloc::perm
+    .. type:: pointer = typename Alloc::pointer
+    .. type:: const_pointer = typename Alloc::const_pointer
+    .. type: explicit pooled_allocator(std::size_t pool_size, Alloc alloc)
+
+        Construct an allocator with a given maximum pool size, using the given nested allocator.
+    .. function:: ~pooled_allocator()
+
+        If this is the last copy of this allocator, the pool is released.
+    .. function:: std::size_t degree() const
+    .. function:: pointer make()
+    .. function:: pointer make_identity()
+    .. function:: template<typename UPerm> pointer copy(UPerm &&p)
+    .. function:: void release(const_pointer p)

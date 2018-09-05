@@ -44,7 +44,7 @@ Full path: orbit.hpp
            InOrbitHandlerVector
 
     Models `InOrbitHandler`.
-    .. function:: std::size_t position(ValueType u) const
+    .. function:: ValueType position(ValueType u) const
 
         Requires the clear method to have been called.
         Requires either `u` has been added or was the element given to the latest clear.
@@ -81,7 +81,8 @@ Full path: orbit.hpp
     .. function:: auto end() const
 
         :returns: an iterator to past-the-end of the orbit.
-    .. function:: std::size_t position(ValueType u) const
+    .. todo:: document
+    .. function:: ValueType position(ValueType u) const
 
         Requires `InOrbitHandlerT` to have a position method.
 
@@ -97,7 +98,7 @@ Full path: orbit.hpp
     Calculate the orbit of `w` under the non-empty range of generators `first` to `last`.
     See `Orbit::update` for the details of `first`, `last`, `onNewElement`, and `onDupElement`.
     Note though that `onNewElement(w, w, last)` is called in the beginning in addition.
-    The overload without `n` requires `SizeAwarePermutation<decltype(**first)>` and sets `n = perm_group::size(**first)`.
+    The overload without `n` requires `SizeAwarePermutation<decltype(**first)>` and sets `n = perm_group::degree(**first)`.
 .. function:: template<typename Group, typename Callback> \
               void orbit(std::size_t w, const Group &g, Callback callback)
 

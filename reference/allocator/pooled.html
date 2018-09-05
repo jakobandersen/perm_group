@@ -1,0 +1,163 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>3.1.2. pooled.hpp &#8212; PermGroup v0.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.3. raw_ptr.hpp" href="raw_ptr.html" />
+    <link rel="prev" title="3.1.1. allocator.hpp" href="allocator.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="raw_ptr.html" title="3.1.3. raw_ptr.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="allocator.html" title="3.1.1. allocator.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3.1. allocator</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pooled-hpp">
+<span id="cpp-allocator-pooled"></span><h1>3.1.2. pooled.hpp<a class="headerlink" href="#pooled-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: allocator/pooled.hpp</p>
+<dl class="class">
+<dt id="_CPPv3I0EN10perm_group16pooled_allocatorE">
+<span id="_CPPv2I0EN10perm_group16pooled_allocatorE"></span>template&lt;typename <code class="descname">Alloc</code>&gt;<br /><em class="property">class </em><code class="descname">pooled_allocator</code><a class="headerlink" href="#_CPPv3I0EN10perm_group16pooled_allocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="allocator.html#_CPPv3I0EN10perm_group9AllocatorE" title="perm_group::Allocator"><span class="pre">Allocator</span></a></code> adaptor that retains a pool of unused permutations
+that has previously been released. Excess permutations are released.
+A copy of this allocator still refers to the same pool as the original.</p>
+<dl class="type">
+<dt id="_CPPv3N10perm_group16pooled_allocator4permE">
+<span id="_CPPv2N10perm_group16pooled_allocator4permE"></span><em class="property">using </em><code class="descname">perm</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group16pooled_allocatorE" title="perm_group::pooled_allocator::Alloc">Alloc</a>::perm<a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator4permE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv3N10perm_group16pooled_allocator7pointerE">
+<span id="_CPPv2N10perm_group16pooled_allocator7pointerE"></span><em class="property">using </em><code class="descname">pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group16pooled_allocatorE" title="perm_group::pooled_allocator::Alloc">Alloc</a>::pointer<a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator7pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv3N10perm_group16pooled_allocator13const_pointerE">
+<span id="_CPPv2N10perm_group16pooled_allocator13const_pointerE"></span><em class="property">using </em><code class="descname">const_pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv3I0EN10perm_group16pooled_allocatorE" title="perm_group::pooled_allocator::Alloc">Alloc</a>::const_pointer<a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator13const_pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N10perm_group16pooled_allocatorD0Ev">
+<span id="_CPPv2N10perm_group16pooled_allocatorD0Ev"></span><span id="perm_group::pooled_allocator::~pooled_allocator"></span><code class="descname">~pooled_allocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocatorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If this is the last copy of this allocator, the pool is released.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK10perm_group16pooled_allocator6degreeEv">
+<span id="_CPPv2NK10perm_group16pooled_allocator6degreeEv"></span><span id="perm_group::pooled_allocator::degreeC"></span>std::size_t <code class="descname">degree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK10perm_group16pooled_allocator6degreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N10perm_group16pooled_allocator4makeEv">
+<span id="_CPPv2N10perm_group16pooled_allocator4makeEv"></span><span id="perm_group::pooled_allocator::make"></span><a class="reference internal" href="#_CPPv3N10perm_group16pooled_allocator7pointerE" title="perm_group::pooled_allocator::pointer">pointer</a> <code class="descname">make</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator4makeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N10perm_group16pooled_allocator13make_identityEv">
+<span id="_CPPv2N10perm_group16pooled_allocator13make_identityEv"></span><span id="perm_group::pooled_allocator::make_identity"></span><a class="reference internal" href="#_CPPv3N10perm_group16pooled_allocator7pointerE" title="perm_group::pooled_allocator::pointer">pointer</a> <code class="descname">make_identity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator13make_identityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3I0EN10perm_group16pooled_allocator4copyERR5UPerm">
+<span id="_CPPv2I0EN10perm_group16pooled_allocator4copyERR5UPerm"></span>template&lt;typename <code class="descname">UPerm</code>&gt;<br /><a class="reference internal" href="#_CPPv3N10perm_group16pooled_allocator7pointerE" title="perm_group::pooled_allocator::pointer">pointer</a> <code class="descname">copy</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv3I0EN10perm_group16pooled_allocator4copyERR5UPerm" title="perm_group::pooled_allocator::copy::UPerm">UPerm</a> &amp;&amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3I0EN10perm_group16pooled_allocator4copyERR5UPerm" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N10perm_group16pooled_allocator7releaseE13const_pointer">
+<span id="_CPPv2N10perm_group16pooled_allocator7releaseE13const_pointer"></span><span id="perm_group::pooled_allocator::release__const_pointer"></span>void <code class="descname">release</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv3N10perm_group16pooled_allocator13const_pointerE" title="perm_group::pooled_allocator::const_pointer">const_pointer</a> <em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group16pooled_allocator7releaseE13const_pointer" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="allocator.html"
+                        title="previous chapter">3.1.1. allocator.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="raw_ptr.html"
+                        title="next chapter">3.1.3. raw_ptr.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/allocator/pooled.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="raw_ptr.html" title="3.1.3. raw_ptr.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="allocator.html" title="3.1.1. allocator.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3.1. allocator</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0+.
+    </div>
+  </body>
+</html>

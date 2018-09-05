@@ -14,7 +14,7 @@ Full path: permutation/array.hpp
 .. class:: template<typename ValueType> \
            array_permutation
 
-    Models `MutablePermutation` (but not `SizeAwarePermutation`).
+    Models `MutablePermutation` (but not `DegreeAwarePermutation`).
 
     A minimum overhead permutation implemented as a raw pointer to array.
 

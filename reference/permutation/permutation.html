@@ -4,20 +4,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.5.5. permutation.hpp &#8212; PermGroup v0.2 documentation</title>
+    <title>3.5.6. permutation.hpp &#8212; PermGroup v0.3 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5.6. traits.hpp" href="traits.html" />
-    <link rel="prev" title="2.5.4. mult.hpp" href="mult.html" /> 
+    <link rel="next" title="3.5.7. traits.hpp" href="traits.html" />
+    <link rel="prev" title="3.5.5. mult.hpp" href="mult.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,14 +28,14 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="traits.html" title="2.5.6. traits.hpp"
+          <a href="traits.html" title="3.5.7. traits.hpp"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="mult.html" title="2.5.4. mult.hpp"
+          <a href="mult.html" title="3.5.5. mult.hpp"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">2.5. permutation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3.5. permutation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -43,12 +45,12 @@
           <div class="body" role="main">
             
   <div class="section" id="permutation-hpp">
-<span id="cpp-permutation-permutation"></span><h1>2.5.5. permutation.hpp<a class="headerlink" href="#permutation-hpp" title="Permalink to this headline">¶</a></h1>
+<span id="cpp-permutation-permutation"></span><h1>3.5.6. permutation.hpp<a class="headerlink" href="#permutation-hpp" title="Permalink to this headline">¶</a></h1>
 <p>Full path: permutation/permutation.hpp</p>
 <dl class="concept">
 <dt id="_CPPv3I0EN10perm_group11PermutationE">
 <span id="_CPPv2I0EN10perm_group11PermutationE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br /><em class="property">concept </em><code class="descname">Permutation</code><a class="headerlink" href="#_CPPv3I0EN10perm_group11PermutationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Requires <code class="docutils literal notranslate"><span class="pre">MoveConstructible</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">MoveAssignable</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">MoveConstructible</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">MoveAssignable</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
 <div style="font-weight: bold; font-size: 110%;">Associated Types</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="type">
 <dt id="_CPPv3N10perm_group11Permutation10value_typeE">
 <span id="_CPPv2N10perm_group11Permutation10value_typeE"></span><em class="property">using </em><code class="descname">value_type</code> = <em class="property">typename</em> <a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits">permutation_traits</a>&lt;<a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation::Perm">Perm</a>&gt;::value_type<a class="headerlink" href="#_CPPv3N10perm_group11Permutation10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
@@ -66,15 +68,15 @@
 <dd></dd></dl>
 
 <div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group3getERK4PermN18permutation_traitsI4PermE10value_typeE" title="perm_group::get"><span class="pre">get</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1pE" title="perm_group::Permutation::p"><span class="pre">p</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group11Permutation1iE" title="perm_group::Permutation::i"><span class="pre">i</span></a><span class="pre">)</span></code>: returns the image of <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1iE" title="perm_group::Permutation::i"><span class="pre">i</span></a></code> under <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1pE" title="perm_group::Permutation::p"><span class="pre">p</span></a></code>.
-The return type must be convertible to <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation10value_typeE" title="perm_group::Permutation::value_type"><span class="pre">value_type</span></a></code>.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="interface.html#_CPPv3I0EN10perm_group3getERK4PermN18permutation_traitsI4PermE10value_typeE" title="perm_group::get"><span class="pre">get</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1pE" title="perm_group::Permutation::p"><span class="pre">p</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group11Permutation1iE" title="perm_group::Permutation::i"><span class="pre">i</span></a><span class="pre">)</span></code>: returns the image of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1iE" title="perm_group::Permutation::i"><span class="pre">i</span></a></code> under <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation1pE" title="perm_group::Permutation::p"><span class="pre">p</span></a></code>.
+The return type must be convertible to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group11Permutation10value_typeE" title="perm_group::Permutation::value_type"><span class="pre">value_type</span></a></code>.</li>
 </ul>
 </dd></dl>
 
 <dl class="concept">
 <dt id="_CPPv3I0EN10perm_group18MutablePermutationE">
 <span id="_CPPv2I0EN10perm_group18MutablePermutationE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br /><em class="property">concept </em><code class="descname">MutablePermutation</code><a class="headerlink" href="#_CPPv3I0EN10perm_group18MutablePermutationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Requires <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group18MutablePermutationE" title="perm_group::MutablePermutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group18MutablePermutationE" title="perm_group::MutablePermutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
 <div style="font-weight: bold; font-size: 110%;">Associated Types</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="type">
 <dt id="_CPPv3N10perm_group18MutablePermutation10value_typeE">
 <span id="_CPPv2N10perm_group18MutablePermutation10value_typeE"></span><em class="property">using </em><code class="descname">value_type</code> = <em class="property">typename</em> <a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits">permutation_traits</a>&lt;<a class="reference internal" href="#_CPPv3I0EN10perm_group18MutablePermutationE" title="perm_group::MutablePermutation::Perm">Perm</a>&gt;::value_type<a class="headerlink" href="#_CPPv3N10perm_group18MutablePermutation10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
@@ -91,22 +93,22 @@ The return type must be convertible to <code class="docutils literal notranslate
 <dd></dd></dl>
 
 <div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group3putER4PermN18permutation_traitsI4PermE10value_typeEN18permutation_traitsI4PermE10value_typeE" title="perm_group::put"><span class="pre">put</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1pE" title="perm_group::MutablePermutation::p"><span class="pre">p</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1iE" title="perm_group::MutablePermutation::i"><span class="pre">i</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1jE" title="perm_group::MutablePermutation::j"><span class="pre">j</span></a><span class="pre">)</span></code>: sets the image of <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1iE" title="perm_group::MutablePermutation::i"><span class="pre">i</span></a></code> under <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1pE" title="perm_group::MutablePermutation::p"><span class="pre">p</span></a></code> to <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1jE" title="perm_group::MutablePermutation::j"><span class="pre">j</span></a></code>.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="interface.html#_CPPv3I0EN10perm_group3putER4PermN18permutation_traitsI4PermE10value_typeEN18permutation_traitsI4PermE10value_typeE" title="perm_group::put"><span class="pre">put</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1pE" title="perm_group::MutablePermutation::p"><span class="pre">p</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1iE" title="perm_group::MutablePermutation::i"><span class="pre">i</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1jE" title="perm_group::MutablePermutation::j"><span class="pre">j</span></a><span class="pre">)</span></code>: sets the image of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1iE" title="perm_group::MutablePermutation::i"><span class="pre">i</span></a></code> under <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1pE" title="perm_group::MutablePermutation::p"><span class="pre">p</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group18MutablePermutation1jE" title="perm_group::MutablePermutation::j"><span class="pre">j</span></a></code>.</li>
 </ul>
 </dd></dl>
 
 <dl class="concept">
-<dt id="_CPPv3I0EN10perm_group20SizeAwarePermutationE">
-<span id="_CPPv2I0EN10perm_group20SizeAwarePermutationE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br /><em class="property">concept </em><code class="descname">SizeAwarePermutation</code><a class="headerlink" href="#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Requires <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="perm_group::SizeAwarePermutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
+<dt id="_CPPv3I0EN10perm_group22DegreeAwarePermutationE">
+<span id="_CPPv2I0EN10perm_group22DegreeAwarePermutationE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br /><em class="property">concept </em><code class="descname">DegreeAwarePermutation</code><a class="headerlink" href="#_CPPv3I0EN10perm_group22DegreeAwarePermutationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv3I0EN10perm_group22DegreeAwarePermutationE" title="perm_group::DegreeAwarePermutation::Perm"><span class="pre">Perm</span></a><span class="pre">&gt;</span></code>.</p>
 <div style="font-weight: bold; font-size: 110%;">Notation</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="var">
-<dt id="_CPPv3N10perm_group20SizeAwarePermutation1pE">
-<span id="_CPPv2N10perm_group20SizeAwarePermutation1pE"></span><span id="perm_group::SizeAwarePermutation::p__Perm"></span><a class="reference internal" href="#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="perm_group::SizeAwarePermutation::Perm">Perm</a> <code class="descname">p</code><a class="headerlink" href="#_CPPv3N10perm_group20SizeAwarePermutation1pE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv3N10perm_group22DegreeAwarePermutation1pE">
+<span id="_CPPv2N10perm_group22DegreeAwarePermutation1pE"></span><span id="perm_group::DegreeAwarePermutation::p__Perm"></span><a class="reference internal" href="#_CPPv3I0EN10perm_group22DegreeAwarePermutationE" title="perm_group::DegreeAwarePermutation::Perm">Perm</a> <code class="descname">p</code><a class="headerlink" href="#_CPPv3N10perm_group22DegreeAwarePermutation1pE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="traits.html#_CPPv3I0EN10perm_group4sizeERK4Perm" title="perm_group::size"><span class="pre">size</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group20SizeAwarePermutation1pE" title="perm_group::SizeAwarePermutation::p"><span class="pre">p</span></a><span class="pre">)</span></code>: returns the size of the permutation.
-The return type must be convertible to <code class="docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">size_t</span></code>.</li>
+<li><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="interface.html#_CPPv3I0EN10perm_group6degreeERK4Perm" title="perm_group::degree"><span class="pre">degree</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv3N10perm_group22DegreeAwarePermutation1pE" title="perm_group::DegreeAwarePermutation::p"><span class="pre">p</span></a><span class="pre">)</span></code>: returns the number of elements of the permutation.
+The return type must be convertible to <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">size_t</span></code>.</li>
 </ul>
 </dd></dl>
 
@@ -120,10 +122,10 @@ The return type must be convertible to <code class="docutils literal notranslate
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="mult.html"
-                        title="previous chapter">2.5.4. mult.hpp</a></p>
+                        title="previous chapter">3.5.5. mult.hpp</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="traits.html"
-                        title="next chapter">2.5.6. traits.hpp</a></p>
+                        title="next chapter">3.5.7. traits.hpp</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -154,19 +156,19 @@ The return type must be convertible to <code class="docutils literal notranslate
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="traits.html" title="2.5.6. traits.hpp"
+          <a href="traits.html" title="3.5.7. traits.hpp"
              >next</a> |</li>
         <li class="right" >
-          <a href="mult.html" title="2.5.4. mult.hpp"
+          <a href="mult.html" title="3.5.5. mult.hpp"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >2.5. permutation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3.5. permutation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017-2018, Jakob Lykke Andersen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0+.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0+.
     </div>
   </body>
 </html>

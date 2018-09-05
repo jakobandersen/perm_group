@@ -6,7 +6,9 @@ permutation
 
     array
     built_in
+    interface
     io
     mult
     permutation
     traits
+    word

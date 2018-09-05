@@ -11,3 +11,14 @@ Full path: group/io.hpp
 
 .. cpp:namespace:: perm_group
 
+.. function:: template<typename Iter> \
+              std::ostream &write_generating_set(std::ostream &s, Iter first, const Iter &last)
+
+    Write the range of permutations to the given stream, formatted as a generating set.
+    E.g., ``<(0), (0 1 2 3)>``.
+
+.. function:: template<typename GroupT> \
+              std::ostream &write_group(std::ostream &s, const GroupT &g)
+
+    A helper function using `write_generating_set` to write the given `Group`.
+

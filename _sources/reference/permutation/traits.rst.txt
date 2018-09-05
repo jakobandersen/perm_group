@@ -26,58 +26,12 @@ Full path: permutation/traits.hpp
     .. function:: static Perm make_identity(std::size_t n)
 
         :returns: a permutation created with `make` and initialized as the identity.
-    .. function:: static Perm copy(std::size_t n, Perm &&p)
-
-        :returns: `Perm(std::move(p))`
-    .. function:: static Perm copy(std::size_t n, const Perm &p)
-
-        :returns: `Perm(p)`
-    .. function:: template<typename UPerm> \
-                  static Perm copy(std::size_t n, UPerm &&p)
-
-        :returns: a permutation created with `make` where `p` has been copied into.
     .. function:: static void put(Perm &p, value_type i, value_type image)
 
         Sets the image of `i` to `image` using `p.put_(i, image)`.
-    .. function:: static std::size_t size(const Perm &p)
+    .. function:: static std::size_t degree(const Perm &p)
 
-        :returns: `p.size_()`
+        :returns: `p.degree_()`
     .. function:: static Perm make_inverse(const Perm &p, std::size_t n)
 
         :returns: a permutation created with `make` where the inverse of `p` has been copied into.
-
-Permutation Interface
-=====================
-
-The following function templates are short-hands for using the operations on `permutation_traits`.
-
-.. function:: template<typename Perm> \
-              typename permutation_traits<Perm>::value_type get(const Perm &p, typename permutation_traits<Perm>::value_type i)
-
-    :returns: `permutation_traits<Perm>::get(p, i)`
-.. function:: template<typename Perm> \
-              Perm make_perm(std::size_t n)
-
-    :returns: `permutation_traits<Perm>::make(n)`
-.. function:: template<typename Perm, typename SrcPerm> \
-              Perm copy_perm(std::size_t n, SrcPerm &&p)
-
-    :returns: `permutation_traits<Perm>::copy(n, std::forward<SrcPerm>(p))`
-.. function:: template<typename Perm, typename SrcPerm> \
-              Perm copy_perm(SrcPerm &&p)
-
-    :returns: `permutation_traits<Perm>::copy(size(p), std::forward<SrcPerm>(p))`
-.. function:: template<typename Perm> \
-              Perm make_identity_perm(std::size_t n)
-
-    :returns: `permutation_traits<Perm>::make_identity(n)`
-.. function:: template<typename Perm> \
-              void put(Perm &p, typename permutation_traits<Perm>::value_type i, typename permutation_traits<Perm>::value_type image)
-.. function:: template<typename Perm> \
-              std::size_t size(const Perm &p)
-
-    :returns: `permutation_traits<Perm>::size(p)`
-.. function:: template<typename Perm> \
-              Perm make_inverse(const Perm &p)
-
-    :returns: `permutation_traits<Perm>::make_inverse(p, perm_group::size(p))`

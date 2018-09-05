@@ -52,7 +52,7 @@ Full path: permutation/permutation.hpp
 
     - `perm_group::put(p, i, j)`: sets the image of `i` under `p` to `j`.
 .. concept:: template<typename Perm> \
-             SizeAwarePermutation
+             DegreeAwarePermutation
 
     Requires `Permutation<Perm>`.
 
@@ -62,5 +62,5 @@ Full path: permutation/permutation.hpp
 
     .. valid_expr::
 
-    - `perm_group::size(p)`: returns the size of the permutation.
+    - `perm_group::degree(p)`: returns the number of elements of the permutation.
       The return type must be convertible to `std::size_t`.

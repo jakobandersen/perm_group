@@ -4,20 +4,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.5.1. array.hpp &#8212; PermGroup v0.2 documentation</title>
+    <title>3.5.1. array.hpp &#8212; PermGroup v0.3 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5.2. built_in.hpp" href="built_in.html" />
-    <link rel="prev" title="2.5. permutation" href="index.html" /> 
+    <link rel="next" title="3.5.2. built_in.hpp" href="built_in.html" />
+    <link rel="prev" title="3.5. permutation" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,14 +28,14 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="built_in.html" title="2.5.2. built_in.hpp"
+          <a href="built_in.html" title="3.5.2. built_in.hpp"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="2.5. permutation"
+          <a href="index.html" title="3.5. permutation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">2.5. permutation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3.5. permutation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -43,17 +45,17 @@
           <div class="body" role="main">
             
   <div class="section" id="array-hpp">
-<span id="cpp-permutation-array"></span><h1>2.5.1. array.hpp<a class="headerlink" href="#array-hpp" title="Permalink to this headline">¶</a></h1>
+<span id="cpp-permutation-array"></span><h1>3.5.1. array.hpp<a class="headerlink" href="#array-hpp" title="Permalink to this headline">¶</a></h1>
 <p>Full path: permutation/array.hpp</p>
 <dl class="class">
 <dt id="_CPPv3I0EN10perm_group17array_permutationE">
 <span id="_CPPv2I0EN10perm_group17array_permutationE"></span>template&lt;typename <code class="descname">ValueType</code>&gt;<br /><em class="property">class </em><code class="descname">array_permutation</code><a class="headerlink" href="#_CPPv3I0EN10perm_group17array_permutationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Models <code class="docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group18MutablePermutationE" title="perm_group::MutablePermutation"><span class="pre">MutablePermutation</span></a></code> (but not <code class="docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group20SizeAwarePermutationE" title="perm_group::SizeAwarePermutation"><span class="pre">SizeAwarePermutation</span></a></code>).</p>
+<dd><p>Models <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group18MutablePermutationE" title="perm_group::MutablePermutation"><span class="pre">MutablePermutation</span></a></code> (but not <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="permutation.html#_CPPv3I0EN10perm_group22DegreeAwarePermutationE" title="perm_group::DegreeAwarePermutation"><span class="pre">DegreeAwarePermutation</span></a></code>).</p>
 <p>A minimum overhead permutation implemented as a raw pointer to array.</p>
 <dl class="function">
 <dt id="_CPPv3N10perm_group17array_permutation17array_permutationENSt6size_tE">
 <span id="_CPPv2N10perm_group17array_permutation17array_permutationENSt6size_tE"></span><span id="perm_group::array_permutation::array_permutation__std::s"></span><code class="descname">array_permutation</code><span class="sig-paren">(</span>std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N10perm_group17array_permutation17array_permutationENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Construct a non-initialized permutation of size <code class="docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group17array_permutation17array_permutationENSt6size_tE" title="perm_group::array_permutation::array_permutation::n"><span class="pre">n</span></a></code>.</p>
+<dd><p>Construct a non-initialized permutation of size <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv3N10perm_group17array_permutation17array_permutationENSt6size_tE" title="perm_group::array_permutation::array_permutation::n"><span class="pre">n</span></a></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -68,10 +70,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">2.5. permutation</a></p>
+                        title="previous chapter">3.5. permutation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="built_in.html"
-                        title="next chapter">2.5.2. built_in.hpp</a></p>
+                        title="next chapter">3.5.2. built_in.hpp</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -102,19 +104,19 @@
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="built_in.html" title="2.5.2. built_in.hpp"
+          <a href="built_in.html" title="3.5.2. built_in.hpp"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="2.5. permutation"
+          <a href="index.html" title="3.5. permutation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >2. Reference</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >2.5. permutation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup v0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3.5. permutation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017-2018, Jakob Lykke Andersen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0+.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0+.
     </div>
   </body>
 </html>

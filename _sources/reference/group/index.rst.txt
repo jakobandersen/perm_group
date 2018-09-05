@@ -6,6 +6,7 @@ group
 
     basic_stabilizer
     generated
+    generating_system
     group
     io
     schreier_stabilizer

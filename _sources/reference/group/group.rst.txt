@@ -16,23 +16,71 @@ Full path: group/group.hpp
 
     .. assoc_types::
 
-    .. type:: perm_type = typename GroupT::perm_type
     .. type:: allocator = typename GroupT::allocator
+    .. type:: perm = typename GroupT::perm
     .. type:: pointer = typename allocator::pointer
     .. type:: const_pointer = typename allocator::const_pointer
 
-    Requires `Permutation<perm_type>` and `Allocator<allocator>`.
+    Requires `Permutation<perm>` and `Allocator<allocator>`.
 
     .. notation::
 
     .. var:: GroupT g
     .. var:: const GroupT cg
-    .. var:: std::size_t n
 
     .. valid_expr::
 
-    - `n = degree(cg)`, returns the number of elements the group is defined on.
-    - `generators(cg)`, returns a non-empty random-access range of `perm_type`.
-    - `generator_ptrs(cg)`, returns a random-access range of pointer-like values to `perm_type`.
-      The range and order of the dereferenced pointers must be eaxtly the range returned by `generators(cg)`.
-    - `get_allocator(cg)`, returns the allocator used by the group.
+    - `cg.degree()`, returns an integer with the number of elements the group is defined on.
+    - `cg.generators()`, returns a non-empty random-access range of `perm`.
+    - `cg.generator_ptrs()`, returns a random-access range of pointer-like values to `perm`.
+      The range and order of the dereferenced pointers must be exactly the range returned by `cg.generators()`.
+    - `cg.get_allocator()`, returns the allocator used by the group.
+
+.. concept:: template<typename GroupT> \
+             Stabilizer
+
+    A refinement of the `Group` concept.
+
+    A stabilizer fixes a specific element in some base group.
+    The user must keep track of this base group and what information has been given to the stabilizer.
+
+    Requires `Moveable<GroupT>`.
+
+    .. assoc_types::
+
+    .. type:: is_accurate = typename GroupT::is_accurate
+
+        A type convertible to `std::true_type` or `std::false_type`,
+        denoting whether the group will represent the full stabilizer
+        or if it potentially only represents a proper subgroup of the full stabilizer.
+
+    .. notation::
+
+    .. var:: GroupT g
+    .. var:: const GroupT cg
+    .. var:: PtrIterator first
+             PtrIterator lastOld
+             PtrIterator lastNew
+
+        Iterators over `GroupT::const_pointer` denoting the consequtive
+        ranges `first` to `lastOld` and `lastOld` to `lastNew`.
+
+    .. var:: Callback callback
+
+        A `Callable` accepting three iterator type of equal type.
+        The iterators are the type of pointer iterators given by this group in its `cg.generator_ptrs()` method.
+
+    .. valid_expr::
+
+    - `cg.fixed_element()`, returning an element which defines this stablizer.
+    - `g.add_generators(first, lastOld, lastNew)`: notifies this stabilizer that the base group
+      has been extended with the permutations denoted indirectly by `lastOld` to `lastNew`.
+      The range `first` to `lastOld` must be the range previously given to this stabilizer as `first` to `lastNew`.
+      If not previous `g.add_generators` call has been made, then `first == lastNew`.
+
+      The stabilizer will decide if these new permutations in the base group warrents an extension
+      of its generating set. This decision must be in accordance with the `is_accurate` type.
+    - `g.add_generators(first, lastOld, lastNew, callback)`: as the other `g.add_generators` function,
+      but with a notification callback. If new permutations are added to this stabilizer,
+      the callback will be called at least once with three pointer iterators `stabFirst`, `stabLastOld`, and `stabLastNew`.
+      These iterators have the same semantics as the given iterators, but for the stabilizer it self.

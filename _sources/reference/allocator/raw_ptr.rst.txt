@@ -11,3 +11,26 @@ Full path: allocator/raw_ptr.hpp
 
 .. cpp:namespace:: perm_group
 
+.. class:: template<typename Perm> raw_ptr_allocator
+
+    An `Allocator` than uses ``new`` and ``delete`` for allocating permutations.
+
+    .. type:: perm = Perm
+    .. type:: pointer = perm*
+    .. type:: const_pointer = const perm*
+    .. function:: explicit raw_ptr_allocator(std::size_t n)
+
+        Construct an allocator that allocates permutations of degree `n`.
+    .. function:: std::size_t degree() const
+    .. function:: pointer make()
+
+        :returns: `new perm(perm_group::make_perm<perm>(degree()))`
+    .. function:: pointer make_identity()
+
+        :returns: `new perm(perm_group::make_identity_perm<perm>(degree()))`
+    .. function:: template<typename UPerm> pointer copy(UPerm &&p)
+
+        :returns: `new perm(perm_group::copy_perm<perm>(n, std::forward<UPerm>(p)))`
+    .. function:: void release(const_pointer p)
+
+        Does `delete p`.

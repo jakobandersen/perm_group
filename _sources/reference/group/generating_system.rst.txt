@@ -1,10 +1,10 @@
-.. _cpp-allocator/default:
+.. _cpp-group/generating_system:
 
 **********************************************************
-default.hpp
+generating_system.hpp
 **********************************************************
 
-Full path: allocator/default.hpp
+Full path: group/generating_system.hpp
 
 .. default-domain:: cpp
 .. default-role:: cpp:expr

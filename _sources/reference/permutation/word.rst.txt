@@ -1,14 +1,13 @@
-.. _cpp-group/stabilizer_chain:
+.. _cpp-permutation/word:
 
 **********************************************************
-stabilizer_chain.hpp
+word.hpp
 **********************************************************
 
-Full path: group/stabilizer_chain.hpp
+Full path: permutation/word.hpp
 
 .. default-domain:: cpp
 .. default-role:: cpp:expr
 
 .. cpp:namespace:: perm_group
 
-.. todo:: Actually write the documentation for this file.
