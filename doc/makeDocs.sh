@@ -5,24 +5,7 @@ if [ "x$1" = "xclean" ]; then
 	exit 0
 fi
 
-# the main logic for building is based on the auto-generated Makefile from Sphinx
-
-sphinxBuild=${1:-sphinx-build}
-topSrcDir=${2:-..}
-topBuildDir=${3:-..}
-
-which $sphinxBuild &> /dev/null
-if [ $? -ne 0 ]; then
-	echo "Error: '$sphinxBuild' was not found."
-	exit 1
-fi
-
-function doBuild {
-	allOpts="-d $topBuildDir/doc/doctrees $topSrcDir/doc/source"
-	mkdir -p $topSrcDir/doc/source/_static
-	$sphinxBuild -b html $allOpts $topBuildDir/doc/build/html
-	echo "$sphinxBuild -b html $allOpts $topBuildDir/doc/build/html"
-}
+topSrcDir=${1:-..}
 
 function outputRST {
 	mkdir -p $topSrcDir/doc/source/$(dirname $1)
@@ -249,4 +232,3 @@ EOF
 
 makeIndex
 makeReference
-doBuild

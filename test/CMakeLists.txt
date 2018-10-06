@@ -1,0 +1,24 @@
+if(NOT BUILD_TESTING)
+    return()
+endif()
+
+add_custom_target(tests DEPENDS ${perm_group_TEST_FILES})
+
+set(sanFlags -g -fsanitize=undefined -fsanitize=address -fsanitize=leak)
+foreach(testName ${perm_group_TEST_FILES})
+    add_executable(${testName} EXCLUDE_FROM_ALL ${testName}.cpp)
+    target_link_libraries(${testName}
+            PRIVATE
+            perm_group
+            Boost::program_options
+            Boost::system
+            Threads::Threads)
+    target_compile_options(${testName} PRIVATE ${sanFlags})
+    target_link_libraries(${testName} PRIVATE ${sanFlags})
+    target_add_coverage(${testName})
+    add_test(${testName} ${testName})
+    add_coverage_case(${testName})
+endforeach()
+
+add_subdirectory(cmake_add_subdirectory)
+add_subdirectory(cmake_import)

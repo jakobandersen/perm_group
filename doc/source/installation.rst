@@ -1,14 +1,19 @@
 Installation
 ============
 
-The package is built and installed as a normal autotools project
-(i.e., use ``configure`` then ``make`` amd ``make install``).
-However, if you have cloned the project from GitHub you
-should first run ``./bootstrap.sh``, which additionally requires autotools to be installed.
-The following is a list of dependencies,
-where relevant arguments for ``configure`` is shown in parenthesis.
+The package is built and installated from source as a CMake project:
+
+- If you have cloned the project from GitHub, run ``./bootstrap.sh`` first.
+- Then the normal configuration: ``mkdir build; cd build; cmake ..``.
+  Add ``-DCMAKE_INSTALL_PREFIX=<prefix>`` to install in a non-standard location.
+  Use ``cmake .. -LH`` to see other options, or see below.
+- Build, e.g., ``make -j 8``
+- Install, e.g., ``make install``
+
+The dependencies are:
 
 - This documentation requires `Sphinx <http://sphinx-doc.org>`__,
-  preferably in the newest development version (``--enable-doc-checks``, ``--disable-doc-checks``).
+  preferably in the newest development version (use ``-DBUILD_DOC=on``).
 - A C++ compiler with reasonable C++14 support is needed. GCC 5.1 or later should work.
-- `Boost <http://boost.org>`__ dev >= 1.64 (``--with-boost=<path>``).
+- `Boost <http://boost.org>`__ dev >= 1.64
+  (use ``-DBOOST_ROOT=<path>`` for non-standard locations).

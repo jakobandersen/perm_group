@@ -1,0 +1,9 @@
+#ifndef PERM_GROUP_CONFIG_HPP
+#define PERM_GROUP_CONFIG_HPP
+
+#define PERM_GROUP_VERSION "@PROJECT_VERSION@"
+
+// Path to the sage binary
+#cmakedefine PERM_GROUP_SAGE "@PERM_GROUP_SAGE@"
+
+#endif // PERM_GROUP_CONFIG_HPP

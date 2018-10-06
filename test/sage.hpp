@@ -1,14 +1,14 @@
 #ifndef PERM_GROUP_TEST_SAGE_HPP
 #define PERM_GROUP_TEST_SAGE_HPP
 
-#include <perm_group/Config.h>
+#include <perm_group/config.hpp>
 #include <perm_group/permutation/permutation.hpp>
 
 #include <boost/process.hpp>
 #include <boost/process/extend.hpp>
 
 #ifndef PERM_GROUP_SAGE
-#error "Can not compile test without a path to sage. Reconfigure with --enable-test-checks."
+#error "Can not compile test without a path to sage. Reconfigure with -DBUILD_TESTING=ON"
 #endif
 
 namespace bp = boost::process;
