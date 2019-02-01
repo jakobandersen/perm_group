@@ -37,11 +37,11 @@ struct Permutation {
 	using value_type = typename permutation_traits<Perm>::value_type;
 
 	BOOST_CONCEPT_USAGE(Permutation) {
-		const Perm &pConst = p;
+		const Perm &pConst = *p;
 		i = perm_group::get(pConst, i);
 	}
 private:
-	Perm p;
+	Perm *p;
 	value_type i;
 };
 

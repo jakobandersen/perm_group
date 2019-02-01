@@ -60,7 +60,7 @@ public:
 	: stabilizer_chain(fixed, alloc, BasePointProvider()) { }
 
 	stabilizer_chain(std::size_t fixed, const allocator &alloc, BasePointProvider bpp)
-	: stab(fixed, alloc, DupCheckerIsMember(this)), bpp(bpp) { }
+	: bpp(bpp), stab(fixed, alloc, DupCheckerIsMember(this)) { }
 
 	stabilizer_chain(stabilizer_chain &&other) : stabilizer_chain(other.fixed_element(), other.get_allocator(), other.bpp) {
 		using std::swap;

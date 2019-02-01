@@ -17,6 +17,7 @@ struct Test {
 		std::size_t n = 42;
 		Perm p = pg::make_perm<Perm>(n);
 		Perm id = pg::make_identity_perm<Perm>(n);
+		(void) id;
 		test(p, std::integral_constant<bool, SizeAware > ());
 	}
 private:

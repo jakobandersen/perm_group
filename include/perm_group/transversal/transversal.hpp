@@ -19,14 +19,15 @@ struct TransversalConcept {
 	using value_type = typename perm::value_type;
 
 	BOOST_CONCEPT_USAGE(TransversalConcept) {
-		allocator alloc = cTrans.get_allocator();
+		allocator alloc = cTrans->get_allocator();
 		(void) alloc;
-		const orbit_type &o = cTrans.orbit();
-		value_type u = cTrans.get_root();
+		const orbit_type &o = cTrans->orbit();
+		(void) o;
+		value_type u = cTrans->get_root();
 		(void) u;
 	}
 private:
-	const Trans cTrans;
+	const Trans *cTrans;
 };
 // TransversalConcept
 // orbit(t)

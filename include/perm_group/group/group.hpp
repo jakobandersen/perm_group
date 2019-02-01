@@ -47,10 +47,10 @@ struct Group {
 	BOOST_CONCEPT_USAGE(Group) {
 		using std::begin;
 		using std::end;
-		std::size_t n = cGroup.degree();
+		std::size_t n = cGroup->degree();
 		(void) n;
 		{
-			auto gs = cGroup.generators();
+			auto gs = cGroup->generators();
 			using iterator = typename decltype(gs)::iterator;
 			iterator first = begin(gs);
 			iterator last = end(gs);
@@ -59,7 +59,7 @@ struct Group {
 			(void) p;
 		}
 		{
-			auto gs = cGroup.generator_ptrs();
+			auto gs = cGroup->generator_ptrs();
 			using iterator = typename decltype(gs)::iterator;
 			iterator first = begin(gs);
 			iterator last = end(gs);
@@ -67,11 +67,11 @@ struct Group {
 			(void) last;
 			(void) ptr;
 		}
-		allocator alloc = cGroup.get_allocator();
+		allocator alloc = cGroup->get_allocator();
 		(void) alloc;
 	}
 private:
-	const GroupT cGroup;
+	const GroupT *cGroup;
 };
 
 // rst:
@@ -136,7 +136,7 @@ public:
 
 	BOOST_CONCEPT_USAGE(Stabilizer) {
 		// the element that is fixed in the stabilizer
-		std::size_t fixed = cGroup.fixed_element();
+		std::size_t fixed = cGroup->fixed_element();
 		(void) fixed;
 		// Tell the stabilizer about a permutation in the parent group.
 		// It will then potentially add permutations to it self.
@@ -147,7 +147,7 @@ public:
 	}
 private:
 	GroupT group;
-	const GroupT cGroup;
+	const GroupT *cGroup;
 };
 
 struct DupCheckerNop {

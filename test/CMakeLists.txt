@@ -15,6 +15,11 @@ foreach(testName ${perm_group_TEST_FILES})
             Threads::Threads)
     target_compile_options(${testName} PRIVATE ${sanFlags})
     target_link_libraries(${testName} PRIVATE ${sanFlags})
+    target_compile_options(${testName} PRIVATE -Wall -Wextra -Werror -std=c++14 -pedantic -g -UNDEBUG
+            -Wno-unused-parameter
+            -Wno-comment
+            -Wno-sign-compare
+            -Wno-unused-local-typedefs)
     target_add_coverage(${testName})
     add_test(${testName} ${testName})
     add_coverage_case(${testName})

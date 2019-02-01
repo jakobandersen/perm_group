@@ -20,9 +20,10 @@ set(CMAKE_SHARED_LINKER_FLAGS_OPTDEBUG "")
 mark_as_advanced(CMAKE_CXX_FLAGS_OPTDEBUG CMAKE_C_FLAGS_OPTDEBUG CMAKE_EXE_LINKER_FLAGS_OPTDEBUG CMAKE_SHARED_LINKER_FLAGS_OPTDEBUG)
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING
-            "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel."
+            "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel OptDebug."
             FORCE)
 endif()
+
 
 
 ###########################################################################
@@ -110,6 +111,11 @@ target_include_directories(perm_group
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
             ${Boost_INCLUDE_DIR}) # we only use header-only libs from Boost, right?
+target_compile_options(perm_group PRIVATE -Wall -Wextra
+        -Wno-unused-parameter
+        -Wno-comment
+        -Wno-sign-compare
+        -Wno-unused-local-typedefs)
 
 target_add_coverage(perm_group)
 
