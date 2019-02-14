@@ -1,0 +1,58 @@
+kind: pipeline
+name: default
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBOOST_ROOT=/opt/boost_1_64_0
+  - make
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+- name: coverage
+  image: localhost:5000/jla/perm_group
+  environment:
+    CTEST_OUTPUT_ON_FAILURE: 1
+  commands:
+  - mkdir covBuild
+  - cd covBuild
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_COVERAGE=on -DBOOST_ROOT=/opt/boost_1_64_0
+  - make
+  - make tests
+  - make coverage_collect
+  - make coverage_build
+  - /copyCoverage.sh
+  volumes:
+  - name: www
+    path: /www
+
+volumes:
+- name: www
+  host:
+    path: /www/results/perm_group
