@@ -4,7 +4,7 @@ endif()
 
 add_custom_target(tests DEPENDS ${perm_group_TEST_FILES})
 
-set(sanFlags -g -fsanitize=undefined -fsanitize=address -fsanitize=leak)
+set(sanFlags -fsanitize=undefined -fsanitize=address -fsanitize=leak)
 foreach(testName ${perm_group_TEST_FILES})
     add_executable(${testName} EXCLUDE_FROM_ALL ${testName}.cpp)
     target_link_libraries(${testName}
@@ -13,8 +13,10 @@ foreach(testName ${perm_group_TEST_FILES})
             Boost::program_options
             Boost::system
             Threads::Threads)
-    target_compile_options(${testName} PRIVATE ${sanFlags})
-    target_link_libraries(${testName} PRIVATE ${sanFlags})
+    if(BUILD_TESTING_SANITIZERS AND NOT BUILD_COVERAGE)
+        target_compile_options(${testName} PRIVATE ${sanFlags})
+        target_link_libraries(${testName} PRIVATE ${sanFlags})
+    endif()
     target_compile_options(${testName} PRIVATE -Wall -Wextra -Werror -std=c++14 -pedantic -g -UNDEBUG
             -Wno-unused-parameter
             -Wno-comment

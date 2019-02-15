@@ -13,7 +13,7 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBOOST_ROOT=/opt/boost_1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost_1_64_0
   - make
 
 - name: install

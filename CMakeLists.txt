@@ -31,6 +31,7 @@ endif()
 ###########################################################################
 option(BUILD_DOC "Enable documentation building." ON)
 option(BUILD_TESTING "Enable test building." OFF)
+option(BUILD_TESTING_SANITIZERS "Compile tests with sanitizers." ON)
 option(BUILD_COVERAGE "Enable code coverage." OFF)
 enable_testing()  # should be included here to add the targets in the top-level folder
 
