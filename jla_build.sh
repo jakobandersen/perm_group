@@ -33,6 +33,7 @@ while true; do
 done
 
 args="-DCMAKE_BUILD_TYPE=$type"
+args+=" -DBUILD_TESTING=on"
 args+=" -DBOOST_ROOT=$HOME/programs"
 args+=" -DCMAKE_INSTALL_PREFIX=$prefix $@"
 

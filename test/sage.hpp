@@ -16,25 +16,22 @@ namespace bp = boost::process;
 namespace perm_group {
 
 struct Sage {
-
 	struct ChildOnExecHandler : bp::extend::handler {
-
-		ChildOnExecHandler(Sage &sage) : sage(sage) { }
+		ChildOnExecHandler(Sage &sage) : sage(sage) {}
 
 		template<typename Executor>
-		void on_exec_error(Executor&, const std::error_code&) const {
+		void on_exec_error(Executor &, const std::error_code &) const {
 			::close(sage.stdin.pipe().native_sink());
 		}
 	private:
 		Sage &sage;
 	};
 public:
-
 	Sage(std::size_t verbose) : verbose(verbose),
-	child(PERM_GROUP_SAGE, "-python",
-	bp::std_in < stdin/*, bp::std_out > stdout*/,
-	ChildOnExecHandler(*this)
-	) {
+								child(PERM_GROUP_SAGE, "-python",
+									  bp::std_in < stdin/*, bp::std_out > stdout*/,
+									  ChildOnExecHandler(*this)
+								) {
 		stdin << "from sage.all import *\n";
 	}
 
@@ -46,11 +43,8 @@ public:
 			throw std::runtime_error("Non-zero exit code from Sage: " + std::to_string(child.exit_code()));
 	}
 public:
-
 	struct Printer {
-
-		Printer(std::size_t verbose, bp::opstream &s, std::size_t &lineNo) : verbose(verbose), s(s), lineNo(lineNo) { }
-
+		Printer(std::size_t verbose, bp::opstream &s, std::size_t &lineNo) : verbose(verbose), s(s), lineNo(lineNo) {}
 		Printer(Printer &&p) : enabled(p.enabled), verbose(p.verbose), s(p.s), ss(std::move(p.ss)), lineNo(p.lineNo) {
 			p.enabled = false;
 		}
@@ -142,22 +136,22 @@ public:
 		s << "\tassert False\n";
 	}
 
-	void checkSubgroup(const std::string &gSub, const std::string &gSuper, const std::string &onError = "lambda x,y: None") {
+	void
+	checkSubgroup(const std::string &gSub, const std::string &gSuper, const std::string &onError = "lambda x,y: None") {
 		if(checkSubgroupFirst) {
 			checkSubgroupFirst = false;
 			Printer s = print();
 			s << "def checkSubgroup(sub, super, onError):\n"
-					<< "\tif not sub.is_subgroup(super):\n"
-					<< "\t\tonError(sub, super)\n"
-					<< "\t\tprint('Subgroup:   %s' % str(sub))\n"
-					<< "\t\tprint('Supergroup: %s' % str(super))\n"
-					<< "\t\tassert False\n";
+			  << "\tif not sub.is_subgroup(super):\n"
+			  << "\t\tonError(sub, super)\n"
+			  << "\t\tprint('Subgroup:   %s' % str(sub))\n"
+			  << "\t\tprint('Supergroup: %s' % str(super))\n"
+			  << "\t\tassert False\n";
 		}
 		Printer s = print();
 		s << "checkSubgroup(" << gSub << ", " << gSuper << ", " << onError << ")\n";
 	}
 public:
-
 	template<typename GenPtrIter>
 	void loadGroup(GenPtrIter first, GenPtrIter last, std::size_t degree, const std::string &var) {
 		// typedefs to trigger erroneous types
@@ -166,8 +160,17 @@ public:
 
 		Printer s = print();
 		s << var << " = PermutationGroup([\n";
-		for(; first != last; ++first)
-			s << "\t" << perm(**first, degree) << ",\n";
+		std::vector<std::string> perms;
+		perms.reserve(last - first);
+		for(; first != last; ++first) {
+			std::string next = boost::lexical_cast<std::string>(perm(**first, degree));
+			perms.push_back(next);
+		}
+		std::sort(begin(perms), end(perms));
+		const auto lastNew = std::unique(begin(perms), end(perms));
+		perms.erase(lastNew, end(perms));
+		for(const auto &p : perms)
+			s << "\t" << p << ",\n";
 		s << "], domain=[";
 		for(auto i = 0; i < degree; ++i) s << i << ", ";
 		s << "])\n";
@@ -185,7 +188,6 @@ public:
 		});
 	}
 private:
-
 	template<typename F>
 	void writeStdin(F f) {
 		std::stringstream s;
@@ -194,12 +196,9 @@ private:
 		stdin << s.rdbuf();
 	}
 public:
-
 	template<typename Perm>
 	struct PermStreamer {
-
-		PermStreamer(const Perm &p, std::size_t degree) : p(p), degree(degree) { }
-
+		PermStreamer(const Perm &p, std::size_t degree) : p(p), degree(degree) {}
 		friend std::ostream &operator<<(std::ostream &s, const PermStreamer &ps) {
 			s << "[" << perm_group::get(ps.p, 0);
 			for(auto i = 1; i < ps.degree; ++i)
