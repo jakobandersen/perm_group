@@ -5,6 +5,9 @@ Develop
 ========================
 
 - #1: Add missing license (GPL).
+- Change to CMake as build system.
+  See :ref:`installation` for how to build the package,
+  or use it as a submodule in another CMake project.
 
 
 Release 0.3 (2018-09-04)
