@@ -1,8 +1,8 @@
 Changes
 ########################
 
-Develop
-========================
+v0.4 (2019-05-27)
+=================
 
 - #1: Add missing license (GPL).
 - Change to CMake as build system.
@@ -10,16 +10,16 @@ Develop
   or use it as a submodule in another CMake project.
 
 
-Release 0.3 (2018-09-04)
-========================
+v0.3 (2018-09-04)
+=================
 
 - More interface changes and documentation improvements
 - Experimental support for accurate stabilizer computation
   using Schreier-Sims-based methods.
 
 
-Release 0.2 (2018-02-05)
-========================
+v0.2 (2018-02-05)
+=================
 
 - Now with some documentation.
 - Requires Boost 1.64 (instead of 1.62).
@@ -27,7 +27,7 @@ Release 0.2 (2018-02-05)
 - Lots of interface changes.
 
 
-Release 0.1 (2017-08-16)
-========================
+v0.1 (2017-08-16)
+=================
 
 Initial version.
