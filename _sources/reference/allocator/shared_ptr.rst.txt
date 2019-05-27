@@ -1,0 +1,38 @@
+.. _cpp-allocator/shared_ptr:
+
+**********************************************************
+shared_ptr.hpp
+**********************************************************
+
+Full path: allocator/shared_ptr.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Perm> \
+           shared_ptr_allocator
+
+    An `Allocator` using reference-counting to guarantee no memory leaks,
+    even when `release` is not used correctly.
+
+    .. type:: perm = Perm
+    .. type:: pointer = std::shared_ptr<perm>
+    .. type:: const_pointer = std::shared_ptr<const perm>
+    .. function:: explicit shared_ptr_allocator(std::size_t n)
+
+        Construct an allocator that allocates permutations of degree `n`.
+    .. function:: std::size_t degree() const
+    .. function:: pointer make()
+
+        :returns: `std::make_shared<perm>(perm_group::make_perm<perm>(degree()))`
+    .. function:: pointer make_identity()
+
+        :returns: `std::make_shared<perm>(perm_group::make_identity_perm<perm>(degree()))`
+    .. function:: template<typename UPerm> pointer copy(UPerm &&p)
+
+        :returns: `std::make_shared<perm>(perm_group::copy_perm<perm>(std::forward<UPerm>(p)))`
+    .. function:: void release(const_pointer p)
+
+        Does nothing, though at this stage `p` should be the sole reference to the permutation.

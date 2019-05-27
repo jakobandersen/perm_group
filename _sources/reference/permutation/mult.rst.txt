@@ -1,0 +1,17 @@
+.. _cpp-permutation/mult:
+
+**********************************************************
+mult.hpp
+**********************************************************
+
+Full path: permutation/mult.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. function:: template<typename PermL, typename PermR> \
+              mult_expr<PermL, PermR> mult(PermL &&left, PermR &&right)
+
+    :returns: an expression template that acts as `Permutation`.

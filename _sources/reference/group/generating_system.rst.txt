@@ -1,0 +1,13 @@
+.. _cpp-group/generating_system:
+
+**********************************************************
+generating_system.hpp
+**********************************************************
+
+Full path: group/generating_system.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+

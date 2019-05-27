@@ -1,0 +1,36 @@
+################################################
+PermGroup
+################################################
+
+.. toctree::
+    :maxdepth: 1
+    :numbered:
+    
+    installation
+    changes
+    reference/index
+
+
+.. _overview:
+
+Overview
+========
+
+This is the documentation for the PermGroup library,
+a library for working efficiently with permutation groups.
+
+
+Indices and Tables
+==================
+
+* :ref:`genindex`
+
+Table of Contents
+=================
+
+.. toctree::
+    :maxdepth: 4
+    
+    installation
+    changes
+    reference/index

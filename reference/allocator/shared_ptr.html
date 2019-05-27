@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>3.1.4. shared_ptr.hpp &#8212; PermGroup 0.4 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2. group" href="../group/index.html" />
+    <link rel="prev" title="3.1.3. raw_ptr.hpp" href="raw_ptr.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../group/index.html" title="3.2. group"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="raw_ptr.html" title="3.1.3. raw_ptr.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">3.1. allocator</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="shared-ptr-hpp">
+<span id="cpp-allocator-shared-ptr"></span><h1>3.1.4. shared_ptr.hpp<a class="headerlink" href="#shared-ptr-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: allocator/shared_ptr.hpp</p>
+<dl class="class">
+<dt id="_CPPv4I0EN10perm_group20shared_ptr_allocatorE">
+<span id="_CPPv3I0EN10perm_group20shared_ptr_allocatorE"></span><span id="_CPPv2I0EN10perm_group20shared_ptr_allocatorE"></span>template&lt;typename <code class="descname">Perm</code>&gt;<br /><em class="property">class </em><code class="descname">shared_ptr_allocator</code><a class="headerlink" href="#_CPPv4I0EN10perm_group20shared_ptr_allocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="allocator.html#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator"><span class="pre">Allocator</span></a></code> using reference-counting to guarantee no memory leaks,
+even when <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator7releaseE13const_pointer" title="perm_group::shared_ptr_allocator::release"><span class="pre">release</span></a></code> is not used correctly.</p>
+<dl class="type">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator4permE">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator4permE"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator4permE"></span><em class="property">using </em><code class="descname">perm</code> = <a class="reference internal" href="#_CPPv4I0EN10perm_group20shared_ptr_allocatorE" title="perm_group::shared_ptr_allocator::Perm">Perm</a><a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator7pointerE">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator7pointerE"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator7pointerE"></span><em class="property">using </em><code class="descname">pointer</code> = std::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm">perm</a>&gt;<a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator7pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator13const_pointerE">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator13const_pointerE"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator13const_pointerE"></span><em class="property">using </em><code class="descname">const_pointer</code> = std::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm">perm</a>&gt;<a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator13const_pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator20shared_ptr_allocatorENSt6size_tE">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator20shared_ptr_allocatorENSt6size_tE"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator20shared_ptr_allocatorENSt6size_tE"></span><span id="perm_group::shared_ptr_allocator::shared_ptr_allocator__std::s"></span><em class="property">explicit</em> <code class="descname">shared_ptr_allocator</code><span class="sig-paren">(</span>std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator20shared_ptr_allocatorENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct an allocator that allocates permutations of degree <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator20shared_ptr_allocatorENSt6size_tE" title="perm_group::shared_ptr_allocator::shared_ptr_allocator::n"><span class="pre">n</span></a></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10perm_group20shared_ptr_allocator6degreeEv">
+<span id="_CPPv3NK10perm_group20shared_ptr_allocator6degreeEv"></span><span id="_CPPv2NK10perm_group20shared_ptr_allocator6degreeEv"></span><span id="perm_group::shared_ptr_allocator::degreeC"></span>std::size_t <code class="descname">degree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group20shared_ptr_allocator6degreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator4makeEv">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator4makeEv"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator4makeEv"></span><span id="perm_group::shared_ptr_allocator::make"></span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator7pointerE" title="perm_group::shared_ptr_allocator::pointer">pointer</a> <code class="descname">make</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator4makeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">make_shared</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="../permutation/interface.html#_CPPv4I0EN10perm_group9make_permE4PermNSt6size_tE" title="perm_group::make_perm"><span class="pre">make_perm</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4NK10perm_group20shared_ptr_allocator6degreeEv" title="perm_group::shared_ptr_allocator::degree"><span class="pre">degree</span></a><span class="pre">(</span><span class="pre">)</span><span class="pre">)</span><span class="pre">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator13make_identityEv">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator13make_identityEv"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator13make_identityEv"></span><span id="perm_group::shared_ptr_allocator::make_identity"></span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator7pointerE" title="perm_group::shared_ptr_allocator::pointer">pointer</a> <code class="descname">make_identity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator13make_identityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">make_shared</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="../permutation/interface.html#_CPPv4I0EN10perm_group18make_identity_permE4PermNSt6size_tE" title="perm_group::make_identity_perm"><span class="pre">make_identity_perm</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4NK10perm_group20shared_ptr_allocator6degreeEv" title="perm_group::shared_ptr_allocator::degree"><span class="pre">degree</span></a><span class="pre">(</span><span class="pre">)</span><span class="pre">)</span><span class="pre">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN10perm_group20shared_ptr_allocator4copyE7pointerRR5UPerm">
+<span id="_CPPv3I0EN10perm_group20shared_ptr_allocator4copyERR5UPerm"></span><span id="_CPPv2I0EN10perm_group20shared_ptr_allocator4copyERR5UPerm"></span>template&lt;typename <code class="descname">UPerm</code>&gt;<br /><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator7pointerE" title="perm_group::shared_ptr_allocator::pointer">pointer</a> <code class="descname">copy</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN10perm_group20shared_ptr_allocator4copyE7pointerRR5UPerm" title="perm_group::shared_ptr_allocator::copy::UPerm">UPerm</a> &amp;&amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10perm_group20shared_ptr_allocator4copyE7pointerRR5UPerm" title="Permalink to this definition">¶</a><br /></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">make_shared</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="../permutation/interface.html#_CPPv4I00EN10perm_group9copy_permE4PermNSt6size_tERR7SrcPerm" title="perm_group::copy_perm"><span class="pre">copy_perm</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator4permE" title="perm_group::shared_ptr_allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span><span class="pre">(</span><span class="pre">std</span><span class="pre">::</span><span class="pre">forward</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN10perm_group20shared_ptr_allocator4copyE7pointerRR5UPerm" title="perm_group::shared_ptr_allocator::copy::UPerm"><span class="pre">UPerm</span></a><span class="pre">&gt;</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4I0EN10perm_group20shared_ptr_allocator4copyE7pointerRR5UPerm" title="perm_group::shared_ptr_allocator::copy::p"><span class="pre">p</span></a><span class="pre">)</span><span class="pre">)</span><span class="pre">)</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10perm_group20shared_ptr_allocator7releaseE13const_pointer">
+<span id="_CPPv3N10perm_group20shared_ptr_allocator7releaseE13const_pointer"></span><span id="_CPPv2N10perm_group20shared_ptr_allocator7releaseE13const_pointer"></span><span id="perm_group::shared_ptr_allocator::release__const_pointer"></span>void <code class="descname">release</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator13const_pointerE" title="perm_group::shared_ptr_allocator::const_pointer">const_pointer</a> <em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group20shared_ptr_allocator7releaseE13const_pointer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Does nothing, though at this stage <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group20shared_ptr_allocator7releaseE13const_pointer" title="perm_group::shared_ptr_allocator::release::p"><span class="pre">p</span></a></code> should be the sole reference to the permutation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="raw_ptr.html"
+                        title="previous chapter">3.1.3. raw_ptr.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../group/index.html"
+                        title="next chapter">3.2. group</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/allocator/shared_ptr.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../group/index.html" title="3.2. group"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="raw_ptr.html" title="3.1.3. raw_ptr.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >3. Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >3.1. allocator</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.0+/dc26aaa.
+    </div>
+  </body>
+</html>
