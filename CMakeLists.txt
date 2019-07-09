@@ -116,7 +116,9 @@ target_compile_options(perm_group PRIVATE -Wall -Wextra
         -Wno-unused-parameter
         -Wno-comment
         -Wno-sign-compare
-        -Wno-unused-local-typedefs)
+        -Wno-unused-local-typedefs
+        -Wno-parentheses
+        $<$<CXX_COMPILER_ID:GNU>:-Wno-deprecated-copy>)
 
 target_add_coverage(perm_group)
 

@@ -17,7 +17,7 @@ foreach(testName ${perm_group_TEST_FILES})
         target_compile_options(${testName} PRIVATE ${sanFlags})
         target_link_libraries(${testName} PRIVATE ${sanFlags})
     endif()
-    target_compile_options(${testName} PRIVATE -Wall -Wextra -Werror -std=c++14 -pedantic -g -UNDEBUG
+    target_compile_options(${testName} PRIVATE -Wall -Wextra -std=c++14 -pedantic -g -UNDEBUG
             -Wno-unused-parameter
             -Wno-comment
             -Wno-sign-compare
