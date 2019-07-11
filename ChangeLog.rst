@@ -1,6 +1,15 @@
 Changes
 ########################
 
+Develop
+=======
+
+Other
+-----
+
+- Explicitly export symbols from the library and hide all other.
+
+
 v0.4 (2019-05-27)
 =================
 

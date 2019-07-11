@@ -119,6 +119,10 @@ target_compile_options(perm_group PRIVATE -Wall -Wextra
         -Wno-unused-local-typedefs
         -Wno-parentheses
         $<$<CXX_COMPILER_ID:GNU>:-Wno-deprecated-copy>)
+set_target_properties(perm_group PROPERTIES
+        CXX_VISIBILITY_PRESET hidden
+        VISIBILITY_INLINES_HIDDEN ON)
+target_compile_definitions(perm_group PRIVATE PERM_GROUP_SOURCE)
 
 target_add_coverage(perm_group)
 
