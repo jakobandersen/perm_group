@@ -1,168 +1,5 @@
 ---
 kind: pipeline
-name: g++-7, Boost 1_64_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
-  - make
-  environment:
-    CXX: g++-7
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
-- name: coverage
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir covBuild
-  - cd covBuild
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_COVERAGE=on -DBOOST_ROOT=/opt/boost/1_64_0
-  - make
-  - make install
-  - make tests
-  - make coverage_collect
-  - make coverage_build
-  - /copyCoverage.sh
-  environment:
-    CTEST_OUTPUT_ON_FAILURE: 1
-    CXX: g++-7
-    CXXFLAGS: -Werror
-  volumes:
-  - name: www
-    path: /www
-
-volumes:
-- name: www
-  host:
-    path: /www/results/perm_group
-
----
-kind: pipeline
-name: g++-7, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: g++-7
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-7, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: g++-7
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
 name: g++-7, Boost 1_67_0
 
 platform:
@@ -485,7 +322,7 @@ steps:
 
 ---
 kind: pipeline
-name: g++-8, Boost 1_64_0
+name: g++-7, Boost 1_74_0
 
 platform:
   os: linux
@@ -504,102 +341,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: g++-8
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-8, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: g++-8
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-8, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: g++-8
+    CXX: g++-7
     CXXFLAGS: -Werror
 
 - name: install
@@ -945,7 +690,7 @@ steps:
 
 ---
 kind: pipeline
-name: g++-9, Boost 1_64_0
+name: g++-8, Boost 1_74_0
 
 platform:
   os: linux
@@ -964,102 +709,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: g++-9
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-9, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: g++-9
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-9, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: g++-9
+    CXX: g++-8
     CXXFLAGS: -Werror
 
 - name: install
@@ -1405,7 +1058,7 @@ steps:
 
 ---
 kind: pipeline
-name: g++-10, Boost 1_64_0
+name: g++-9, Boost 1_74_0
 
 platform:
   os: linux
@@ -1424,10 +1077,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: g++-10
+    CXX: g++-9
     CXXFLAGS: -Werror
 
 - name: install
@@ -1449,97 +1102,30 @@ steps:
   - make install
   - ctest --output-on-failure
 
----
-kind: pipeline
-name: g++-10, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
+- name: coverage
   image: localhost:5000/jla/perm_group
   commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
+  - mkdir covBuild
+  - cd covBuild
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_COVERAGE=on -DBOOST_ROOT=/opt/boost/1_74_0
   - make
-  environment:
-    CXX: g++-10
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
   - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
   - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: g++-10, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
+  - make coverage_collect
+  - make coverage_build
+  - /copyCoverage.sh
   environment:
-    CXX: g++-10
+    CTEST_OUTPUT_ON_FAILURE: 1
+    CXX: g++-9
     CXXFLAGS: -Werror
+  volumes:
+  - name: www
+    path: /www
 
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
+volumes:
+- name: www
+  host:
+    path: /www/results/perm_group
 
 ---
 kind: pipeline
@@ -1865,7 +1451,7 @@ steps:
 
 ---
 kind: pipeline
-name: clang++-6.0, Boost 1_64_0
+name: g++-10, Boost 1_74_0
 
 platform:
   os: linux
@@ -1884,102 +1470,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: clang++-6.0
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-6.0, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: clang++-6.0
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-6.0, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: clang++-6.0
+    CXX: g++-10
     CXXFLAGS: -Werror
 
 - name: install
@@ -2325,7 +1819,7 @@ steps:
 
 ---
 kind: pipeline
-name: clang++-7, Boost 1_64_0
+name: clang++-6.0, Boost 1_74_0
 
 platform:
   os: linux
@@ -2344,102 +1838,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: clang++-7
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-7, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: clang++-7
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-7, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: clang++-7
+    CXX: clang++-6.0
     CXXFLAGS: -Werror
 
 - name: install
@@ -2785,7 +2187,7 @@ steps:
 
 ---
 kind: pipeline
-name: clang++-8, Boost 1_64_0
+name: clang++-7, Boost 1_74_0
 
 platform:
   os: linux
@@ -2804,102 +2206,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: clang++-8
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-8, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: clang++-8
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-8, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: clang++-8
+    CXX: clang++-7
     CXXFLAGS: -Werror
 
 - name: install
@@ -3245,7 +2555,7 @@ steps:
 
 ---
 kind: pipeline
-name: clang++-9, Boost 1_64_0
+name: clang++-8, Boost 1_74_0
 
 platform:
   os: linux
@@ -3264,102 +2574,10 @@ steps:
   commands:
   - mkdir build
   - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_64_0
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
   - make
   environment:
-    CXX: clang++-9
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-9, Boost 1_65_1
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_65_1
-  - make
-  environment:
-    CXX: clang++-9
-    CXXFLAGS: -Werror
-
-- name: install
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-
-- name: build-test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make tests
-
-- name: test
-  image: localhost:5000/jla/perm_group
-  commands:
-  - cd build
-  - make install
-  - ctest --output-on-failure
-
----
-kind: pipeline
-name: clang++-9, Boost 1_66_0
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: bootstrap
-  image: localhost:5000/jla/perm_group
-  commands:
-  - git fetch --tags
-  - git submodule update --init --recursive
-  - ./bootstrap.sh
-
-- name: build
-  image: localhost:5000/jla/perm_group
-  commands:
-  - mkdir build
-  - cd build
-  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_66_0
-  - make
-  environment:
-    CXX: clang++-9
+    CXX: clang++-8
     CXXFLAGS: -Werror
 
 - name: install
@@ -3682,6 +2900,420 @@ steps:
   - make
   environment:
     CXX: clang++-9
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-9, Boost 1_74_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
+  - make
+  environment:
+    CXX: clang++-9
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_67_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_67_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_68_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_68_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_69_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_69_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_70_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_70_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_71_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_71_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_72_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_72_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_73_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_73_0
+  - make
+  environment:
+    CXX: clang++-10
+    CXXFLAGS: -Werror
+
+- name: install
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+
+- name: build-test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make tests
+
+- name: test
+  image: localhost:5000/jla/perm_group
+  commands:
+  - cd build
+  - make install
+  - ctest --output-on-failure
+
+---
+kind: pipeline
+name: clang++-10, Boost 1_74_0
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: bootstrap
+  image: localhost:5000/jla/perm_group
+  commands:
+  - git fetch --tags
+  - git submodule update --init --recursive
+  - ./bootstrap.sh
+
+- name: build
+  image: localhost:5000/jla/perm_group
+  commands:
+  - mkdir build
+  - cd build
+  - cmake ../ -DBUILD_TESTING=on -DBUILD_TESTING_SANITIZERS=off -DBOOST_ROOT=/opt/boost/1_74_0
+  - make
+  environment:
+    CXX: clang++-10
     CXXFLAGS: -Werror
 
 - name: install
