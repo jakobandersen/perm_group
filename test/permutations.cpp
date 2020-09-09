@@ -2,7 +2,9 @@
 #include <perm_group/permutation/built_in.hpp>
 #include <perm_group/permutation/io.hpp>
 
-#include <boost/test/minimal.hpp>
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MAIN
+#include <boost/test/unit_test.hpp>
 
 namespace pg = perm_group;
 
@@ -64,9 +66,8 @@ private:
 	}
 };
 
-int test_main(int argc, char **argv) {
+BOOST_AUTO_TEST_CASE(test_main) {
 	Test<std::vector<value_type>, const std::vector<value_type>, true > ();
 	Test<pg::array_permutation<value_type>, const pg::array_permutation<value_type>, false>();
 	Test<std::array<value_type, 42>, const std::array<value_type, 42>, true>();
-	return 0;
 }

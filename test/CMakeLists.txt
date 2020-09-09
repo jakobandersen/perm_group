@@ -12,6 +12,7 @@ foreach(testName ${perm_group_TEST_FILES})
             perm_group
             Boost::program_options
             Boost::system
+            Boost::unit_test_framework
             Threads::Threads)
     if(BUILD_TESTING_SANITIZERS AND NOT BUILD_COVERAGE)
         target_compile_options(${testName} PRIVATE ${sanFlags})
