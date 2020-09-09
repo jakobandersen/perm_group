@@ -46,7 +46,10 @@ endif()
 ###########################################################################
 # Individual checks
 ###########################################################################
-set(CMAKE_CXX_STANDARD 14)
+if(NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
 
 set(perm_group_config_dependencies "")
 set(perm_group_config_find_files "")
