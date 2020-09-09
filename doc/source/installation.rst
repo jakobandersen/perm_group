@@ -72,8 +72,8 @@ Dependencies
 
 - This documentation requires a supported version of `Sphinx <http://sphinx-doc.org>`__
   (``-DBUILD_DOC=on``).
-- A C++ compiler with reasonable C++14 support is needed. GCC 5.1 or later should work.
-- `Boost <http://boost.org>`__ dev >= 1.64
+- A C++ compiler with reasonable C++14 support is needed.
+- `Boost <http://boost.org>`__ dev >= 1.67
   (use ``-DBOOST_ROOT=<path>`` for non-standard locations).
 - Running tests requires `Sage <http://www.sagemath.org/>`__ (``-DBUILD_TESTING=on``).
 - Running tests with code coverage requires GCov, i.e.,
