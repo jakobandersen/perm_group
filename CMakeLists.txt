@@ -184,15 +184,6 @@ install(DIRECTORY ${exportDir}
         COMPONENT PermGroup_dev)
 
 
-# pkg-config file
-# -------------------------------------------------------------------------
-set(exportDir ${CMAKE_CURRENT_BINARY_DIR}/lib/pkgconfig)
-configure_file(lib/pkgconfig/perm-group.pc.in ${exportDir}/perm-group.pc @ONLY)
-install(FILES ${exportDir}/perm-group.pc
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
-        COMPONENT PermGroup_dev)
-
-
 # Packaging
 # -------------------------------------------------------------------------
 string(TOUPPER ${PROJECT_NAME} PNAME_UPPER)

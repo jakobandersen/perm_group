@@ -6,6 +6,8 @@ Develop
 
 - Requires Boost 1.67 (instead of 1.64).
 - Explicitly export symbols from the library and hide all other.
+- Fix CMake project export.
+- Remove pkg-config file.
 
 
 v0.4 (2019-05-27)
