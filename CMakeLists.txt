@@ -48,6 +48,9 @@ endif()
 ###########################################################################
 set(CMAKE_CXX_STANDARD 14)
 
+set(perm_group_config_dependencies "")
+set(perm_group_config_find_files "")
+
 
 # Boost
 # -------------------------------------------------------------------------
@@ -57,6 +60,10 @@ if(BUILD_TESTING)
 else()
     find_package(Boost ${v} REQUIRED)
 endif()
+message(STATUS "(Boost include dir is ${Boost_INCLUDE_DIRS})")
+string(APPEND perm_group_config_dependencies "set(BOOST_FOUND 0)\n") # TODO: remove when CMake 3.15 is required https://gitlab.kitware.com/cmake/cmake/issues/18590
+string(APPEND perm_group_config_dependencies "find_dependency(Boost ${v})\n")
+list(APPEND perm_group_config_find_files "FindBoost.cmake")
 
 
 # Sage
@@ -111,7 +118,7 @@ target_include_directories(perm_group
             $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
-            ${Boost_INCLUDE_DIR}) # we only use header-only libs from Boost, right?
+        )
 target_compile_options(perm_group PRIVATE -Wall -Wextra
         -Wno-unused-parameter
         -Wno-comment
@@ -160,6 +167,10 @@ add_subdirectory(test)
 include(CMakePackageConfigHelpers)
 # due to the stupid restrictive version formatting we change it
 set(exportDir ${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME})
+configure_file(PermGroupConfig.cmake ${exportDir}/PermGroupConfig.cmake @ONLY)
+foreach(f ${perm_group_config_find_files})
+    configure_file(${PROJECT_SOURCE_DIR}/cmake/${f} ${exportDir}/${f} COPYONLY)
+endforeach()
 write_basic_package_version_file(
         ${exportDir}/${PROJECT_NAME}Config-version.cmake
         VERSION ${PROJECT_VERSION}
@@ -167,7 +178,7 @@ write_basic_package_version_file(
 install(EXPORT PROJECT_exports
         NAMESPACE ${PROJECT_NAME}::
         DESTINATION lib/cmake/${PROJECT_NAME}
-        FILE ${PROJECT_NAME}Config.cmake)
+        FILE ${PROJECT_NAME}Targets.cmake)
 install(DIRECTORY ${exportDir}
         DESTINATION lib/cmake
         COMPONENT PermGroup_dev)
