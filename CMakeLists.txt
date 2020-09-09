@@ -118,7 +118,11 @@ target_compile_options(perm_group PRIVATE -Wall -Wextra
         -Wno-sign-compare
         -Wno-unused-local-typedefs
         -Wno-parentheses
-        $<$<CXX_COMPILER_ID:GNU>:-Wno-deprecated-copy>)
+        # TODO: try to remove these when Boost 1.74 is required,
+        #       due to Boost.Fusion
+        $<$<CXX_COMPILER_ID:GNU>:-Wno-deprecated-copy>
+        $<$<AND:$<CXX_COMPILER_ID:Clang>,$<VERSION_GREATER:$<CXX_COMPILER_VERSION>,10>>:-Wno-deprecated-copy>)
+target_link_libraries(perm_group PUBLIC Boost::boost)
 set_target_properties(perm_group PROPERTIES
         CXX_VISIBILITY_PRESET hidden
         VISIBILITY_INLINES_HIDDEN ON)
