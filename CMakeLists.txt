@@ -51,7 +51,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 # Boost
 # -------------------------------------------------------------------------
-set(v 1.64.0)
+set(v 1.67.0)
 if(BUILD_TESTING)
     find_package(Boost ${v} REQUIRED COMPONENTS program_options unit_test_framework system)
 else()

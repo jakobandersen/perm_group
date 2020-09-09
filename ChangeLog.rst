@@ -4,9 +4,7 @@ Changes
 Develop
 =======
 
-Other
------
-
+- Requires Boost 1.67 (instead of 1.64).
 - Explicitly export symbols from the library and hide all other.
 
 
