@@ -66,7 +66,6 @@ endif()
 message(STATUS "(Boost include dir is ${Boost_INCLUDE_DIRS})")
 string(APPEND perm_group_config_dependencies "set(BOOST_FOUND 0)\n") # TODO: remove when CMake 3.15 is required https://gitlab.kitware.com/cmake/cmake/issues/18590
 string(APPEND perm_group_config_dependencies "find_dependency(Boost ${v})\n")
-list(APPEND perm_group_config_find_files "FindBoost.cmake")
 
 
 # Sage
