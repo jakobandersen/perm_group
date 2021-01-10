@@ -46,17 +46,26 @@ endif()
 ###########################################################################
 # Individual checks
 ###########################################################################
-set(CMAKE_CXX_STANDARD 14)
+if(NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
+
+set(perm_group_config_dependencies "")
+set(perm_group_config_find_files "")
 
 
 # Boost
 # -------------------------------------------------------------------------
-set(v 1.64.0)
+set(v 1.67.0)
 if(BUILD_TESTING)
     find_package(Boost ${v} REQUIRED COMPONENTS program_options unit_test_framework system)
 else()
     find_package(Boost ${v} REQUIRED)
 endif()
+message(STATUS "(Boost include dir is ${Boost_INCLUDE_DIRS})")
+string(APPEND perm_group_config_dependencies "set(BOOST_FOUND 0)\n") # TODO: remove when CMake 3.15 is required https://gitlab.kitware.com/cmake/cmake/issues/18590
+string(APPEND perm_group_config_dependencies "find_dependency(Boost ${v})\n")
 
 
 # Sage
@@ -111,12 +120,22 @@ target_include_directories(perm_group
             $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
-            ${Boost_INCLUDE_DIR}) # we only use header-only libs from Boost, right?
+        )
 target_compile_options(perm_group PRIVATE -Wall -Wextra
         -Wno-unused-parameter
         -Wno-comment
         -Wno-sign-compare
-        -Wno-unused-local-typedefs)
+        -Wno-unused-local-typedefs
+        -Wno-parentheses
+        # TODO: try to remove these when Boost 1.74 is required,
+        #       due to Boost.Fusion
+        $<$<CXX_COMPILER_ID:GNU>:-Wno-deprecated-copy>
+        $<$<AND:$<CXX_COMPILER_ID:Clang>,$<VERSION_GREATER:$<CXX_COMPILER_VERSION>,10>>:-Wno-deprecated-copy>)
+target_link_libraries(perm_group PUBLIC Boost::boost)
+set_target_properties(perm_group PROPERTIES
+        CXX_VISIBILITY_PRESET hidden
+        VISIBILITY_INLINES_HIDDEN ON)
+target_compile_definitions(perm_group PRIVATE PERM_GROUP_SOURCE)
 
 target_add_coverage(perm_group)
 
@@ -150,6 +169,10 @@ add_subdirectory(test)
 include(CMakePackageConfigHelpers)
 # due to the stupid restrictive version formatting we change it
 set(exportDir ${CMAKE_CURRENT_BINARY_DIR}/lib/cmake/${PROJECT_NAME})
+configure_file(PermGroupConfig.cmake ${exportDir}/PermGroupConfig.cmake @ONLY)
+foreach(f ${perm_group_config_find_files})
+    configure_file(${PROJECT_SOURCE_DIR}/cmake/${f} ${exportDir}/${f} COPYONLY)
+endforeach()
 write_basic_package_version_file(
         ${exportDir}/${PROJECT_NAME}Config-version.cmake
         VERSION ${PROJECT_VERSION}
@@ -157,18 +180,9 @@ write_basic_package_version_file(
 install(EXPORT PROJECT_exports
         NAMESPACE ${PROJECT_NAME}::
         DESTINATION lib/cmake/${PROJECT_NAME}
-        FILE ${PROJECT_NAME}Config.cmake)
+        FILE ${PROJECT_NAME}Targets.cmake)
 install(DIRECTORY ${exportDir}
         DESTINATION lib/cmake
-        COMPONENT PermGroup_dev)
-
-
-# pkg-config file
-# -------------------------------------------------------------------------
-set(exportDir ${CMAKE_CURRENT_BINARY_DIR}/lib/pkgconfig)
-configure_file(lib/pkgconfig/perm-group.pc.in ${exportDir}/perm-group.pc @ONLY)
-install(FILES ${exportDir}/perm-group.pc
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
         COMPONENT PermGroup_dev)
 
 

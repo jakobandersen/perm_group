@@ -48,8 +48,8 @@ private:
 	perm_group::Sage sage;
 };
 
-int test_main(int argc, char **argv) {
-	TestProgram prog(argc, argv);
+BOOST_AUTO_TEST_CASE(test_main) {
+	TestProgram prog(boost::unit_test::framework::master_test_suite().argc,
+	                 boost::unit_test::framework::master_test_suite().argv);
 	prog.run(Tester(prog));
-	return 0;
 }

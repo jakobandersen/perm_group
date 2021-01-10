@@ -6,11 +6,13 @@
 #include <perm_group/permutation/io.hpp>
 #include <perm_group/permutation/permutation.hpp>
 
-#include <boost/test/minimal.hpp>
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MAIN
+#include <boost/test/unit_test.hpp>
 
 namespace pg = perm_group;
 
-int test_main(int argc, char **argv) {
+BOOST_AUTO_TEST_CASE(test_main) {
 	using size_type = std::size_t;
 	using perm_type = std::vector<size_type>;
 
@@ -56,5 +58,4 @@ int test_main(int argc, char **argv) {
 					BOOST_ASSERT(g.generators().size() == 1);
 		}
 	});
-	return 0;
 }

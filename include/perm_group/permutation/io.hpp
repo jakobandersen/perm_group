@@ -1,6 +1,7 @@
 #ifndef PERM_GROUP_PERMUTATION_IO_HPP
 #define PERM_GROUP_PERMUTATION_IO_HPP
 
+#include <perm_group/config.hpp>
 #include <perm_group/io.hpp>
 #include <perm_group/permutation/permutation.hpp>
 
@@ -11,8 +12,8 @@
 
 namespace perm_group {
 namespace detail {
-void check_element(std::size_t i, std::size_t n);
-void check_set_hit(std::size_t i, std::vector<bool> &hit);
+PERM_GROUP_DECL void check_element(std::size_t i, std::size_t n);
+PERM_GROUP_DECL void check_set_hit(std::size_t i, std::vector<bool> &hit);
 } // namespace detail
 
 //------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ void check_set_hit(std::size_t i, std::vector<bool> &hit);
 // rst:		:returns: a list of cycles of non-negative numbers parsed from the given stream. It does not necessarily represent a permutation (see the other overload).
 // rst:		:throws: `io_error` on parsing errors.
 
+PERM_GROUP_DECL
 std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s);
 
 // rst: .. function:: template<typename Perm> \

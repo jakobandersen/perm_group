@@ -10,15 +10,16 @@
 #include <perm_group/permutation/permutation.hpp>
 #include <perm_group/transversal/explicit.hpp>
 
-#include <boost/test/minimal.hpp>
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MAIN
+#include <boost/test/unit_test.hpp>
 
 namespace pg = perm_group;
 
 struct Tester {
+	Tester(TestProgram &p) : prog(p), sage(prog.verbose) {}
 
-	Tester(TestProgram &p) : prog(p), sage(prog.verbose) { }
-
-	void noAllocator() { }
+	void noAllocator() {}
 
 	template<typename Maker>
 	void withAllocator(Maker maker) {
@@ -66,7 +67,7 @@ struct Tester {
 				for(std::size_t i = 0; i != g.degree(); ++i) {
 					transversal_type trans(i, g.get_allocator());
 					for(std::size_t partialEnd = step; partialEnd < gens.size(); partialEnd += step) {
-						const auto nop = [](auto&&... args) {
+						const auto nop = [](auto &&... args) {
 						};
 						trans.update(first, first + partialEnd - step, first + partialEnd, nop, nop);
 						sage.loadGroup(first, first + partialEnd, g.degree(), "g");
@@ -90,8 +91,8 @@ private:
 	perm_group::Sage sage;
 };
 
-int test_main(int argc, char **argv) {
-	TestProgram prog(argc, argv);
-	prog.run(Tester(prog));
-	return 0;
+BOOST_AUTO_TEST_CASE(test_main) {
+		TestProgram prog(boost::unit_test::framework::master_test_suite().argc,
+		boost::unit_test::framework::master_test_suite().argv);
+		prog.run(Tester(prog));
 }

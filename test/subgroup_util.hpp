@@ -11,7 +11,9 @@
 #include <perm_group/permutation/io.hpp>
 #include <perm_group/permutation/permutation.hpp>
 
-#include <boost/test/minimal.hpp>
+#define BOOST_TEST_DYN_LINK
+#define BOOST_TEST_MAIN
+#include <boost/test/unit_test.hpp>
 
 namespace pg = perm_group;
 
