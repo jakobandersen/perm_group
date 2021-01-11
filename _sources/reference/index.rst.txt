@@ -1,0 +1,13 @@
+Reference
+=========
+
+.. toctree::
+    :maxdepth: 2
+
+    allocator/index
+    group/index
+    io
+    orbit
+    permutation/index
+    transversal/index
+    util/index

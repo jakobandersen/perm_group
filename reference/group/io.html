@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2.5. io.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.6. schreier_stabilizer.hpp" href="schreier_stabilizer.html" />
+    <link rel="prev" title="3.2.4. group.hpp" href="group.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="schreier_stabilizer.html" title="3.2.6. schreier_stabilizer.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="group.html" title="3.2.4. group.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U"><span class="section-number">3.2. </span>group</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.2.5. </span>io.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="io-hpp">
+<span id="cpp-group-io"></span><h1><span class="section-number">3.2.5. </span>io.hpp<a class="headerlink" href="#io-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: group/io.hpp</p>
+<dl class="cpp function">
+<dt id="_CPPv4I0EN10perm_group20write_generating_setERNSt7ostreamERNSt7ostreamE4IterRK4Iter">
+<span id="_CPPv3I0EN10perm_group20write_generating_setERNSt7ostreamE4IterRK4Iter"></span><span id="_CPPv2I0EN10perm_group20write_generating_setERNSt7ostreamE4IterRK4Iter"></span>template&lt;typename <code class="sig-name descname">Iter</code>&gt;<br />std::ostream &amp;<code class="sig-name descname">write_generating_set</code><span class="sig-paren">(</span>std::ostream &amp;<em>s</em>, <a class="reference internal" href="#_CPPv4I0EN10perm_group20write_generating_setERNSt7ostreamERNSt7ostreamE4IterRK4Iter" title="perm_group::write_generating_set::Iter">Iter</a> <em>first</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group20write_generating_setERNSt7ostreamERNSt7ostreamE4IterRK4Iter" title="perm_group::write_generating_set::Iter">Iter</a> &amp;<em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10perm_group20write_generating_setERNSt7ostreamERNSt7ostreamE4IterRK4Iter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write the range of permutations to the given stream, formatted as a generating set.
+E.g., <code class="docutils literal notranslate"><span class="pre">&lt;(0),</span> <span class="pre">(0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">3)&gt;</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN10perm_group11write_groupERNSt7ostreamERNSt7ostreamERK6GroupT">
+<span id="_CPPv3I0EN10perm_group11write_groupERNSt7ostreamERK6GroupT"></span><span id="_CPPv2I0EN10perm_group11write_groupERNSt7ostreamERK6GroupT"></span>template&lt;typename <code class="sig-name descname">GroupT</code>&gt;<br />std::ostream &amp;<code class="sig-name descname">write_group</code><span class="sig-paren">(</span>std::ostream &amp;<em>s</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group11write_groupERNSt7ostreamERNSt7ostreamERK6GroupT" title="perm_group::write_group::GroupT">GroupT</a> &amp;<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10perm_group11write_groupERNSt7ostreamERNSt7ostreamERK6GroupT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A helper function using <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN10perm_group20write_generating_setERNSt7ostreamERNSt7ostreamE4IterRK4Iter" title="perm_group::write_generating_set"><span class="pre">write_generating_set</span></a></code> to write the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="group.html#_CPPv4I0EN10perm_group5GroupE" title="perm_group::Group"><span class="pre">Group</span></a></code>.</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="group.html"
+                        title="previous chapter"><span class="section-number">3.2.4. </span>group.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="schreier_stabilizer.html"
+                        title="next chapter"><span class="section-number">3.2.6. </span>schreier_stabilizer.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/group/io.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="schreier_stabilizer.html" title="3.2.6. schreier_stabilizer.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="group.html" title="3.2.4. group.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" ><span class="section-number">3.2. </span>group</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.2.5. </span>io.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

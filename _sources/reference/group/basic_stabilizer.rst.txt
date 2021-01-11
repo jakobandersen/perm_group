@@ -1,0 +1,35 @@
+.. _cpp-group/basic_stabilizer:
+
+**********************************************************
+basic_stabilizer.hpp
+**********************************************************
+
+Full path: group/basic_stabilizer.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Alloc, typename DupChecker = DupCheckerNop> basic_stabilizer
+
+    A  `Stabilizer` type which filters permutations from a base group
+    simply by whether they fix a given element.
+    It may therefore represent only a subgroup of the stabilizer it is
+    defined as.
+
+    .. type:: allocator = Alloc
+    .. type::  perm = typename allocator::perm
+    .. type:: pointer = typename allocator::pointer
+    .. type:: const_pointer = typename allocator::const_pointer
+    .. type:: is_accurate = std::false_type
+    .. function:: basic_stabilizer(std::size_t fixed, const allocator &alloc, DupChecker dupChecker = DupChecker())
+    .. function:: std::size_t degree() const
+    .. function:: PtrContainerToPermProxy<Store, perm> generators() const
+    .. function:: PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const
+    .. function:: const allocator &get_allocator() const
+    .. function:: std::size_t fixed_element() const
+    .. function:: template<typename Iter> \
+                  void add_generators(Iter first, Iter lastOld, Iter lastNew)
+    .. function:: template<typename Iter, typename Next> \
+                  void add_generators(Iter first, Iter lastOld, Iter lastNew, Next next)

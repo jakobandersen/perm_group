@@ -1,0 +1,13 @@
+.. _cpp-permutation/word:
+
+**********************************************************
+word.hpp
+**********************************************************
+
+Full path: permutation/word.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+

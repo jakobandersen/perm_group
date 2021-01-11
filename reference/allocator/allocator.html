@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1.1. allocator.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.1.2. pooled.hpp" href="pooled.html" />
+    <link rel="prev" title="3.1. allocator" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pooled.html" title="3.1.2. pooled.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="3.1. allocator"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U"><span class="section-number">3.1. </span>allocator</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.1.1. </span>allocator.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="allocator-hpp">
+<span id="cpp-allocator-allocator"></span><h1><span class="section-number">3.1.1. </span>allocator.hpp<a class="headerlink" href="#allocator-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: allocator/allocator.hpp</p>
+<dl class="cpp concept">
+<dt id="_CPPv4I0EN10perm_group9AllocatorE">
+<span id="_CPPv3I0EN10perm_group9AllocatorE"></span><span id="_CPPv2I0EN10perm_group9AllocatorE"></span>template&lt;typename <code class="sig-name descname">Alloc</code>&gt;<br /><em class="property">concept </em><code class="sig-name descname">Allocator</code><a class="headerlink" href="#_CPPv4I0EN10perm_group9AllocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">CopyConstructible</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc"><span class="pre">Alloc</span></a><span class="pre">&gt;</span></code>.</p>
+<div style="font-weight: bold; font-size: 110%;">Associated Types</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="cpp type">
+<dt id="_CPPv4N10perm_group9Allocator4permE">
+<span id="_CPPv3N10perm_group9Allocator4permE"></span><span id="_CPPv2N10perm_group9Allocator4permE"></span><em class="property">using </em><code class="sig-name descname">perm</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc">Alloc</a>::perm<a class="headerlink" href="#_CPPv4N10perm_group9Allocator4permE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of permutations that <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc"><span class="pre">Alloc</span></a></code> allocates.</p>
+<p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../permutation/permutation.html#_CPPv4I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator4permE" title="perm_group::Allocator::perm"><span class="pre">perm</span></a><span class="pre">&gt;</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group9Allocator7pointerE">
+<span id="_CPPv3N10perm_group9Allocator7pointerE"></span><span id="_CPPv2N10perm_group9Allocator7pointerE"></span><em class="property">using </em><code class="sig-name descname">pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc">Alloc</a>::pointer<a class="headerlink" href="#_CPPv4N10perm_group9Allocator7pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N10perm_group9Allocator13const_pointerE">
+<span id="_CPPv3N10perm_group9Allocator13const_pointerE"></span><span id="_CPPv2N10perm_group9Allocator13const_pointerE"></span><em class="property">using </em><code class="sig-name descname">const_pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc">Alloc</a>::const_pointer<a class="headerlink" href="#_CPPv4N10perm_group9Allocator13const_pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer-like types returned and accepted by the allocator.</p>
+<p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">NullablePointer</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator7pointerE" title="perm_group::Allocator::pointer"><span class="pre">pointer</span></a><span class="pre">&gt;</span></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">NullablePointer</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator13const_pointerE" title="perm_group::Allocator::const_pointer"><span class="pre">const_pointer</span></a><span class="pre">&gt;</span></code>.</p>
+</dd></dl>
+
+<div style="font-weight: bold; font-size: 110%;">Notation</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="cpp var">
+<dt id="_CPPv4N10perm_group9Allocator5allocE">
+<span id="_CPPv3N10perm_group9Allocator5allocE"></span><span id="_CPPv2N10perm_group9Allocator5allocE"></span><span id="perm_group::Allocator::alloc__Alloc"></span><a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc">Alloc</a> <code class="sig-name descname">alloc</code><a class="headerlink" href="#_CPPv4N10perm_group9Allocator5allocE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N10perm_group9Allocator6cAllocE">
+<span id="_CPPv3N10perm_group9Allocator6cAllocE"></span><span id="_CPPv2N10perm_group9Allocator6cAllocE"></span><span id="perm_group::Allocator::cAlloc__AllocC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group9AllocatorE" title="perm_group::Allocator::Alloc">Alloc</a> <code class="sig-name descname">cAlloc</code><a class="headerlink" href="#_CPPv4N10perm_group9Allocator6cAllocE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N10perm_group9Allocator3ptrE">
+<span id="_CPPv3N10perm_group9Allocator3ptrE"></span><span id="_CPPv2N10perm_group9Allocator3ptrE"></span><span id="perm_group::Allocator::ptr__pointer"></span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator7pointerE" title="perm_group::Allocator::pointer">pointer</a> <code class="sig-name descname">ptr</code><a class="headerlink" href="#_CPPv4N10perm_group9Allocator3ptrE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N10perm_group9Allocator4cPtrE">
+<span id="_CPPv3N10perm_group9Allocator4cPtrE"></span><span id="_CPPv2N10perm_group9Allocator4cPtrE"></span><span id="perm_group::Allocator::cPtr__const_pointer"></span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator13const_pointerE" title="perm_group::Allocator::const_pointer">const_pointer</a> <code class="sig-name descname">cPtr</code><a class="headerlink" href="#_CPPv4N10perm_group9Allocator4cPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N10perm_group9Allocator2cpE">
+<span id="_CPPv3N10perm_group9Allocator2cpE"></span><span id="_CPPv2N10perm_group9Allocator2cpE"></span><span id="perm_group::Allocator::cp__UPermC"></span><em class="property">const</em> UPerm <code class="sig-name descname">cp</code><a class="headerlink" href="#_CPPv4N10perm_group9Allocator2cpE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../permutation/permutation.html#_CPPv4I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a></code>.</p>
+</dd></dl>
+
+<div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">*</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator3ptrE" title="perm_group::Allocator::ptr"><span class="pre">ptr</span></a></code>, type <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator4permE" title="perm_group::Allocator::perm"><span class="pre">perm</span></a><span class="pre">&amp;</span></code>.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">*</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator4cPtrE" title="perm_group::Allocator::cPtr"><span class="pre">cPtr</span></a></code>, type <code class="xref cpp cpp-expr docutils literal notranslate"><em class="property"><span class="pre">const</span></em> <a class="reference internal" href="#_CPPv4N10perm_group9Allocator4permE" title="perm_group::Allocator::perm"><span class="pre">perm</span></a><span class="pre">&amp;</span></code>.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator6cAllocE" title="perm_group::Allocator::cAlloc"><span class="pre">cAlloc</span></a><span class="pre">.</span><span class="pre">degree</span><span class="pre">(</span><span class="pre">)</span></code>, convertible to an integer type,
+returning the degree of permutations allocated by the allocator.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator5allocE" title="perm_group::Allocator::alloc"><span class="pre">alloc</span></a><span class="pre">.</span><span class="pre">make</span><span class="pre">(</span><span class="pre">)</span></code>, returning a <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator7pointerE" title="perm_group::Allocator::pointer"><span class="pre">pointer</span></a></code> to a new permutation.
+Its value is unspecified, and may not be safe to read.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator5allocE" title="perm_group::Allocator::alloc"><span class="pre">alloc</span></a><span class="pre">.</span><span class="pre">make_identity</span><span class="pre">(</span><span class="pre">)</span></code>, returning a <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator7pointerE" title="perm_group::Allocator::pointer"><span class="pre">pointer</span></a></code> to a new permutation
+initialized to be the identity permutation.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator5allocE" title="perm_group::Allocator::alloc"><span class="pre">alloc</span></a><span class="pre">.</span><span class="pre">copy</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator2cpE" title="perm_group::Allocator::cp"><span class="pre">cp</span></a><span class="pre">)</span></code>, returning a <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator7pointerE" title="perm_group::Allocator::pointer"><span class="pre">pointer</span></a></code> to a new permutation
+initialized to be a copy of the given permutation.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group9Allocator5allocE" title="perm_group::Allocator::alloc"><span class="pre">alloc</span></a><span class="pre">.</span><span class="pre">release</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group9Allocator4cPtrE" title="perm_group::Allocator::cPtr"><span class="pre">cPtr</span></a><span class="pre">)</span></code>, gives a permutation back to the allocator.
+Permutations must be released by the same allocator or a copy of the allocator
+they were allocated by.</p></li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter"><span class="section-number">3.1. </span>allocator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pooled.html"
+                        title="next chapter"><span class="section-number">3.1.2. </span>pooled.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/allocator/allocator.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pooled.html" title="3.1.2. pooled.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="3.1. allocator"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" ><span class="section-number">3.1. </span>allocator</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.1.1. </span>allocator.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

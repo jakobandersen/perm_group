@@ -1,0 +1,57 @@
+.. _cpp-group/generated:
+
+**********************************************************
+generated.hpp
+**********************************************************
+
+Full path: group/generated.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Alloc, typename DupChecker = DupCheckerNop> \
+           generated_group
+
+    Models `Group`.
+
+    Requires `Allocator<Alloc>`.
+
+    A basic group implementation representing it by a generating set of permutations.
+
+    :tparam Alloc: the allocator to use.
+    :tparam DupChecker: a function object for checking if a permutation is already in the generating set.
+
+    .. type:: allocator = Alloc
+    .. type:: perm = typename allocator::perm
+    .. type:: pointer = typename allocator::pointer
+    .. type:: const_pointer = typename allocator::const_pointer
+    .. function:: explicit generated_group(const allocator &alloc, DupChecker dupChecker = DupChecker())
+
+        Construct the trivial group on `alloc.degree()` elements.
+    .. function:: explicit generated_group(std::size_t n)
+
+        Construct the trivial group on `n` elements.
+
+        Requires valid expression: `allocator(n)`
+    .. function:: template<typename UPerm> \
+                  void add_generator(UPerm &&perm)
+
+        Add a copy of `perm` as a new generator to the group.
+        The `DupChecker` is used for deciding if the new generator already exists.
+
+    .. function:: template<typename UPerm, typename Next> \
+                  void add_generator(UPerm &&perm, Next next)
+
+        Add a copy of `perm` as a new generator to the group.
+        The `DupChecker` is used for deciding if the new generator already exists.
+        If the permutation is added, the `next` function is called with three iterators:
+        `next(first, lastOld, lastNew)` where the range `first` to `lastOld` denotes
+        the generating set of the group before the call, and the range `lastOld`
+        to `lastNew` denotes the added generators.
+
+    .. function:: std::size_t degree() const
+    .. function:: PtrContainerToPermProxy<Store, perm> generators() const
+    .. function:: PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const
+    .. function:: allocator &get_allocator() const

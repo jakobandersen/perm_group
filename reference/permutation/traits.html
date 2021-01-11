@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.5.7. traits.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.5.8. word.hpp" href="word.html" />
+    <link rel="prev" title="3.5.6. permutation.hpp" href="permutation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="word.html" title="3.5.8. word.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="permutation.html" title="3.5.6. permutation.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U"><span class="section-number">3.5. </span>permutation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.5.7. </span>traits.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="traits-hpp">
+<span id="cpp-permutation-traits"></span><h1><span class="section-number">3.5.7. </span>traits.hpp<a class="headerlink" href="#traits-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: permutation/traits.hpp</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN10perm_group18permutation_traitsE">
+<span id="_CPPv3I0EN10perm_group18permutation_traitsE"></span><span id="_CPPv2I0EN10perm_group18permutation_traitsE"></span>template&lt;typename <code class="sig-name descname">Perm</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">permutation_traits</code><a class="headerlink" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="cpp type">
+<dt id="_CPPv4N10perm_group18permutation_traits10value_typeE">
+<span id="_CPPv3N10perm_group18permutation_traits10value_typeE"></span><span id="_CPPv2N10perm_group18permutation_traits10value_typeE"></span><em class="property">using </em><code class="sig-name descname">value_type</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a>::value_type<a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The whole specialization of this traits class only exists if this type exists.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type">
+<span id="_CPPv3N10perm_group18permutation_traits3getERK4Perm10value_type"></span><span id="_CPPv2N10perm_group18permutation_traits3getERK4Perm10value_type"></span><span id="perm_group::permutation_traits::get__PermCR.value_type"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits10value_typeE" title="perm_group::permutation_traits::value_type">value_type</a> <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> &amp;<em>p</em>, <a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits10value_typeE" title="perm_group::permutation_traits::value_type">value_type</a> <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the image of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type" title="perm_group::permutation_traits::get::i"><span class="pre">i</span></a></code> under <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type" title="perm_group::permutation_traits::get::p"><span class="pre">p</span></a></code> using <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type" title="perm_group::permutation_traits::get::p"><span class="pre">p</span></a><span class="pre">.</span><span class="pre">get_</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3getERK4Perm10value_type" title="perm_group::permutation_traits::get::i"><span class="pre">i</span></a><span class="pre">)</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE">
+<span id="_CPPv3N10perm_group18permutation_traits4makeENSt6size_tE"></span><span id="_CPPv2N10perm_group18permutation_traits4makeENSt6size_tE"></span><span id="perm_group::permutation_traits::make__std::s"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> <code class="sig-name descname">make</code><span class="sig-paren">(</span>std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a new permutation of size <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE" title="perm_group::permutation_traits::make::n"><span class="pre">n</span></a></code> using <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm"><span class="pre">Perm</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE" title="perm_group::permutation_traits::make::n"><span class="pre">n</span></a><span class="pre">)</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits13make_identityENSt6size_tE">
+<span id="_CPPv3N10perm_group18permutation_traits13make_identityENSt6size_tE"></span><span id="_CPPv2N10perm_group18permutation_traits13make_identityENSt6size_tE"></span><span id="perm_group::permutation_traits::make_identity__std::s"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> <code class="sig-name descname">make_identity</code><span class="sig-paren">(</span>std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits13make_identityENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a permutation created with <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE" title="perm_group::permutation_traits::make"><span class="pre">make</span></a></code> and initialized as the identity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type">
+<span id="_CPPv3N10perm_group18permutation_traits3putER4Perm10value_type10value_type"></span><span id="_CPPv2N10perm_group18permutation_traits3putER4Perm10value_type10value_type"></span><span id="perm_group::permutation_traits::put__PermR.value_type.value_type"></span><em class="property">static</em> void <code class="sig-name descname">put</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> &amp;<em>p</em>, <a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits10value_typeE" title="perm_group::permutation_traits::value_type">value_type</a> <em>i</em>, <a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits10value_typeE" title="perm_group::permutation_traits::value_type">value_type</a> <em>image</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the image of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="perm_group::permutation_traits::put::i"><span class="pre">i</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="perm_group::permutation_traits::put::image"><span class="pre">image</span></a></code> using <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="perm_group::permutation_traits::put::p"><span class="pre">p</span></a><span class="pre">.</span><span class="pre">put_</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="perm_group::permutation_traits::put::i"><span class="pre">i</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits3putER4Perm10value_type10value_type" title="perm_group::permutation_traits::put::image"><span class="pre">image</span></a><span class="pre">)</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits6degreeERK4Perm">
+<span id="_CPPv3N10perm_group18permutation_traits6degreeERK4Perm"></span><span id="_CPPv2N10perm_group18permutation_traits6degreeERK4Perm"></span><span id="perm_group::permutation_traits::degree__PermCR"></span><em class="property">static</em> std::size_t <code class="sig-name descname">degree</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits6degreeERK4Perm" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits6degreeERK4Perm" title="perm_group::permutation_traits::degree::p"><span class="pre">p</span></a><span class="pre">.</span><span class="pre">degree_</span><span class="pre">(</span><span class="pre">)</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group18permutation_traits12make_inverseERK4PermNSt6size_tE">
+<span id="_CPPv3N10perm_group18permutation_traits12make_inverseERK4PermNSt6size_tE"></span><span id="_CPPv2N10perm_group18permutation_traits12make_inverseERK4PermNSt6size_tE"></span><span id="perm_group::permutation_traits::make_inverse__PermCR.std::s"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> <code class="sig-name descname">make_inverse</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN10perm_group18permutation_traitsE" title="perm_group::permutation_traits::Perm">Perm</a> &amp;<em>p</em>, std::size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group18permutation_traits12make_inverseERK4PermNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a permutation created with <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits4makeENSt6size_tE" title="perm_group::permutation_traits::make"><span class="pre">make</span></a></code> where the inverse of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group18permutation_traits12make_inverseERK4PermNSt6size_tE" title="perm_group::permutation_traits::make_inverse::p"><span class="pre">p</span></a></code> has been copied into.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="permutation.html"
+                        title="previous chapter"><span class="section-number">3.5.6. </span>permutation.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="word.html"
+                        title="next chapter"><span class="section-number">3.5.8. </span>word.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/permutation/traits.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="word.html" title="3.5.8. word.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="permutation.html" title="3.5.6. permutation.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" ><span class="section-number">3.5. </span>permutation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.5.7. </span>traits.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

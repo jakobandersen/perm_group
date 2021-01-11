@@ -1,0 +1,14 @@
+.. _cpp-group/stabilizer_chain:
+
+**********************************************************
+stabilizer_chain.hpp
+**********************************************************
+
+Full path: group/stabilizer_chain.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. todo:: Actually write the documentation for this file.

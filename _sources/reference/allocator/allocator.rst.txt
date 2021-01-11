@@ -1,0 +1,57 @@
+.. _cpp-allocator/allocator:
+
+**********************************************************
+allocator.hpp
+**********************************************************
+
+Full path: allocator/allocator.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. concept:: template<typename Alloc> Allocator
+
+    Requires `CopyConstructible<Alloc>`.
+
+    .. assoc_types::
+
+    .. type:: perm = typename Alloc::perm
+
+        The type of permutations that `Alloc` allocates.
+
+        Requires `Permutation<perm>`.
+
+    .. type:: pointer = typename Alloc::pointer
+              const_pointer = typename Alloc::const_pointer
+
+        Pointer-like types returned and accepted by the allocator.
+
+        Requires `NullablePointer<pointer>`, `NullablePointer<const_pointer>`.
+
+    .. notation::
+
+    .. var:: Alloc alloc
+             const Alloc cAlloc
+    .. var:: pointer ptr
+             const_pointer cPtr
+    .. var:: const UPerm cp
+
+        A `Permutation`.
+
+    .. valid_expr::
+
+    - `*ptr`, type `perm&`.
+    - `*cPtr`, type `const perm&`.
+    - `cAlloc.degree()`, convertible to an integer type,
+      returning the degree of permutations allocated by the allocator.
+    - `alloc.make()`, returning a `pointer` to a new permutation.
+      Its value is unspecified, and may not be safe to read.
+    - `alloc.make_identity()`, returning a `pointer` to a new permutation
+      initialized to be the identity permutation.
+    - `alloc.copy(cp)`, returning a `pointer` to a new permutation
+      initialized to be a copy of the given permutation.
+    - `alloc.release(cPtr)`, gives a permutation back to the allocator.
+      Permutations must be released by the same allocator or a copy of the allocator
+      they were allocated by.

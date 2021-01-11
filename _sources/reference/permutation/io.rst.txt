@@ -1,0 +1,45 @@
+.. _cpp-permutation/io:
+
+**********************************************************
+io.hpp
+**********************************************************
+
+Full path: permutation/io.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. function:: std::vector<std::vector<std::size_t> > read_permutation_cycles(std::istream &s)
+
+    :returns: a list of cycles of non-negative numbers parsed from the given stream. It does not necessarily represent a permutation (see the other overload).
+    :throws: `io_error` on parsing errors.
+.. function:: template<typename Perm> \
+              void read_permutation_cycles(std::istream &s, Perm &p, std::size_t n)
+              template<typename Perm> \
+              void read_permutation_cycles(std::istream &s, Perm &p)
+              template<typename Perm> \
+              void read_permutation_cycles(const std::string &s, Perm &p, std::size_t n)
+              template<typename Perm> \
+              void read_permutation_cycles(const std::string &s, Perm &p)
+
+    Parse a permutation in cycle notation from a stream or a string (`s`) and store it in `p`.
+    Permutations are zero-indexed.
+
+    The overloads without `n` requires `SizeAwarePermutation<Perm>`,
+    and sets `n = perm_group::degree(p)`.
+
+    :throws: `io_error` if parsing fails.
+    :throws: `io_error` if a number is `n` or higher.
+    :throws: `io_error` if the data does not represent a permutation.
+.. function:: template<typename Perm> \
+              std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p, std::size_t n)
+
+    Write a permutation in cycle notation.
+.. function:: template<typename Perm> \
+              std::ostream &write_permutation_cycles(std::ostream &s, const Perm &p)
+
+    Requires `DegreeAwarePermutation<Perm>`.
+    
+    Write a permutation in cycle notation.

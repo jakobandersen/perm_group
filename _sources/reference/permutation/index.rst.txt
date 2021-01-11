@@ -1,0 +1,14 @@
+permutation
+==============================================================================
+
+.. toctree::
+    :maxdepth: 2
+
+    array
+    built_in
+    interface
+    io
+    mult
+    permutation
+    traits
+    word

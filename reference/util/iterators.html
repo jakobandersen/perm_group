@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.7.1. iterators.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3.7. util" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="3.7. util"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U"><span class="section-number">3.7. </span>util</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.7.1. </span>iterators.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iterators-hpp">
+<span id="cpp-util-iterators"></span><h1><span class="section-number">3.7.1. </span>iterators.hpp<a class="headerlink" href="#iterators-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: util/iterators.hpp</p>
+<p>This file contains convenience class templates for implementtors
+for constructing read-only ranges of permutations.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I00EN10perm_group23PtrContainerToPermProxyE">
+<span id="_CPPv3I00EN10perm_group23PtrContainerToPermProxyE"></span><span id="_CPPv2I00EN10perm_group23PtrContainerToPermProxyE"></span>template&lt;typename <code class="sig-name descname">Container</code>, typename <code class="sig-name descname">Perm</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PtrContainerToPermProxy</code><a class="headerlink" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A view of a given container of pointers to permutations,
+exposing it as a range of constant permutations.</p>
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group23PtrContainerToPermProxy8iteratorE">
+<span id="_CPPv3N10perm_group23PtrContainerToPermProxy8iteratorE"></span><span id="_CPPv2N10perm_group23PtrContainerToPermProxy8iteratorE"></span><span id="perm_group::PtrContainerToPermProxy::iterator"></span><em class="property">type </em><code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4N10perm_group23PtrContainerToPermProxy8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An adaptor of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy::Container"><span class="pre">Container</span></a><span class="pre">::</span><span class="pre">const_iterator</span></code>.
+It has <code class="xref cpp cpp-expr docutils literal notranslate"><em class="property"><span class="pre">const</span></em> <a class="reference internal" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy::Perm"><span class="pre">Perm</span></a><span class="pre">&amp;</span></code> as <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group23PtrContainerToPermProxy8iteratorE" title="perm_group::PtrContainerToPermProxy::iterator"><span class="pre">iterator</span></a><span class="pre">::</span><span class="pre">value_type</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group23PtrContainerToPermProxy23PtrContainerToPermProxyEPK9Container">
+<span id="_CPPv3N10perm_group23PtrContainerToPermProxy23PtrContainerToPermProxyEPK9Container"></span><span id="_CPPv2N10perm_group23PtrContainerToPermProxy23PtrContainerToPermProxyEPK9Container"></span><span id="perm_group::PtrContainerToPermProxy::PtrContainerToPermProxy__ContainerCP"></span><code class="sig-name descname">PtrContainerToPermProxy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy::Container">Container</a> *<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group23PtrContainerToPermProxy23PtrContainerToPermProxyEPK9Container" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group23PtrContainerToPermProxy4sizeEv">
+<span id="_CPPv3NK10perm_group23PtrContainerToPermProxy4sizeEv"></span><span id="_CPPv2NK10perm_group23PtrContainerToPermProxy4sizeEv"></span><span id="perm_group::PtrContainerToPermProxy::sizeC"></span><em class="property">typename</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy::Container">Container</a>::size_type <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group23PtrContainerToPermProxy4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group23PtrContainerToPermProxy5beginEv">
+<span id="_CPPv3NK10perm_group23PtrContainerToPermProxy5beginEv"></span><span id="_CPPv2NK10perm_group23PtrContainerToPermProxy5beginEv"></span><span id="perm_group::PtrContainerToPermProxy::beginC"></span><a class="reference internal" href="#_CPPv4N10perm_group23PtrContainerToPermProxy8iteratorE" title="perm_group::PtrContainerToPermProxy::iterator">iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group23PtrContainerToPermProxy5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group23PtrContainerToPermProxy3endEv">
+<span id="_CPPv3NK10perm_group23PtrContainerToPermProxy3endEv"></span><span id="_CPPv2NK10perm_group23PtrContainerToPermProxy3endEv"></span><span id="perm_group::PtrContainerToPermProxy::endC"></span><a class="reference internal" href="#_CPPv4N10perm_group23PtrContainerToPermProxy8iteratorE" title="perm_group::PtrContainerToPermProxy::iterator">iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group23PtrContainerToPermProxy3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group23PtrContainerToPermProxyixENSt6size_tE">
+<span id="_CPPv3NK10perm_group23PtrContainerToPermProxyixENSt6size_tE"></span><span id="_CPPv2NK10perm_group23PtrContainerToPermProxyixENSt6size_tE"></span><span id="perm_group::PtrContainerToPermProxy::subscript-operator__std::sC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy::Perm">Perm</a> &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>std::size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group23PtrContainerToPermProxyixENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calls the corresponding methods on the underlying container.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt id="_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE">
+<span id="_CPPv3I00EN10perm_group22PtrContainerToPtrProxyE"></span><span id="_CPPv2I00EN10perm_group22PtrContainerToPtrProxyE"></span>template&lt;typename <code class="sig-name descname">Container</code>, typename <code class="sig-name descname">Perm</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PtrContainerToPtrProxy</code><a class="headerlink" href="#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A view of a given container of pointers to permutations,
+exposing it as a range of <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">ConstPointer</span></code>.</p>
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group22PtrContainerToPtrProxy8iteratorE">
+<span id="_CPPv3N10perm_group22PtrContainerToPtrProxy8iteratorE"></span><span id="_CPPv2N10perm_group22PtrContainerToPtrProxy8iteratorE"></span><span id="perm_group::PtrContainerToPtrProxy::iterator"></span><em class="property">type </em><code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4N10perm_group22PtrContainerToPtrProxy8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An adaptor of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="perm_group::PtrContainerToPtrProxy::Container"><span class="pre">Container</span></a><span class="pre">::</span><span class="pre">const_iterator</span></code>.
+It has <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">ConstPointer</span></code> as <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group22PtrContainerToPtrProxy8iteratorE" title="perm_group::PtrContainerToPtrProxy::iterator"><span class="pre">iterator</span></a><span class="pre">::</span><span class="pre">value_type</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group22PtrContainerToPtrProxy22PtrContainerToPtrProxyEPK9Container">
+<span id="_CPPv3N10perm_group22PtrContainerToPtrProxy22PtrContainerToPtrProxyEPK9Container"></span><span id="_CPPv2N10perm_group22PtrContainerToPtrProxy22PtrContainerToPtrProxyEPK9Container"></span><span id="perm_group::PtrContainerToPtrProxy::PtrContainerToPtrProxy__ContainerCP"></span><code class="sig-name descname">PtrContainerToPtrProxy</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="perm_group::PtrContainerToPtrProxy::Container">Container</a> *<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group22PtrContainerToPtrProxy22PtrContainerToPtrProxyEPK9Container" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group22PtrContainerToPtrProxy4sizeEv">
+<span id="_CPPv3NK10perm_group22PtrContainerToPtrProxy4sizeEv"></span><span id="_CPPv2NK10perm_group22PtrContainerToPtrProxy4sizeEv"></span><span id="perm_group::PtrContainerToPtrProxy::sizeC"></span><em class="property">typename</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="perm_group::PtrContainerToPtrProxy::Container">Container</a>::size_type <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group22PtrContainerToPtrProxy4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group22PtrContainerToPtrProxy5beginEv">
+<span id="_CPPv3NK10perm_group22PtrContainerToPtrProxy5beginEv"></span><span id="_CPPv2NK10perm_group22PtrContainerToPtrProxy5beginEv"></span><span id="perm_group::PtrContainerToPtrProxy::beginC"></span><a class="reference internal" href="#_CPPv4N10perm_group22PtrContainerToPtrProxy8iteratorE" title="perm_group::PtrContainerToPtrProxy::iterator">iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group22PtrContainerToPtrProxy5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group22PtrContainerToPtrProxy3endEv">
+<span id="_CPPv3NK10perm_group22PtrContainerToPtrProxy3endEv"></span><span id="_CPPv2NK10perm_group22PtrContainerToPtrProxy3endEv"></span><span id="perm_group::PtrContainerToPtrProxy::endC"></span><a class="reference internal" href="#_CPPv4N10perm_group22PtrContainerToPtrProxy8iteratorE" title="perm_group::PtrContainerToPtrProxy::iterator">iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group22PtrContainerToPtrProxy3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK10perm_group22PtrContainerToPtrProxyixENSt6size_tE">
+<span id="_CPPv3NK10perm_group22PtrContainerToPtrProxyixENSt6size_tE"></span><span id="_CPPv2NK10perm_group22PtrContainerToPtrProxyixENSt6size_tE"></span><span id="perm_group::PtrContainerToPtrProxy::subscript-operator__std::sC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="perm_group::PtrContainerToPtrProxy::Perm">Perm</a> &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>std::size_t <em>i</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group22PtrContainerToPtrProxyixENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calls the corresponding methods on the underlying container.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter"><span class="section-number">3.7. </span>util</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/util/iterators.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="3.7. util"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" ><span class="section-number">3.7. </span>util</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.7.1. </span>iterators.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

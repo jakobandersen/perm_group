@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4. orbit.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. permutation" href="permutation/index.html" />
+    <link rel="prev" title="3.3. io.hpp" href="io.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="permutation/index.html" title="3.5. permutation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="3.3. io.hpp"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span class="section-number">3. </span>Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.4. </span>orbit.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="orbit-hpp">
+<span id="cpp-orbit"></span><h1><span class="section-number">3.4. </span>orbit.hpp<a class="headerlink" href="#orbit-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: orbit.hpp</p>
+<dl class="cpp concept">
+<dt id="_CPPv4II0E0EN10perm_group14InOrbitHandlerE">
+<span id="_CPPv3II0E0EN10perm_group14InOrbitHandlerE"></span><span id="_CPPv2II0E0EN10perm_group14InOrbitHandlerE"></span>template&lt;template&lt;typename&gt; class <code class="sig-name descname">T</code>&gt;<br /><em class="property">concept </em><code class="sig-name descname">InOrbitHandler</code><a class="headerlink" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div style="font-weight: bold; font-size: 110%;">Notation</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><dl class="cpp type">
+<dt id="_CPPv4N10perm_group14InOrbitHandler10value_typeE">
+<span id="_CPPv3N10perm_group14InOrbitHandler10value_typeE"></span><span id="_CPPv2N10perm_group14InOrbitHandler10value_typeE"></span><span id="perm_group::InOrbitHandler::value_type"></span><em class="property">type </em><code class="sig-name descname">value_type</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An integer type that <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler::T"><span class="pre">T</span></a></code> can be instantiated with.</p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N10perm_group14InOrbitHandler1nE">
+<span id="_CPPv3N10perm_group14InOrbitHandler1nE"></span><span id="_CPPv2N10perm_group14InOrbitHandler1nE"></span><span id="perm_group::InOrbitHandler::n__value_type"></span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="perm_group::InOrbitHandler::value_type">value_type</a> <code class="sig-name descname">n</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler1nE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N10perm_group14InOrbitHandler1iE">
+<span id="_CPPv3N10perm_group14InOrbitHandler1iE"></span><span id="_CPPv2N10perm_group14InOrbitHandler1iE"></span><span id="perm_group::InOrbitHandler::i__value_type"></span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="perm_group::InOrbitHandler::value_type">value_type</a> <code class="sig-name descname">i</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N10perm_group14InOrbitHandler1jE">
+<span id="_CPPv3N10perm_group14InOrbitHandler1jE"></span><span id="_CPPv2N10perm_group14InOrbitHandler1jE"></span><span id="perm_group::InOrbitHandler::j__value_type"></span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="perm_group::InOrbitHandler::value_type">value_type</a> <code class="sig-name descname">j</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler1jE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N10perm_group14InOrbitHandler7handlerE">
+<span id="_CPPv3N10perm_group14InOrbitHandler7handlerE"></span><span id="_CPPv2N10perm_group14InOrbitHandler7handlerE"></span><span id="perm_group::InOrbitHandler::handler__T:value_type:"></span><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler::T">T</a>&lt;<a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="perm_group::InOrbitHandler::value_type">value_type</a>&gt; <code class="sig-name descname">handler</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler7handlerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N10perm_group14InOrbitHandler5orbitE">
+<span id="_CPPv3N10perm_group14InOrbitHandler5orbitE"></span><span id="_CPPv2N10perm_group14InOrbitHandler5orbitE"></span><span id="perm_group::InOrbitHandler::orbit__Orbit"></span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit">Orbit</a> <code class="sig-name descname">orbit</code><a class="headerlink" href="#_CPPv4N10perm_group14InOrbitHandler5orbitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A range of <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">value_types</span></code>.</p>
+</dd></dl>
+
+<div style="font-weight: bold; font-size: 110%;">Valid Expressions</div><hr style="margin-top: 0px; border: none; border-top: 1px solid #8c8c8c; width: 30em; float: left;" /><ul class="simple">
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler::T"><span class="pre">T</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler10value_typeE" title="perm_group::InOrbitHandler::value_type"><span class="pre">value_type</span></a><span class="pre">&gt;</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a><span class="pre">)</span></code>, constructible from a maximum element size <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1nE" title="perm_group::InOrbitHandler::n"><span class="pre">n</span></a></code>.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler7handlerE" title="perm_group::InOrbitHandler::handler"><span class="pre">handler</span></a><span class="pre">.</span><span class="pre">clear</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler5orbitE" title="perm_group::InOrbitHandler::orbit"><span class="pre">orbit</span></a><span class="pre">)</span></code>, reset the orbit to just <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a></code>.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler7handlerE" title="perm_group::InOrbitHandler::handler"><span class="pre">handler</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a><span class="pre">)</span></code>, check if <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a></code> is in the orbit. Must return a boolean.</p></li>
+<li><p><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler7handlerE" title="perm_group::InOrbitHandler::handler"><span class="pre">handler</span></a><span class="pre">.</span><span class="pre">add</span><span class="pre">(</span><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1jE" title="perm_group::InOrbitHandler::j"><span class="pre">j</span></a><span class="pre">)</span></code>, add <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a></code> as the <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1jE" title="perm_group::InOrbitHandler::j"><span class="pre">j</span></a></code> th orbit element starting from 1. <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group14InOrbitHandler1iE" title="perm_group::InOrbitHandler::i"><span class="pre">i</span></a></code> is the 0th element.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="cpp class">
+<dt id="_CPPv4I0EN10perm_group20InOrbitHandlerBitsetE">
+<span id="_CPPv3I0EN10perm_group20InOrbitHandlerBitsetE"></span><span id="_CPPv2I0EN10perm_group20InOrbitHandlerBitsetE"></span>template&lt;typename <code class="sig-name descname">ValueType</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">InOrbitHandlerBitset</code><a class="headerlink" href="#_CPPv4I0EN10perm_group20InOrbitHandlerBitsetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Models <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler"><span class="pre">InOrbitHandler</span></a></code>.</p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt id="_CPPv4I0EN10perm_group20InOrbitHandlerVectorE">
+<span id="_CPPv3I0EN10perm_group20InOrbitHandlerVectorE"></span><span id="_CPPv2I0EN10perm_group20InOrbitHandlerVectorE"></span>template&lt;typename <code class="sig-name descname">ValueType</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">InOrbitHandlerVector</code><a class="headerlink" href="#_CPPv4I0EN10perm_group20InOrbitHandlerVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Models <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler"><span class="pre">InOrbitHandler</span></a></code>.
+.. function:: ValueType position(ValueType u) const</p>
+<blockquote>
+<div><p>Requires the clear method to have been called.
+Requires either <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">u</span></code> has been added or was the element given to the latest clear.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>the position of <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">u</span></code> in the orbit. The initial orbit element is at position 0.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="cpp class">
+<dt id="_CPPv4I0I0E0EN10perm_group5OrbitE">
+<span id="_CPPv3I0I0E0EN10perm_group5OrbitE"></span><span id="_CPPv2I0I0E0EN10perm_group5OrbitE"></span>template&lt;typename <code class="sig-name descname">ValueType</code>, template&lt;typename&gt; class <code class="sig-name descname">InOrbitHandlerT</code> = <a class="reference internal" href="#_CPPv4I0EN10perm_group20InOrbitHandlerBitsetE" title="perm_group::InOrbitHandlerBitset">InOrbitHandlerBitset</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">Orbit</code><a class="headerlink" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4II0E0EN10perm_group14InOrbitHandlerE" title="perm_group::InOrbitHandler"><span class="pre">InOrbitHandler</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::InOrbitHandlerT"><span class="pre">InOrbitHandlerT</span></a><span class="pre">&gt;</span></code>.</p>
+<p>An orbit calculator, which also acts as a range of the calculated orbit elements.</p>
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group5Orbit5OrbitE9ValueType9ValueType">
+<span id="_CPPv3N10perm_group5Orbit5OrbitE9ValueType9ValueType"></span><span id="_CPPv2N10perm_group5Orbit5OrbitE9ValueType9ValueType"></span><span id="perm_group::Orbit::Orbit__ValueType.ValueType"></span><code class="sig-name descname">Orbit</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::ValueType">ValueType</a> <em>n</em>, <a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::ValueType">ValueType</a> <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group5Orbit5OrbitE9ValueType9ValueType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct with a maximum element size <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group5Orbit5OrbitE9ValueType9ValueType" title="perm_group::Orbit::Orbit::n"><span class="pre">n</span></a></code> and an initial orbit element <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group5Orbit5OrbitE9ValueType9ValueType" title="perm_group::Orbit::Orbit::w"><span class="pre">w</span></a></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group5Orbit5clearE9ValueType">
+<span id="_CPPv3N10perm_group5Orbit5clearE9ValueType"></span><span id="_CPPv2N10perm_group5Orbit5clearE9ValueType"></span><span id="perm_group::Orbit::clear__ValueType"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::ValueType">ValueType</a> <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group5Orbit5clearE9ValueType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the object to an orbit with just <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N10perm_group5Orbit5clearE9ValueType" title="perm_group::Orbit::clear::w"><span class="pre">w</span></a></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement">
+<span id="_CPPv3I000EN10perm_group5Orbit6updateERK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement"></span><span id="_CPPv2I000EN10perm_group5Orbit6updateERK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement"></span>template&lt;typename <code class="sig-name descname">GenPtrIter</code>, typename <code class="sig-name descname">OnNewElement</code>, typename <code class="sig-name descname">OnDupElement</code>&gt;<br />bool <code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::GenPtrIter">GenPtrIter</a> &amp;<em>first</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::GenPtrIter">GenPtrIter</a> &amp;<em>lastOld</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::GenPtrIter">GenPtrIter</a> &amp;<em>lastNew</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::OnNewElement">OnNewElement</a> <em>onNewElement</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::OnDupElement">OnDupElement</a> <em>onDupElement</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires the iterators to iterator over pointer-like values to permutations (<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="permutation/permutation.html#_CPPv4I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a></code>).
+That is, <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="permutation/permutation.html#_CPPv4I0EN10perm_group11PermutationE" title="perm_group::Permutation"><span class="pre">Permutation</span></a><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">pointer_traits</span><span class="pre">&lt;</span><em class="property"><span class="pre">typename</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">iterator_traits</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::GenPtrIter"><span class="pre">GenPtrIter</span></a><span class="pre">&gt;</span><span class="pre">::</span><span class="pre">value_type</span><span class="pre">&gt;</span><span class="pre">::</span><span class="pre">element_type</span><span class="pre">&gt;</span></code>.</p>
+<p>Given two ranges of generators, <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::first"><span class="pre">first</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::lastOld"><span class="pre">lastOld</span></a></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::lastOld"><span class="pre">lastOld</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::lastNew"><span class="pre">lastNew</span></a></code>,
+extend the current orbit using first the new generators, <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::lastOld"><span class="pre">lastOld</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::lastNew"><span class="pre">lastNew</span></a></code>, and then with all generators.</p>
+<p>When a new orbit element <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">o</span></code> is found, by mapping a known orbit element <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">w</span></code> through a permutation pointed to by an iterator <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">it</span></code>,
+then <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::onNewElement"><span class="pre">onNewElement</span></a><span class="pre">(</span><span class="pre">w</span><span class="pre">,</span> <span class="pre">o</span><span class="pre">,</span> <span class="pre">it</span><span class="pre">)</span></code> is called.
+Similarly, when <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">o</span></code> is already in the orbit then <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::onDupElement"><span class="pre">onDupElement</span></a><span class="pre">(</span><span class="pre">w</span><span class="pre">,</span> <span class="pre">o</span><span class="pre">,</span> <span class="pre">it</span><span class="pre">)</span></code> is called.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group5Orbit5beginEv">
+<span id="_CPPv3NK10perm_group5Orbit5beginEv"></span><span id="_CPPv2NK10perm_group5Orbit5beginEv"></span><span id="perm_group::Orbit::beginC"></span>auto <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group5Orbit5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an iterator to the first orbit element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group5Orbit3endEv">
+<span id="_CPPv3NK10perm_group5Orbit3endEv"></span><span id="_CPPv2NK10perm_group5Orbit3endEv"></span><span id="perm_group::Orbit::endC"></span>auto <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group5Orbit3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an iterator to past-the-end of the orbit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>document</p>
+</div>
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group5Orbit8positionE9ValueType">
+<span id="_CPPv3NK10perm_group5Orbit8positionE9ValueType"></span><span id="_CPPv2NK10perm_group5Orbit8positionE9ValueType"></span><span id="perm_group::Orbit::position__ValueTypeC"></span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::ValueType">ValueType</a> <code class="sig-name descname">position</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::ValueType">ValueType</a> <em>u</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group5Orbit8positionE9ValueType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requires <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit::InOrbitHandlerT"><span class="pre">InOrbitHandlerT</span></a></code> to have a position method.</p>
+<p>Returns the position of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4NK10perm_group5Orbit8positionE9ValueType" title="perm_group::Orbit::position::u"><span class="pre">u</span></a></code> in the orbit (starting from 0).
+See also <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN10perm_group20InOrbitHandlerVectorE" title="perm_group::InOrbitHandlerVector"><span class="pre">InOrbitHandlerVector</span></a><span class="pre">::</span><span class="pre">position</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement">
+<span id="_CPPv3I000EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement"></span><span id="_CPPv2I000EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement"></span>template&lt;typename <code class="sig-name descname">GenPtrIter</code>, typename <code class="sig-name descname">OnNewElement</code>, typename <code class="sig-name descname">OnDupElement</code>&gt;<br />void <code class="sig-name descname">orbit</code><span class="sig-paren">(</span>std::size_t <em>w</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>first</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>last</em>, std::size_t <em>n</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::OnNewElement">OnNewElement</a> <em>onNewElement</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::OnDupElement">OnDupElement</a> <em>onDupElement</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement">
+<span id="_CPPv3I000EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement"></span><span id="_CPPv2I000EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement"></span>template&lt;typename <code class="sig-name descname">GenPtrIter</code>, typename <code class="sig-name descname">OnNewElement</code>, typename <code class="sig-name descname">OnDupElement</code>&gt;<br />void <code class="sig-name descname">orbit</code><span class="sig-paren">(</span>std::size_t <em>w</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>first</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>last</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::orbit::OnNewElement">OnNewElement</a> <em>onNewElement</em>, <a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::orbit::OnDupElement">OnDupElement</a> <em>onDupElement</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement">
+<span id="_CPPv3I00EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement"></span><span id="_CPPv2I00EN10perm_group5orbitENSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement"></span>template&lt;typename <code class="sig-name descname">GenPtrIter</code>, typename <code class="sig-name descname">OnNewElement</code>&gt;<br />void <code class="sig-name descname">orbit</code><span class="sig-paren">(</span>std::size_t <em>w</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>first</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::GenPtrIter">GenPtrIter</a> &amp;<em>last</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::OnNewElement">OnNewElement</a> <em>onNewElement</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the orbit of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::w"><span class="pre">w</span></a></code> under the non-empty range of generators <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::first"><span class="pre">first</span></a></code> to <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::last"><span class="pre">last</span></a></code>.
+See <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit"><span class="pre">Orbit</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update"><span class="pre">update</span></a></code> for the details of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::first"><span class="pre">first</span></a></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::last"><span class="pre">last</span></a></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::onNewElement"><span class="pre">onNewElement</span></a></code>, and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::orbit::onDupElement"><span class="pre">onDupElement</span></a></code>.
+Note though that <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::onNewElement"><span class="pre">onNewElement</span></a><span class="pre">(</span><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::w"><span class="pre">w</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::w"><span class="pre">w</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::last"><span class="pre">last</span></a><span class="pre">)</span></code> is called in the beginning in addition.
+The overload without <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::n"><span class="pre">n</span></a></code> requires <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">SizeAwarePermutation</span><span class="pre">&lt;</span><span class="pre">decltype(</span><span class="pre">*</span><span class="pre">*</span><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::first"><span class="pre">first</span></a><span class="pre">)</span><span class="pre">&gt;</span></code> and sets <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit::n"><span class="pre">n</span></a> <span class="pre">=</span> <span class="pre">perm_group</span><span class="pre">::</span><a class="reference internal" href="permutation/interface.html#_CPPv4I0EN10perm_group6degreeENSt6size_tERK4Perm" title="perm_group::degree"><span class="pre">degree</span></a><span class="pre">(</span><span class="pre">*</span><span class="pre">*</span><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIter12OnNewElement" title="perm_group::orbit::first"><span class="pre">first</span></a><span class="pre">)</span></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback">
+<span id="_CPPv3I00EN10perm_group5orbitENSt6size_tERK5Group8Callback"></span><span id="_CPPv2I00EN10perm_group5orbitENSt6size_tERK5Group8Callback"></span>template&lt;typename <code class="sig-name descname">Group</code>, typename <code class="sig-name descname">Callback</code>&gt;<br />void <code class="sig-name descname">orbit</code><span class="sig-paren">(</span>std::size_t <em>w</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="perm_group::orbit::Group">Group</a> &amp;<em>g</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="perm_group::orbit::Callback">Callback</a> <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the orbit of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="perm_group::orbit::w"><span class="pre">w</span></a></code> in the group <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="perm_group::orbit::g"><span class="pre">g</span></a></code>. See <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit"><span class="pre">Orbit</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update"><span class="pre">update</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update::onNewElement"><span class="pre">onNewElement</span></a></code> for the meaning of <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I00EN10perm_group5orbitEvNSt6size_tERK5Group8Callback" title="perm_group::orbit::callback"><span class="pre">callback</span></a></code>.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN10perm_group35make_orbit_callback_output_iteratorE30orbit_callback_output_iteratorI7OutIterE7OutIter">
+<span id="_CPPv3I0EN10perm_group35make_orbit_callback_output_iteratorE7OutIter"></span><span id="_CPPv2I0EN10perm_group35make_orbit_callback_output_iteratorE7OutIter"></span>template&lt;typename <code class="sig-name descname">OutIter</code>&gt;<br />orbit_callback_output_iterator&lt;<a class="reference internal" href="#_CPPv4I0EN10perm_group35make_orbit_callback_output_iteratorE30orbit_callback_output_iteratorI7OutIterE7OutIter" title="perm_group::make_orbit_callback_output_iterator::OutIter">OutIter</a>&gt; <code class="sig-name descname">make_orbit_callback_output_iterator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN10perm_group35make_orbit_callback_output_iteratorE30orbit_callback_output_iteratorI7OutIterE7OutIter" title="perm_group::make_orbit_callback_output_iterator::OutIter">OutIter</a> <em>iter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10perm_group35make_orbit_callback_output_iteratorE30orbit_callback_output_iteratorI7OutIterE7OutIter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a callback usable in the <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0I0E0EN10perm_group5OrbitE" title="perm_group::Orbit"><span class="pre">Orbit</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4I000EN10perm_group5Orbit6updateEbRK10GenPtrIterRK10GenPtrIterRK10GenPtrIter12OnNewElement12OnDupElement" title="perm_group::Orbit::update"><span class="pre">update</span></a></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN10perm_group5orbitEvNSt6size_tERK10GenPtrIterRK10GenPtrIterNSt6size_tE12OnNewElement12OnDupElement" title="perm_group::orbit"><span class="pre">orbit</span></a></code> functions that outputs the elements to the given output iterator <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN10perm_group35make_orbit_callback_output_iteratorE30orbit_callback_output_iteratorI7OutIterE7OutIter" title="perm_group::make_orbit_callback_output_iterator::iter"><span class="pre">iter</span></a></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="io.html"
+                        title="previous chapter"><span class="section-number">3.3. </span>io.hpp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="permutation/index.html"
+                        title="next chapter"><span class="section-number">3.5. </span>permutation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/orbit.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="permutation/index.html" title="3.5. permutation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="3.3. io.hpp"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.4. </span>orbit.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

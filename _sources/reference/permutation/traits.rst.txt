@@ -1,0 +1,37 @@
+.. _cpp-permutation/traits:
+
+**********************************************************
+traits.hpp
+**********************************************************
+
+Full path: permutation/traits.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+.. class:: template<typename Perm> \
+           permutation_traits
+
+    .. type:: value_type = typename Perm::value_type
+
+        The whole specialization of this traits class only exists if this type exists.
+    .. function:: static value_type get(const Perm &p, value_type i)
+
+        :returns: the image of `i` under `p` using `p.get_(i)`.
+    .. function:: static Perm make(std::size_t n)
+
+        :returns: a new permutation of size `n` using `Perm(n)`.
+    .. function:: static Perm make_identity(std::size_t n)
+
+        :returns: a permutation created with `make` and initialized as the identity.
+    .. function:: static void put(Perm &p, value_type i, value_type image)
+
+        Sets the image of `i` to `image` using `p.put_(i, image)`.
+    .. function:: static std::size_t degree(const Perm &p)
+
+        :returns: `p.degree_()`
+    .. function:: static Perm make_inverse(const Perm &p, std::size_t n)
+
+        :returns: a permutation created with `make` where the inverse of `p` has been copied into.

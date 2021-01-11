@@ -1,0 +1,51 @@
+.. _cpp-util/iterators:
+
+**********************************************************
+iterators.hpp
+**********************************************************
+
+Full path: util/iterators.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+This file contains convenience class templates for implementtors
+for constructing read-only ranges of permutations.
+
+.. class:: template<typename Container, typename Perm>\
+           PtrContainerToPermProxy
+
+    A view of a given container of pointers to permutations,
+    exposing it as a range of constant permutations.
+
+    .. type:: iterator
+
+        An adaptor of `Container::const_iterator`.
+        It has `const Perm&` as `iterator::value_type`.
+    .. function:: PtrContainerToPermProxy(const Container *g)
+    .. function:: typename Container::size_type size() const
+                  iterator begin() const
+                  iterator end() const
+                  const Perm &operator[](std::size_t i) const
+
+        Calls the corresponding methods on the underlying container.
+
+.. class:: template<typename Container, typename Perm>\
+           PtrContainerToPtrProxy
+
+    A view of a given container of pointers to permutations,
+    exposing it as a range of `ConstPointer`.
+
+    .. type:: iterator
+
+        An adaptor of `Container::const_iterator`.
+        It has `ConstPointer` as `iterator::value_type`.
+    .. function:: PtrContainerToPtrProxy(const Container *g)
+    .. function:: typename Container::size_type size() const
+                  iterator begin() const
+                  iterator end() const
+                  const Perm &operator[](std::size_t i) const
+
+        Calls the corresponding methods on the underlying container.

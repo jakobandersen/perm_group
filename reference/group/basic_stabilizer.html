@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2.1. basic_stabilizer.hpp &#8212; PermGroup 0.5 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.2. generated.hpp" href="generated.html" />
+    <link rel="prev" title="3.2. group" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="generated.html" title="3.2.2. generated.hpp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="3.2. group"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U"><span class="section-number">3.2. </span>group</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.2.1. </span>basic_stabilizer.hpp</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-stabilizer-hpp">
+<span id="cpp-group-basic-stabilizer"></span><h1><span class="section-number">3.2.1. </span>basic_stabilizer.hpp<a class="headerlink" href="#basic-stabilizer-hpp" title="Permalink to this headline">¶</a></h1>
+<p>Full path: group/basic_stabilizer.hpp</p>
+<dl class="cpp class">
+<dt id="_CPPv4I00EN10perm_group16basic_stabilizerE">
+<span id="_CPPv3I00EN10perm_group16basic_stabilizerE"></span><span id="_CPPv2I00EN10perm_group16basic_stabilizerE"></span>template&lt;typename <code class="sig-name descname">Alloc</code>, typename <code class="sig-name descname">DupChecker</code> = DupCheckerNop&gt;<br /><em class="property">class </em><code class="sig-name descname">basic_stabilizer</code><a class="headerlink" href="#_CPPv4I00EN10perm_group16basic_stabilizerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A  <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="group.html#_CPPv4I0EN10perm_group10StabilizerE" title="perm_group::Stabilizer"><span class="pre">Stabilizer</span></a></code> type which filters permutations from a base group
+simply by whether they fix a given element.
+It may therefore represent only a subgroup of the stabilizer it is
+defined as.</p>
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group16basic_stabilizer9allocatorE">
+<span id="_CPPv3N10perm_group16basic_stabilizer9allocatorE"></span><span id="_CPPv2N10perm_group16basic_stabilizer9allocatorE"></span><em class="property">using </em><code class="sig-name descname">allocator</code> = <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizerE" title="perm_group::basic_stabilizer::Alloc">Alloc</a><a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group16basic_stabilizer4permE">
+<span id="_CPPv3N10perm_group16basic_stabilizer4permE"></span><span id="_CPPv2N10perm_group16basic_stabilizer4permE"></span><em class="property">using </em><code class="sig-name descname">perm</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="perm_group::basic_stabilizer::allocator">allocator</a>::perm<a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer4permE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group16basic_stabilizer7pointerE">
+<span id="_CPPv3N10perm_group16basic_stabilizer7pointerE"></span><span id="_CPPv2N10perm_group16basic_stabilizer7pointerE"></span><em class="property">using </em><code class="sig-name descname">pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="perm_group::basic_stabilizer::allocator">allocator</a>::pointer<a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer7pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group16basic_stabilizer13const_pointerE">
+<span id="_CPPv3N10perm_group16basic_stabilizer13const_pointerE"></span><span id="_CPPv2N10perm_group16basic_stabilizer13const_pointerE"></span><em class="property">using </em><code class="sig-name descname">const_pointer</code> = <em class="property">typename</em> <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="perm_group::basic_stabilizer::allocator">allocator</a>::const_pointer<a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer13const_pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N10perm_group16basic_stabilizer11is_accurateE">
+<span id="_CPPv3N10perm_group16basic_stabilizer11is_accurateE"></span><span id="_CPPv2N10perm_group16basic_stabilizer11is_accurateE"></span><em class="property">using </em><code class="sig-name descname">is_accurate</code> = std::false_type<a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer11is_accurateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N10perm_group16basic_stabilizer16basic_stabilizerENSt6size_tERK9allocator10DupChecker">
+<span id="_CPPv3N10perm_group16basic_stabilizer16basic_stabilizerENSt6size_tERK9allocator10DupChecker"></span><span id="_CPPv2N10perm_group16basic_stabilizer16basic_stabilizerENSt6size_tERK9allocator10DupChecker"></span><span id="perm_group::basic_stabilizer::basic_stabilizer__std::s.allocatorCR.DupChecker"></span><code class="sig-name descname">basic_stabilizer</code><span class="sig-paren">(</span>std::size_t <em>fixed</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="perm_group::basic_stabilizer::allocator">allocator</a> &amp;<em>alloc</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizerE" title="perm_group::basic_stabilizer::DupChecker">DupChecker</a> <em>dupChecker</em> = <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizerE" title="perm_group::basic_stabilizer::DupChecker">DupChecker</a>()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10perm_group16basic_stabilizer16basic_stabilizerENSt6size_tERK9allocator10DupChecker" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group16basic_stabilizer6degreeEv">
+<span id="_CPPv3NK10perm_group16basic_stabilizer6degreeEv"></span><span id="_CPPv2NK10perm_group16basic_stabilizer6degreeEv"></span><span id="perm_group::basic_stabilizer::degreeC"></span>std::size_t <code class="sig-name descname">degree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group16basic_stabilizer6degreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group16basic_stabilizer10generatorsEv">
+<span id="_CPPv3NK10perm_group16basic_stabilizer10generatorsEv"></span><span id="_CPPv2NK10perm_group16basic_stabilizer10generatorsEv"></span><span id="perm_group::basic_stabilizer::generatorsC"></span><a class="reference internal" href="../util/iterators.html#_CPPv4I00EN10perm_group23PtrContainerToPermProxyE" title="perm_group::PtrContainerToPermProxy">PtrContainerToPermProxy</a>&lt;Store, <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer4permE" title="perm_group::basic_stabilizer::perm">perm</a>&gt; <code class="sig-name descname">generators</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group16basic_stabilizer10generatorsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group16basic_stabilizer14generator_ptrsEv">
+<span id="_CPPv3NK10perm_group16basic_stabilizer14generator_ptrsEv"></span><span id="_CPPv2NK10perm_group16basic_stabilizer14generator_ptrsEv"></span><span id="perm_group::basic_stabilizer::generator_ptrsC"></span><a class="reference internal" href="../util/iterators.html#_CPPv4I00EN10perm_group22PtrContainerToPtrProxyE" title="perm_group::PtrContainerToPtrProxy">PtrContainerToPtrProxy</a>&lt;Store, <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer13const_pointerE" title="perm_group::basic_stabilizer::const_pointer">const_pointer</a>&gt; <code class="sig-name descname">generator_ptrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group16basic_stabilizer14generator_ptrsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group16basic_stabilizer13get_allocatorEv">
+<span id="_CPPv3NK10perm_group16basic_stabilizer13get_allocatorEv"></span><span id="_CPPv2NK10perm_group16basic_stabilizer13get_allocatorEv"></span><span id="perm_group::basic_stabilizer::get_allocatorC"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N10perm_group16basic_stabilizer9allocatorE" title="perm_group::basic_stabilizer::allocator">allocator</a> &amp;<code class="sig-name descname">get_allocator</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group16basic_stabilizer13get_allocatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK10perm_group16basic_stabilizer13fixed_elementEv">
+<span id="_CPPv3NK10perm_group16basic_stabilizer13fixed_elementEv"></span><span id="_CPPv2NK10perm_group16basic_stabilizer13fixed_elementEv"></span><span id="perm_group::basic_stabilizer::fixed_elementC"></span>std::size_t <code class="sig-name descname">fixed_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10perm_group16basic_stabilizer13fixed_elementEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter">
+<span id="_CPPv3I0EN10perm_group16basic_stabilizer14add_generatorsE4Iter4Iter4Iter"></span><span id="_CPPv2I0EN10perm_group16basic_stabilizer14add_generatorsE4Iter4Iter4Iter"></span>template&lt;typename <code class="sig-name descname">Iter</code>&gt;<br />void <code class="sig-name descname">add_generators</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>first</em>, <a class="reference internal" href="#_CPPv4I0EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>lastOld</em>, <a class="reference internal" href="#_CPPv4I0EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>lastNew</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next">
+<span id="_CPPv3I00EN10perm_group16basic_stabilizer14add_generatorsE4Iter4Iter4Iter4Next"></span><span id="_CPPv2I00EN10perm_group16basic_stabilizer14add_generatorsE4Iter4Iter4Iter4Next"></span>template&lt;typename <code class="sig-name descname">Iter</code>, typename <code class="sig-name descname">Next</code>&gt;<br />void <code class="sig-name descname">add_generators</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>first</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>lastOld</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next" title="perm_group::basic_stabilizer::add_generators::Iter">Iter</a> <em>lastNew</em>, <a class="reference internal" href="#_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next" title="perm_group::basic_stabilizer::add_generators::Next">Next</a> <em>next</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN10perm_group16basic_stabilizer14add_generatorsEv4Iter4Iter4Iter4Next" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter"><span class="section-number">3.2. </span>group</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generated.html"
+                        title="next chapter"><span class="section-number">3.2.2. </span>generated.hpp</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/group/basic_stabilizer.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="generated.html" title="3.2.2. generated.hpp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="3.2. group"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PermGroup 0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" ><span class="section-number">3. </span>Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" ><span class="section-number">3.2. </span>group</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3.2.1. </span>basic_stabilizer.hpp</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017-2018, Jakob Lykke Andersen.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.4+/4189b97b7.
+    </div>
+  </body>
+</html>

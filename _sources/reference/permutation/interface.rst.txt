@@ -1,0 +1,53 @@
+.. _cpp-permutation/interface:
+
+**********************************************************
+interface.hpp
+**********************************************************
+
+Full path: permutation/interface.hpp
+
+.. default-domain:: cpp
+.. default-role:: cpp:expr
+
+.. cpp:namespace:: perm_group
+
+
+The following function templates are convenience functions and short-hands for using the operations on `permutation_traits`.
+They constitute the basic generic interface for `Permutation` s.
+
+.. function:: template<typename Perm> \
+              typename permutation_traits<Perm>::value_type get(const Perm &p, typename permutation_traits<Perm>::value_type i)
+
+    :returns: `permutation_traits<Perm>::get(p, i)`
+.. function:: template<typename Perm> \
+              Perm make_perm(std::size_t n)
+
+    :returns: `permutation_traits<Perm>::make(n)`
+.. function:: template<typename Perm, typename SrcPerm> \
+              Perm copy_perm(std::size_t n, SrcPerm &&p)
+
+    If `SrcPerm` and `Perm` are the same types, except for qualifies and referenceness,
+    then the result is copy-constructed. Otherwise a new permutation is created with `make_perm`
+    and initialized with `put`.
+
+    :returns: a copy of the given `Permutation` `p`.
+.. function:: template<typename Perm, typename SrcPerm> \
+              Perm copy_perm(SrcPerm &&p)
+
+    :returns: `perm_group::copy_perm<Perm>(perm_group::degree(p), std::forward<SrcPerm>(p))`
+.. function:: template<typename Perm> \
+              Perm make_identity_perm(std::size_t n)
+
+    :returns: `permutation_traits<Perm>::make_identity(n)`
+.. function:: template<typename Perm> \
+              void put(Perm &p, typename permutation_traits<Perm>::value_type i, typename permutation_traits<Perm>::value_type image)
+
+    Does `permutation_traits<Perm>::put(p, i, image)`.
+.. function:: template<typename Perm> \
+              std::size_t degree(const Perm &p)
+
+    :returns: `permutation_traits<Perm>::degree(p)`
+.. function:: template<typename Perm> \
+              Perm make_inverse(const Perm &p)
+
+    :returns: `permutation_traits<Perm>::make_inverse(p, perm_group::degree(p))`
