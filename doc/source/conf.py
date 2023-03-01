@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'PermGroup'
-copyright = u'2017-2018, Jakob Lykke Andersen'
+copyright = u'2017-2023, Jakob Lykke Andersen'
 author = u'Jakob Lykke Andersen'
 
 # The version info for the project you're documenting, acts as replacement for
