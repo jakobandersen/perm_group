@@ -1,7 +1,7 @@
 local image = "localhost:5000/jla/perm_group";
 local boostArg(v) = "-DBOOST_ROOT=/opt/boost/%s" % v;
 
-local CoverageStep(withCoverage, compiler, boost) = if !withCoverage then null else {
+local CoverageStep(withCoverage, compiler, boost) = if !withCoverage then [] else [{
 	name: "coverage",
 	image: image,
 	environment: {
@@ -26,7 +26,7 @@ local CoverageStep(withCoverage, compiler, boost) = if !withCoverage then null e
 			path: "/www",
 		},
 	],
-};
+}];
 
 local Volumes(withCoverage) = if !withCoverage then [] else [
 	{
@@ -89,8 +89,7 @@ local Pipeline(withCoverage, compiler, boost) = {
 				"ctest --output-on-failure",
 			],
 		},
-		CoverageStep(withCoverage, compiler, boost),
-	],
+	] + CoverageStep(withCoverage, compiler, boost),
 	volumes: Volumes(withCoverage),
 };
 
