@@ -1,6 +1,12 @@
 Changes
 ########################
 
+develop
+=======
+
+- Change code to not trigger false positive dangling reference warnings in GCC 13.
+
+
 v0.5 (2020-01-12)
 =================
 

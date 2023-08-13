@@ -74,11 +74,11 @@ public: // GroupConcept
 	}
 
 	PtrContainerToPermProxy<Store, perm> generators() const {
-		return PtrContainerToPermProxy<Store, perm>(&gen_set);
+		return PtrContainerToPermProxy<Store, perm>(gen_set);
 	}
 
 	PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const {
-		return PtrContainerToPtrProxy<Store, const_pointer>(&gen_set);
+		return PtrContainerToPtrProxy<Store, const_pointer>(gen_set);
 	}
 
 	decltype(auto) get_allocator() const {

@@ -24,7 +24,7 @@ struct PtrContainerToPermProxy {
 
 		iterator_transformer() : g(nullptr) { }
 
-		iterator_transformer(const Container *g) : g(g) { }
+		iterator_transformer(const Container &g) : g(&g) { }
 
 		const Perm &operator()(Pointer p) const {
 			return *p;
@@ -42,7 +42,7 @@ public:
 
 	// rst:		.. function:: PtrContainerToPermProxy(const Container *g)
 
-	PtrContainerToPermProxy(const Container *g) : g(g) { }
+	PtrContainerToPermProxy(const Container &g) : g(g) { }
 
 	// rst:		.. function:: typename Container::size_type size() const
 	// rst:		              iterator begin() const
@@ -52,15 +52,15 @@ public:
 	// rst:			Calls the corresponding methods on the underlying container.
 
 	typename Container::size_type size() const {
-		return g->size();
+		return g.size();
 	}
 
 	iterator begin() const {
-		return iterator(g->begin(), iterator_transformer(g));
+		return iterator(g.begin(), iterator_transformer(g));
 	}
 
 	iterator end() const {
-		return iterator(g->end(), iterator_transformer(g));
+		return iterator(g.end(), iterator_transformer(g));
 	}
 
 	const Perm &operator[](std::size_t i) const {
@@ -68,7 +68,7 @@ public:
 		return begin()[i];
 	}
 private:
-	const Container *g;
+	const Container &g;
 };
 
 // rst:
@@ -84,14 +84,9 @@ struct PtrContainerToPtrProxy {
 	using Pointer = typename Container::value_type;
 
 	struct iterator_transformer {
-
-		iterator_transformer(const Container *g) : g(g) { }
-
 		ConstPointer operator()(Pointer p) const {
 			return p;
 		}
-	private:
-		const Container *g;
 	};
 
 	// rst:		.. type:: iterator
@@ -103,7 +98,7 @@ public:
 
 	// rst:		.. function:: PtrContainerToPtrProxy(const Container *g)
 
-	PtrContainerToPtrProxy(const Container *g) : g(g) { }
+	PtrContainerToPtrProxy(const Container &g) : g(g) { }
 
 	// rst:		.. function:: typename Container::size_type size() const
 	// rst:		              iterator begin() const
@@ -113,15 +108,15 @@ public:
 	// rst:			Calls the corresponding methods on the underlying container.
 
 	typename Container::size_type size() const {
-		return g->size();
+		return g.size();
 	}
 
 	iterator begin() const {
-		return iterator(g->begin(), iterator_transformer(g));
+		return iterator(g.begin(), iterator_transformer());
 	}
 
 	iterator end() const {
-		return iterator(g->end(), iterator_transformer(g));
+		return iterator(g.end(), iterator_transformer());
 	}
 
 	ConstPointer operator[](std::size_t i) const {
@@ -129,7 +124,7 @@ public:
 		return begin()[i];
 	}
 private:
-	const Container *g;
+	const Container &g;
 };
 
 } // namespace perm_group

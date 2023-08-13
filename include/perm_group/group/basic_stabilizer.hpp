@@ -81,13 +81,13 @@ public: // GroupConcept
 	// rst:		.. function:: PtrContainerToPermProxy<Store, perm> generators() const
 
 	PtrContainerToPermProxy<Store, perm> generators() const {
-		return PtrContainerToPermProxy<Store, perm>(&gen_set);
+		return PtrContainerToPermProxy<Store, perm>(gen_set);
 	}
 
 	// rst:		.. function:: PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const
 
 	PtrContainerToPtrProxy<Store, const_pointer> generator_ptrs() const {
-		return PtrContainerToPtrProxy<Store, const_pointer>(&gen_set);
+		return PtrContainerToPtrProxy<Store, const_pointer>(gen_set);
 	}
 
 	// rst:		.. function:: const allocator &get_allocator() const
