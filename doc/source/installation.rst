@@ -74,7 +74,7 @@ Dependencies
   (``-DBUILD_DOC=on``).
 - A C++ compiler with reasonable C++14 support is needed.
 - `Boost <http://boost.org>`__ dev >= 1.67
-  (use ``-DBOOST_ROOT=<path>`` for non-standard locations).
+  (use ``-DCMAKE_PREFIX_PATH=<path>`` for non-standard locations).
 - Running tests requires `Sage <http://www.sagemath.org/>`__ (``-DBUILD_TESTING=on``).
 - Running tests with code coverage requires GCov, i.e.,
   the commands ``gcov``, ``lcov``, and ``genhtml`` (``-DBUILD_COVERAGE=on``).
