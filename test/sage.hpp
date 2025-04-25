@@ -4,14 +4,29 @@
 #include <perm_group/config.hpp>
 #include <perm_group/permutation/permutation.hpp>
 
-#include <boost/process.hpp>
+#if BOOST_VERSION < 108800
+#include <boost/process/args.hpp>
+#include <boost/process/async.hpp>
+#include <boost/process/child.hpp>
 #include <boost/process/extend.hpp>
+#include <boost/process/io.hpp>
+#else
+#include <boost/process/v1/args.hpp>
+#include <boost/process/v1/async.hpp>
+#include <boost/process/v1/child.hpp>
+#include <boost/process/v1/extend.hpp>
+#include <boost/process/v1/io.hpp>
+#endif
 
 #ifndef PERM_GROUP_SAGE
 #error "Can not compile test without a path to sage. Reconfigure with -DBUILD_TESTING=ON"
 #endif
 
+#if BOOST_VERSION < 108800
 namespace bp = boost::process;
+#else
+namespace bp = boost::process::v1;
+#endif
 
 namespace perm_group {
 
