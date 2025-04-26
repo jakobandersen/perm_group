@@ -7,7 +7,7 @@ develop
 - Change code to not trigger false positive dangling reference warnings in GCC 13.
 - Make tests compile with Boost >= 1.88.
 - Require CMake >= 3.10 due to deprecation in CMake.
-- Require Boost >= 1.70 to use gain CMake support in Boost.
+- Require Boost >= 1.70 to gain CMake support in Boost.
 
 
 v0.5 (2020-01-12)
