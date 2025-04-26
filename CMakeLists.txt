@@ -57,7 +57,9 @@ set(perm_group_config_find_files "")
 
 # Boost
 # -------------------------------------------------------------------------
-cmake_policy(SET CMP0167 NEW)
+if(POLICY CMP0167)
+    cmake_policy(SET CMP0167 NEW)
+endif()
 set(v 1.70.0)
 if(BUILD_TESTING)
     find_package(Boost ${v} REQUIRED COMPONENTS program_options unit_test_framework system)
